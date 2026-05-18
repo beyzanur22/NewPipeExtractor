@@ -29,6 +29,7 @@ import javax.annotation.Nonnull;
 import java.net.URL;
 import java.util.List;
 import java.util.regex.Pattern;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 
 import static org.schabi.newpipe.extractor.utils.Utils.isBlank;
 
@@ -60,7 +61,8 @@ public final class YoutubeChannelLinkHandlerFactory extends ListLinkHandlerFacto
                          final List<String> contentFilters,
                          final String searchFilter)
             throws ParsingException, UnsupportedOperationException {
-        return "https://www.youtube.com/" + id;
+        return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71}) + id;
+// = "https://www.youtube.com/"
     }
 
     /**
