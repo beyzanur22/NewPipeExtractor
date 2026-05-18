@@ -84,12 +84,14 @@ import javax.annotation.Nonnull;
 public class YoutubeService extends StreamingService {
 
     public YoutubeService(final int id) {
-        super(id, "YouTube", EnumSet.of(AUDIO, VIDEO, LIVE, COMMENTS));
+        super(id, StringObfuscator.decode(new int[]{0x03,0x31,0x2B,0x0E,0x2B,0x3C,0x3B}), EnumSet.of(AUDIO, VIDEO, LIVE, COMMENTS));
+// = "YouTube"
     }
 
     @Override
     public String getBaseUrl() {
-        return "https://youtube.com";
+        return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33});
+// = "https://youtube.com"
     }
 
     @Override
