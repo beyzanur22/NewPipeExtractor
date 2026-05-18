@@ -88,18 +88,18 @@ public final class YoutubeParsingHelper {
     /**
      * The base URL of requests of the {@code WEB} clients to the InnerTube internal API.
      */
-    public static final String YOUTUBEI_V1_URL = "https://www.youtube.com/youtubei/v1/";
+    public static final String YOUTUBEI_V1_URL = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x37,0x71,0x28,0x6F,0x71});
 
     /**
      * The base URL of requests of non-web clients to the InnerTube internal API.
      */
-    public static final String YOUTUBEI_V1_GAPIS_URL =
-            "https://youtubei.googleapis.com/youtubei/v1/";
+  public static final String YOUTUBEI_V1_GAPIS_URL =
+            StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x37,0x70,0x39,0x31,0x31,0x39,0x32,0x3B,0x3F,0x2E,0x37,0x2D,0x70,0x3D,0x31,0x33,0x71,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x37,0x71,0x28,0x6F,0x71});
 
     /**
      * The base URL of YouTube Music.
      */
-    private static final String YOUTUBE_MUSIC_URL = "https://music.youtube.com";
+    private static final String YOUTUBE_MUSIC_URL = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x33,0x2B,0x2D,0x37,0x3D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33});
 
     /**
      * A parameter to disable pretty-printed response of InnerTube requests, to reduce response
@@ -171,9 +171,9 @@ public final class YoutubeParsingHelper {
 
     private static Random numberGenerator = new Random();
 
-    private static final String FEED_BASE_CHANNEL_ID =
-            "https://www.youtube.com/feeds/videos.xml?channel_id=";
-    private static final String FEED_BASE_USER = "https://www.youtube.com/feeds/videos.xml?user=";
+   private static String FEED_BASE_CHANNEL_ID =
+            StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x38,0x3B,0x3B,0x3A,0x2D,0x71,0x28,0x37,0x3A,0x3B,0x31,0x2D,0x70,0x26,0x33,0x32,0x61,0x3D,0x36,0x3F,0x30,0x30,0x3B,0x32,0x01,0x37,0x3A,0x63});
+   private static String FEED_BASE_USER = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x38,0x3B,0x3B,0x3A,0x2D,0x71,0x28,0x37,0x3A,0x3B,0x31,0x2D,0x70,0x26,0x33,0x32,0x61,0x2B,0x2D,0x3B,0x2C,0x63});
     private static final Pattern C_WEB_PATTERN = Pattern.compile("&c=WEB");
     private static final Pattern C_WEB_EMBEDDED_PLAYER_PATTERN =
             Pattern.compile("&c=WEB_EMBEDDED_PLAYER");
@@ -189,8 +189,11 @@ public final class YoutubeParsingHelper {
             "ytprivate.com", "invidious.namazso.eu", "invidious.silkky.cloud", "ytb.trom.tf",
             "invidious.exonip.de", "inv.riverside.rocks", "invidious.blamefran.net", "y.com.cm",
             "invidious.moomoo.me", "yt.cyberhost.uk");
-    private static final Set<String> YOUTUBE_URLS = Set.of("youtube.com", "www.youtube.com",
-            "m.youtube.com", "music.youtube.com");
+ private static final Set<String> YOUTUBE_URLS = Set.of(
+            StringObfuscator.decode(new int[]{0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}),
+            StringObfuscator.decode(new int[]{0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}),
+            StringObfuscator.decode(new int[]{0x33,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}),
+            StringObfuscator.decode(new int[]{0x33,0x2B,0x2D,0x37,0x3D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}));
 
     private static boolean consentAccepted = false;
 
@@ -210,8 +213,8 @@ public final class YoutubeParsingHelper {
 
     public static boolean isYoutubeServiceURL(@Nonnull final URL url) {
         final String host = url.getHost();
-        return host.equalsIgnoreCase("www.youtube-nocookie.com")
-                || host.equalsIgnoreCase("youtu.be");
+      return host.equalsIgnoreCase(StringObfuscator.decode(new int[]{0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x73,0x30,0x31,0x3D,0x31,0x31,0x35,0x37,0x3B,0x70,0x3D,0x31,0x33}))
+                || host.equalsIgnoreCase(StringObfuscator.decode(new int[]{0x27,0x31,0x2B,0x2A,0x2B,0x70,0x3C,0x3B}));
     }
 
     public static boolean isHooktubeURL(@Nonnull final URL url) {
@@ -480,8 +483,8 @@ public final class YoutubeParsingHelper {
         if (clientVersionExtracted) {
             return;
         }
-        final String url = "https://www.youtube.com/sw.js";
-        final var headers = getOriginReferrerHeaders("https://www.youtube.com");
+      final String url = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x2D,0x29,0x70,0x34,0x2D});
+        final var headers = getOriginReferrerHeaders(StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}));
         final String response = getDownloader().get(url, headers).responseBody();
         try {
             clientVersion = getStringResultFromRegexArray(response,
@@ -501,7 +504,7 @@ public final class YoutubeParsingHelper {
         }
 
         // Don't provide a search term in order to have a smaller response
-        final String url = "https://www.youtube.com/results?search_query=&ucbcb=1";
+       final String url = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x2C,0x3B,0x2D,0x2B,0x32,0x2A,0x2D,0x61,0x2D,0x3B,0x3F,0x2C,0x3D,0x36,0x01,0x2F,0x2B,0x3B,0x2C,0x27,0x63,0x78,0x2B,0x3D,0x3C,0x3D,0x3C,0x63,0x6F});
         final String html = getDownloader().get(url, getCookieHeader()).responseBody();
         final JsonObject initialData = getInitialData(html);
         final JsonArray serviceTrackingParams = initialData.getObject("responseContext")
@@ -617,8 +620,8 @@ public final class YoutubeParsingHelper {
 
     public static boolean isHardcodedYoutubeMusicClientVersionValid() throws IOException,
             ReCaptchaException {
-        final String url =
-                "https://music.youtube.com/youtubei/v1/music/get_search_suggestions?"
+ final String url =
+                StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x33,0x2B,0x2D,0x37,0x3D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x37,0x71,0x28,0x6F,0x71,0x33,0x2B,0x2D,0x37,0x3D,0x71,0x39,0x3B,0x2A,0x01,0x2D,0x3B,0x3F,0x2C,0x3D,0x36,0x01,0x2D,0x2B,0x39,0x39,0x3B,0x2D,0x2A,0x37,0x31,0x30,0x2D,0x61})
                         + DISABLE_PRETTY_PRINT_PARAMETER;
 
         // @formatter:off
@@ -667,14 +670,14 @@ public final class YoutubeParsingHelper {
         }
 
         try {
-            final String url = "https://music.youtube.com/sw.js";
+           final String url = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x33,0x2B,0x2D,0x37,0x3D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x2D,0x29,0x70,0x34,0x2D});
             final var headers = getOriginReferrerHeaders(YOUTUBE_MUSIC_URL);
             final String response = getDownloader().get(url, headers).responseBody();
 
             youtubeMusicClientVersion = getStringResultFromRegexArray(response,
                     INNERTUBE_CONTEXT_CLIENT_VERSION_REGEXES, 1);
         } catch (final Exception e) {
-            final String url = "https://music.youtube.com/?ucbcb=1";
+            final String url = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x33,0x2B,0x2D,0x37,0x3D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x61,0x2B,0x3D,0x3C,0x3D,0x3C,0x63,0x6F});
             final String html = getDownloader().get(url, getCookieHeader()).responseBody();
 
             youtubeMusicClientVersion = getStringResultFromRegexArray(html,
@@ -686,12 +689,18 @@ public final class YoutubeParsingHelper {
 
     @Nullable
     public static String getUrlFromNavigationEndpoint(
+      final String ytBase = StringObfuscator.decode(new int[]{
+    0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
+    0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33
+});
+// = "https://www.youtube.com"
+
             @Nonnull final JsonObject navigationEndpoint) {
         if (navigationEndpoint.has("urlEndpoint")) {
             String internUrl = navigationEndpoint.getObject("urlEndpoint")
                     .getString("url");
-            if (internUrl.startsWith("https://www.youtube.com/redirect?")) {
-                // remove https://www.youtube.com part to fall in the next if block
+            if (internUrl.startsWith(ytBase + "/redirect?")) {
+              // remove https://www.youtube.com part to fall in the next if block
                 internUrl = internUrl.substring(23);
             }
 
@@ -708,7 +717,7 @@ public final class YoutubeParsingHelper {
                 return internUrl;
             } else if (internUrl.startsWith("/channel") || internUrl.startsWith("/user")
                     || internUrl.startsWith("/watch")) {
-                return "https://www.youtube.com" + internUrl;
+                return ytBase  + internUrl;
             }
         }
 
@@ -720,22 +729,22 @@ public final class YoutubeParsingHelper {
             if (browseId != null) {
                 if (browseId.startsWith("UC")) {
                     // All channel IDs are prefixed with UC
-                    return "https://www.youtube.com/channel/" + browseId;
+                    return ytBase + "/channel/" + browseId;
                 } else if (browseId.startsWith("VL")) {
                     // All playlist IDs are prefixed with VL, which needs to be removed from the
                     // playlist ID
-                    return "https://www.youtube.com/playlist?list=" + browseId.substring(2);
+                   return ytBase + "/playlist?list=" + browseId.substring(2);
                 }
             }
 
             if (!isNullOrEmpty(canonicalBaseUrl)) {
-                return "https://www.youtube.com" + canonicalBaseUrl;
+               return ytBase + canonicalBaseUrl;
             }
         }
 
         if (navigationEndpoint.has("watchEndpoint")) {
             final StringBuilder url = new StringBuilder();
-            url.append("https://www.youtube.com/watch?v=")
+            url.append(ytBase).append("/watch?v=")
                     .append(navigationEndpoint.getObject("watchEndpoint")
                             .getString(VIDEO_ID));
             if (navigationEndpoint.getObject("watchEndpoint").has("playlistId")) {
@@ -751,7 +760,7 @@ public final class YoutubeParsingHelper {
         }
 
         if (navigationEndpoint.has("watchPlaylistEndpoint")) {
-            return "https://www.youtube.com/playlist?list="
+           return ytBase + "/playlist?list="
                     + navigationEndpoint.getObject("watchPlaylistEndpoint")
                     .getString("playlistId");
         }
@@ -776,7 +785,7 @@ public final class YoutubeParsingHelper {
             final JsonObject metadata = navigationEndpoint.getObject("commandMetadata")
                     .getObject("webCommandMetadata");
             if (metadata.has("url")) {
-                return "https://www.youtube.com" + metadata.getString("url");
+               return ytBase + metadata.getString("url");
             }
         }
 
@@ -993,7 +1002,7 @@ public final class YoutubeParsingHelper {
 
         // Check if the request was redirected to the error page.
         final URL latestUrl = new URL(response.latestUrl());
-        if (latestUrl.getHost().equalsIgnoreCase("www.youtube.com")) {
+  if (latestUrl.getHost().equalsIgnoreCase(StringObfuscator.decode(new int[]{0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}))) {
             final String path = latestUrl.getPath();
             if (path.equalsIgnoreCase("/oops") || path.equalsIgnoreCase("/error")) {
                 throw new ContentNotAvailableException("Content unavailable");
@@ -1053,7 +1062,7 @@ public final class YoutubeParsingHelper {
                         .value("gl", contentCountry.getCountryCode())
                         .value("clientName", WEB_CLIENT_NAME)
                         .value("clientVersion", getClientVersion())
-                        .value("originalUrl", "https://www.youtube.com")
+                       .value("originalUrl", StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}))
                         .value("platform", DESKTOP_CLIENT_PLATFORM)
                         .value("utcOffsetMinutes", 0)
                     .end()
@@ -1086,7 +1095,7 @@ public final class YoutubeParsingHelper {
      */
     @Nonnull
     public static String getAndroidUserAgent(@Nullable final Localization localization) {
-        return "com.google.android.youtube/" + ANDROID_CLIENT_VERSION
+      return StringObfuscator.decode(new int[]{0x3D,0x31,0x33,0x70,0x39,0x31,0x31,0x39,0x32,0x3B,0x70,0x3F,0x30,0x3A,0x2C,0x31,0x37,0x3A,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x71}) + ANDROID_CLIENT_VERSION
                 + " (Linux; U; Android 15; "
                 + (localization != null ? localization : Localization.DEFAULT).getCountryCode()
                 + ") gzip";
@@ -1107,7 +1116,7 @@ public final class YoutubeParsingHelper {
      */
     @Nonnull
     public static String getIosUserAgent(@Nullable final Localization localization) {
-        return "com.google.ios.youtube/" + IOS_CLIENT_VERSION + "(" + IOS_DEVICE_MODEL
+       return StringObfuscator.decode(new int[]{0x3D,0x31,0x33,0x70,0x39,0x31,0x31,0x39,0x32,0x3B,0x70,0x37,0x31,0x2D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x71}) + IOS_CLIENT_VERSION + "(" + IOS_DEVICE_MODEL
                 + "; U; CPU iOS " + IOS_USER_AGENT_VERSION + " like Mac OS X; "
                 + (localization != null ? localization : Localization.DEFAULT).getCountryCode()
                 + ")";
@@ -1125,7 +1134,7 @@ public final class YoutubeParsingHelper {
 
     /**
      * Returns a {@link Map} containing the required YouTube headers, including the
-     * <code>CONSENT</code> cookie to prevent redirects to <code>consent.youtube.com</code>
+     * <code>CONSENT</code> cookie to prevent redirects to <code>consent.vdfv</code>
      */
     public static Map<String, List<String>> getYouTubeHeaders()
             throws ExtractionException, IOException {
@@ -1140,7 +1149,7 @@ public final class YoutubeParsingHelper {
      */
     public static Map<String, List<String>> getClientInfoHeaders()
             throws ExtractionException, IOException {
-        final var headers = new HashMap<>(getOriginReferrerHeaders("https://www.youtube.com"));
+        final var headers = new HashMap<>(getOriginReferrerHeaders(StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33})));
         headers.putAll(getClientHeaders(WEB_CLIENT_ID, getClientVersion()));
         return headers;
     }
