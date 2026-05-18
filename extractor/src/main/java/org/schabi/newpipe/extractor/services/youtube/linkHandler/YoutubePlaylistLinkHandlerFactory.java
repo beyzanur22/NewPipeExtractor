@@ -10,6 +10,7 @@ import org.schabi.newpipe.extractor.utils.Utils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 
 public final class YoutubePlaylistLinkHandlerFactory extends ListLinkHandlerFactory {
 
@@ -27,7 +28,8 @@ public final class YoutubePlaylistLinkHandlerFactory extends ListLinkHandlerFact
     public String getUrl(final String id, final List<String> contentFilters,
                          final String sortFilter)
             throws ParsingException, UnsupportedOperationException {
-        return "https://www.youtube.com/playlist?list=" + id;
+        return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x2E,0x32,0x3F,0x27,0x32,0x37,0x2D,0x2A,0x61,0x32,0x37,0x2D,0x2A,0x63}) + id;
+// = "https://www.youtube.com/playlist?list="
     }
 
     @Override
@@ -88,8 +90,9 @@ public final class YoutubePlaylistLinkHandlerFactory extends ListLinkHandlerFact
                 if (videoID == null) {
                     videoID = YoutubeParsingHelper.extractVideoIdFromMixId(listID);
                 }
-                final String newUrl = "https://www.youtube.com/watch?v=" + videoID
-                    + "&list=" + listID;
+               final String newUrl = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x29,0x3F,0x2A,0x3D,0x36,0x61,0x28,0x63}) + videoID
+    + "&list=" + listID;
+// = "https://www.youtube.com/watch?v="
                 return new ListLinkHandler(new LinkHandler(url, newUrl, listID));
             }
         } catch (final MalformedURLException exception) {
