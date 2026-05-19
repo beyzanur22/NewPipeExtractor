@@ -84,8 +84,7 @@ import javax.annotation.Nonnull;
 public class YoutubeService extends StreamingService {
 
     public YoutubeService(final int id) {
-        super(id, StringObfuscator.decode(new int[]{0x03,0x31,0x2B,0x0E,0x2B,0x3C,0x3B}), EnumSet.of(AUDIO, VIDEO, LIVE, COMMENTS));
-// = "YouTube"
+        super(id, StringObfuscator.decode(new int[]{0x07,0x31,0x2B,0x0A,0x2B,0x3C,0x3B}), EnumSet.of(AUDIO, VIDEO, LIVE, COMMENTS));
     }
 
     @Override

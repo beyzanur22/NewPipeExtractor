@@ -14,41 +14,35 @@ final class ClientsConstants {
     // WEB (YouTube desktop) client fields
 
     static final String WEB_CLIENT_ID = "1";
-   static final String WEB_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x13,0x18});  // ="WEB"
+    static final String WEB_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x1B,0x1C});
     /**
      * The client version for InnerTube requests with the {@code WEB} client, used as the last
      * fallback if the extraction of the real one failed.
      */
-static final String WEB_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6C,0x70,0x6C,0x6E,0x6C,0x6A,0x6E,0x6F,0x6C,0x6E,0x70,0x6E,0x6F,0x70,0x6E,0x6E});
-// = "2.20260120.01.00"
+    static final String WEB_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6C,0x70,0x6C,0x6E,0x6C,0x68,0x6E,0x6F,0x6C,0x6E,0x70,0x6E,0x6F,0x70,0x6E,0x6E});
+
     // WEB_REMIX (YouTube Music) client fields
 
     static final String WEB_REMIX_CLIENT_ID = "67";
-    static final String WEB_REMIX_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x13,0x18,0x72,0x0C,0x13,0x17,0x17,0x02});
-// = "WEB_REMIX"
-    static final String WEB_REMIX_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6F,0x70,0x6C,0x6E,0x6C,0x6A,0x6E,0x6F,0x6C,0x6F,0x70,0x6E,0x6B,0x70,0x6E,0x6E});
-// = "1.20260121.03.00"
+    static final String WEB_REMIX_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x1B,0x1C,0x01,0x0C,0x1B,0x13,0x17,0x06});
+    static final String WEB_REMIX_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6F,0x70,0x6C,0x6E,0x6C,0x68,0x6E,0x6F,0x6C,0x6F,0x70,0x6E,0x6D,0x70,0x6E,0x6E});
 
     // WEB_EMBEDDED_PLAYER (YouTube embeds)
 
     static final String WEB_EMBEDDED_CLIENT_ID = "56";
-   static final String WEB_EMBEDDED_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x13,0x18,0x72,0x13,0x17,0x18,0x13,0x12,0x12,0x13,0x12,0x72,0x0E,0x16,0x1F,0x03,0x13,0x0C});
-// = "WEB_EMBEDDED_PLAYER"
- static final String WEB_EMBEDDED_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6F,0x70,0x6C,0x6E,0x6C,0x6A,0x6E,0x6F,0x6C,0x6C,0x70,0x6E,0x6F,0x70,0x6E,0x6E});
-// = "1.20260122.01.00"
+    static final String WEB_EMBEDDED_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x1B,0x1C,0x01,0x1B,0x13,0x1C,0x1B,0x1A,0x1A,0x1B,0x1A,0x01,0x0E,0x12,0x1F,0x07,0x1B,0x0C});
+    static final String WEB_EMBEDDED_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6F,0x70,0x6C,0x6E,0x6C,0x68,0x6E,0x6F,0x6C,0x6C,0x70,0x6E,0x6F,0x70,0x6E,0x6E});
 
     // WEB_MUSIC_ANALYTICS (YouTube charts)
 
     static final String WEB_MUSIC_ANALYTICS_CLIENT_ID = "31";
-   static final String WEB_MUSIC_ANALYTICS_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x13,0x18,0x72,0x17,0x01,0x0D,0x17,0x19,0x72,0x1F,0x18,0x1F,0x16,0x03,0x0E,0x17,0x19,0x0D});
-// = "WEB_MUSIC_ANALYTICS"
+    static final String WEB_MUSIC_ANALYTICS_CLIENT_NAME = StringObfuscator.decode(new int[]{0x09,0x1B,0x1C,0x01,0x13,0x0B,0x0D,0x17,0x1D,0x01,0x1F,0x10,0x1F,0x12,0x07,0x0A,0x17,0x1D,0x0D});
     static final String WEB_MUSIC_ANALYTICS_CLIENT_VERSION = "2.0";
 
     // IOS (iOS YouTube app) client fields
 
     static final String IOS_CLIENT_ID = "5";
-   static final String IOS_CLIENT_NAME = StringObfuscator.decode(new int[]{0x17,0x11,0x0D});
-// = "IOS"
+    static final String IOS_CLIENT_NAME = StringObfuscator.decode(new int[]{0x17,0x11,0x0D});
 
     /**
      * The hardcoded client version of the iOS app used for InnerTube requests with this client.
@@ -56,11 +50,10 @@ static final String WEB_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new i
      * <p>
      * It can be extracted by getting the latest release version of the app on
      * <a href="https://apps.apple.com/us/app/youtube/id544007664">the App
-     * Store page of the YouTube app</a>, in the {@code What’s New} section.
+     * Store page of the YouTube app</a>, in the {@code What's New} section.
      * </p>
      */
-    static final String IOS_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6C,0x6F,0x70,0x6E,0x6B,0x70,0x6C});
-// = "21.03.2"
+    static final String IOS_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6C,0x6F,0x70,0x6E,0x6D,0x70,0x6C});
 
     /**
      * The device machine id for the iPhone 15 Pro Max, used to get 60fps with the {@code iOS}
@@ -104,8 +97,7 @@ static final String WEB_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new i
     // ANDROID (Android YouTube app) client fields
 
     static final String ANDROID_CLIENT_ID = "3";
-   static final String ANDROID_CLIENT_NAME = StringObfuscator.decode(new int[]{0x1F,0x18,0x12,0x0C,0x11,0x17,0x12});
-// = "ANDROID"
+    static final String ANDROID_CLIENT_NAME = StringObfuscator.decode(new int[]{0x1F,0x10,0x1A,0x0C,0x11,0x17,0x1A});
 
     /**
      * The hardcoded client version of the Android app used for InnerTube requests with this
@@ -116,6 +108,5 @@ static final String WEB_HARDCODED_CLIENT_VERSION = StringObfuscator.decode(new i
      * such as <a href="https://www.apkmirror.com/apk/google-inc/youtube/">APKMirror</a>.
      * </p>
      */
-    static final String ANDROID_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6C,0x6F,0x70,0x6E,0x6B,0x70,0x6B,0x6A});
-// = "21.03.36"
+    static final String ANDROID_CLIENT_VERSION = StringObfuscator.decode(new int[]{0x6C,0x6F,0x70,0x6E,0x6D,0x70,0x6D,0x68});
 }
