@@ -8,6 +8,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import java.util.Locale;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 
 public final class YoutubeTrendingMoviesAndShowsTrailersLinkHandlerFactory
         extends ListLinkHandlerFactory {
@@ -27,7 +28,8 @@ public final class YoutubeTrendingMoviesAndShowsTrailersLinkHandlerFactory
                          final List<String> contentFilter,
                          final String sortFilter)
             throws ParsingException, UnsupportedOperationException {
-        return "https://charts.youtube.com" + PATH;
+       return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x3D,0x36,0x3F,0x2C,0x2A,0x2D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}) + PATH;
+// = "https://charts.youtube.com"
     }
 
     @Override
