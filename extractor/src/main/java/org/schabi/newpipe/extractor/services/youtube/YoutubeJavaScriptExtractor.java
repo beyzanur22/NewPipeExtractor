@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.regex.Pattern;
-
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 /**
  * The extractor of YouTube's base JavaScript player file.
  *
@@ -30,8 +30,15 @@ import java.util.regex.Pattern;
 final class YoutubeJavaScriptExtractor {
 
     private static final String HTTPS = "https:";
-    private static final String BASE_JS_PLAYER_URL_FORMAT =
-            "https://www.youtube.com/s/player/%s/player_ias.vflset/en_GB/base.js";
+   private static final String BASE_JS_PLAYER_URL_FORMAT =
+        StringObfuscator.decode(new int[]{
+            0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
+            0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,
+            0x2D,0x71,0x2E,0x32,0x3F,0x27,0x3B,0x2C,0x71,0x7B,0x2D,0x71,
+            0x2E,0x32,0x3F,0x27,0x3B,0x2C,0x01,0x37,0x3F,0x2D,0x70,0x28,
+            0x38,0x32,0x2D,0x3B,0x2A,0x71,0x3B,0x30,0x01,0x19,0x1C,0x71,
+            0x3C,0x3F,0x2D,0x3B,0x70,0x34,0x2D
+        });
     private static final Pattern IFRAME_RES_JS_BASE_PLAYER_HASH_PATTERN = Pattern.compile(
             "player\\\\/([a-z0-9]{8})\\\\/");
     private static final Pattern EMBEDDED_WATCH_PAGE_JS_BASE_PLAYER_URL_PATTERN = Pattern.compile(
@@ -82,7 +89,11 @@ final class YoutubeJavaScriptExtractor {
         final String iframeUrl;
         final String iframeContent;
         try {
-            iframeUrl = "https://www.youtube.com/iframe_api";
+           iframeUrl = StringObfuscator.decode(new int[]{
+    0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
+    0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,
+    0x37,0x38,0x2C,0x3F,0x33,0x3B,0x01,0x3F,0x2E,0x37
+});
             iframeContent = NewPipe.getDownloader()
                     .get(iframeUrl, Localization.DEFAULT)
                     .responseBody();
@@ -106,7 +117,11 @@ final class YoutubeJavaScriptExtractor {
         final String embedUrl;
         final String embedPageContent;
         try {
-            embedUrl = "https://www.youtube.com/embed/" + videoId;
+           embedUrl = StringObfuscator.decode(new int[]{
+    0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
+    0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,
+    0x3B,0x33,0x3C,0x3B,0x3A,0x71
+}) + videoId;
             embedPageContent = NewPipe.getDownloader()
                     .get(embedUrl, Localization.DEFAULT)
                     .responseBody();
@@ -144,7 +159,10 @@ final class YoutubeJavaScriptExtractor {
         } else if (javaScriptPlayerUrl.startsWith("/")) {
             // https://www.youtube.com part has to be added manually if the URL is relative to
             // YouTube's domain
-            return HTTPS + "//www.youtube.com" + javaScriptPlayerUrl;
+           return HTTPS + StringObfuscator.decode(new int[]{
+    0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,
+    0x3B,0x70,0x3D,0x31,0x33
+}) + javaScriptPlayerUrl;
         } else {
             return javaScriptPlayerUrl;
         }
