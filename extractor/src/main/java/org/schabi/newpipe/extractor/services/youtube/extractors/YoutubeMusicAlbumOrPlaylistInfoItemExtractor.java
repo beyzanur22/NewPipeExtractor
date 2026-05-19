@@ -3,6 +3,7 @@ package org.schabi.newpipe.extractor.services.youtube.extractors;
 import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;
 import org.schabi.newpipe.extractor.Image;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfoItemExtractor;
 
@@ -84,7 +85,7 @@ public class YoutubeMusicAlbumOrPlaylistInfoItemExtractor implements PlaylistInf
         }
 
         if (!isNullOrEmpty(playlistId)) {
-            return "https://music.youtube.com/playlist?list=" + playlistId;
+            return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x33,0x2B,0x2D,0x37,0x3D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x2E,0x32,0x3F,0x27,0x32,0x37,0x2D,0x2A,0x61,0x32,0x37,0x2D,0x2A,0x63}) + playlistId;
         }
 
         throw new ParsingException("Could not get URL");
