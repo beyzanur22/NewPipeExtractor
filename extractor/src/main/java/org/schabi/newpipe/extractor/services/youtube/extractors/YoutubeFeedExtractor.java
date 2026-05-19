@@ -20,9 +20,14 @@ import org.schabi.newpipe.extractor.stream.StreamInfoItemsCollector;
 import java.io.IOException;
 
 import javax.annotation.Nonnull;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 
 public class YoutubeFeedExtractor extends FeedExtractor {
-    private static final String WEBSITE_CHANNEL_BASE_URL = "https://www.youtube.com/channel/";
+    private static final String WEBSITE_CHANNEL_BASE_URL = StringObfuscator.decode(new int[]{
+    0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
+    0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,
+    0x3D,0x36,0x3F,0x30,0x30,0x3B,0x32,0x71
+});
 
     public YoutubeFeedExtractor(final StreamingService service, final ListLinkHandler linkHandler) {
         super(service, linkHandler);
