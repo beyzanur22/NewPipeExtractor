@@ -41,7 +41,8 @@ public final class YoutubeStreamHelper {
     private static final String PLAYER = "player";
     private static final String SERVICE_INTEGRITY_DIMENSIONS = "serviceIntegrityDimensions";
     private static final String PO_TOKEN = "poToken";
-    private static final String BASE_YT_DESKTOP_WATCH_URL = "https://www.youtube.com/watch?v=";
+   private static final String BASE_YT_DESKTOP_WATCH_URL = StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x29,0x3F,0x2A,0x3D,0x36,0x61,0x28,0x63});
+// = "https://www.youtube.com/watch?v="
 
     private YoutubeStreamHelper() {
     }
@@ -92,7 +93,8 @@ public final class YoutubeStreamHelper {
 
         final Map<String, List<String>> headers = new HashMap<>(
                 getClientHeaders(WEB_EMBEDDED_CLIENT_ID, WEB_EMBEDDED_CLIENT_VERSION));
-        headers.putAll(getOriginReferrerHeaders("https://www.youtube.com"));
+        headers.putAll(getOriginReferrerHeaders(StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33})));
+// = "https://www.youtube.com"
 
         final String embedUrl = BASE_YT_DESKTOP_WATCH_URL + videoId;
 

@@ -10,6 +10,7 @@ import org.schabi.newpipe.extractor.utils.Utils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 
 public final class YoutubeTrendingGamingVideosLinkHandlerFactory extends ListLinkHandlerFactory {
 
@@ -26,7 +27,8 @@ public final class YoutubeTrendingGamingVideosLinkHandlerFactory extends ListLin
                          final List<String> contentFilters,
                          final String sortFilter)
             throws ParsingException, UnsupportedOperationException {
-        return "https://www.youtube.com/gaming/trending";
+     return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33,0x71,0x39,0x3F,0x33,0x37,0x30,0x39,0x71,0x2A,0x2C,0x3B,0x30,0x3A,0x37,0x30,0x39});
+// = "https://www.youtube.com/gaming/trending"
     }
 
     @Override
