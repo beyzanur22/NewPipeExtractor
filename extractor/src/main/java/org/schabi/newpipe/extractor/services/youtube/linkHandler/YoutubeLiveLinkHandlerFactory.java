@@ -10,6 +10,7 @@ import org.schabi.newpipe.extractor.utils.Utils;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 
 public final class YoutubeLiveLinkHandlerFactory extends ListLinkHandlerFactory {
 
@@ -29,7 +30,8 @@ public final class YoutubeLiveLinkHandlerFactory extends ListLinkHandlerFactory 
                          final List<String> contentFilters,
                          final String sortFilter)
             throws ParsingException, UnsupportedOperationException {
-        return "https://www.youtube.com" + LIVE_CHANNEL_PATH + "?" + LIVE_CHANNEL_TAB_PARAMS;
+      return StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}) + LIVE_CHANNEL_PATH + "?" + LIVE_CHANNEL_TAB_PARAMS;
+// = "https://www.youtube.com"
     }
 
     @Override
