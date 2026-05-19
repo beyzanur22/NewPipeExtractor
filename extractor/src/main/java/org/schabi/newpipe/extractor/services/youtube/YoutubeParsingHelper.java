@@ -691,13 +691,11 @@ public final class YoutubeParsingHelper {
 @Nullable
 public static String getUrlFromNavigationEndpoint(
             @Nonnull final JsonObject navigationEndpoint) {
-    final String ytBase = StringObfuscator.decode(new int[]{
-        0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
-        0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33
-    });
-    // = "https://www.youtube.com"
-
-            @Nonnull final JsonObject navigationEndpoint) {
+        final String ytBase = StringObfuscator.decode(new int[]{
+            0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,
+            0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33
+        });
+        // = "https://www.youtube.com"
         if (navigationEndpoint.has("urlEndpoint")) {
             String internUrl = navigationEndpoint.getObject("urlEndpoint")
                     .getString("url");
