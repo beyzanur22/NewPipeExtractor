@@ -1190,13 +1190,11 @@ public static String getUrlFromNavigationEndpoint(
      * @param name The X-YouTube-Client-Name value.
      * @param version X-YouTube-Client-Version value.
      */
-    public static Map<String, List<String>> getClientHeaders(@Nonnull final String name,
-                                                             @Nonnull final String version) {
-     // YENİ:
-return Map.of(StringObfuscator.decode(new int[]{0x06,0x73,0x07,0x31,0x2B,0x0A,0x2B,0x3C,0x3B,0x73,0x1D,0x32,0x37,0x3B,0x30,0x2A,0x73,0x10,0x3F,0x33,0x3B}), List.of(name),
-        StringObfuscator.decode(new int[]{0x06,0x73,0x07,0x31,0x2B,0x0A,0x2B,0x3C,0x3B,0x73,0x1D,0x32,0x37,0x3B,0x30,0x2A,0x73,0x08,0x3B,0x2C,0x2D,0x37,0x31,0x30}), List.of(version));
-    }
-
+   public static Map<String, List<String>> getClientHeaders(@Nonnull final String name,
+                                                         @Nonnull final String version) {
+    return Map.of("X-YouTube-Client-Name", List.of(name),
+            "X-YouTube-Client-Version", List.of(version));
+}
     /**
      * Create a map with the required cookie header.
      * @return A singleton map containing the header.
