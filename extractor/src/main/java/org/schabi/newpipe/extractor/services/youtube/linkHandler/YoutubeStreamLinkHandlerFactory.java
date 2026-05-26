@@ -74,7 +74,7 @@ public final class YoutubeStreamLinkHandlerFactory extends LinkHandlerFactory {
         if (extractedId != null) {
             return extractedId;
         } else {
-            throw new ParsingException("The given string is not a YouTube video ID");
+            throw new ParsingException(StringObfuscator.decode(new int[]{10, 54, 59, 126, 57, 55, 40, 59, 48, 126, 45, 42, 44, 55, 48, 57, 126, 55, 45, 126, 48, 49, 42, 126, 63, 126, 7, 49, 43, 10, 43, 60, 59, 126, 40, 55, 58, 59, 49, 126, 23, 26}));
         }
     }
 
@@ -132,7 +132,7 @@ public final class YoutubeStreamLinkHandlerFactory extends LinkHandlerFactory {
                 throw new FoundAdException("Error: found ad: " + urlString);
             }
 
-            throw new ParsingException("The URL is not a YouTube URL");
+            throw new ParsingException(StringObfuscator.decode(new int[]{10, 54, 59, 126, 11, 12, 18, 126, 55, 45, 126, 48, 49, 42, 126, 63, 126, 7, 49, 43, 10, 43, 60, 59, 126, 11, 12, 18}));
         }
 
         if (YoutubePlaylistLinkHandlerFactory.getInstance().acceptUrl(urlString)) {

@@ -11,6 +11,7 @@ import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonWriter;
 
 import org.schabi.newpipe.extractor.exceptions.ContentNotAvailableException;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.localization.ContentCountry;
@@ -67,7 +68,7 @@ public final class YoutubeChannelHelper {
         // URL, then no information about the channel associated with this URL was found,
         // so the unresolved url will be returned.
         if (!channelId[0].equals("channel")) {
-            String urlToResolve = "https://www.youtube.com/" + idOrPath;
+            String urlToResolve = StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 41, 41, 41, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51, 113}) + idOrPath;
 
             JsonObject endpoint = new JsonObject();
             String webPageType = "";

@@ -96,7 +96,7 @@ public final class YoutubeChannelLinkHandlerFactory extends ListLinkHandlerFacto
             if (!Utils.isHTTP(urlObj) || !(YoutubeParsingHelper.isYoutubeURL(urlObj)
                     || YoutubeParsingHelper.isInvidiousURL(urlObj)
                     || YoutubeParsingHelper.isHooktubeURL(urlObj))) {
-                throw new ParsingException("The URL given is not a YouTube URL");
+                throw new ParsingException(StringObfuscator.decode(new int[]{10, 54, 59, 126, 11, 12, 18, 126, 57, 55, 40, 59, 48, 126, 55, 45, 126, 48, 49, 42, 126, 63, 126, 7, 49, 43, 10, 43, 60, 59, 126, 11, 12, 18}));
             }
 
             // Remove leading "/"
@@ -119,7 +119,7 @@ public final class YoutubeChannelLinkHandlerFactory extends ListLinkHandlerFacto
             final String id = splitPath[1];
 
             if (isBlank(id)) {
-                throw new ParsingException("The given ID is not a YouTube channel or user ID");
+                throw new ParsingException(StringObfuscator.decode(new int[]{10, 54, 59, 126, 57, 55, 40, 59, 48, 126, 23, 26, 126, 55, 45, 126, 48, 49, 42, 126, 63, 126, 7, 49, 43, 10, 43, 60, 59, 126, 61, 54, 63, 48, 48, 59, 50, 126, 49, 44, 126, 43, 45, 59, 44, 126, 23, 26}));
             }
 
             return splitPath[0] + "/" + id;

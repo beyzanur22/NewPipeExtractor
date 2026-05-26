@@ -39,7 +39,7 @@ public final class YoutubePlaylistLinkHandlerFactory extends ListLinkHandlerFact
 
             if (!Utils.isHTTP(urlObj) || !(YoutubeParsingHelper.isYoutubeURL(urlObj)
                     || YoutubeParsingHelper.isInvidiousURL(urlObj))) {
-                throw new ParsingException("the url given is not a YouTube-URL");
+                throw new ParsingException(StringObfuscator.decode(new int[]{42, 54, 59, 126, 43, 44, 50, 126, 57, 55, 40, 59, 48, 126, 55, 45, 126, 48, 49, 42, 126, 63, 126, 7, 49, 43, 10, 43, 60, 59, 115, 11, 12, 18}));
             }
 
             final String path = urlObj.getPath();

@@ -15,6 +15,7 @@ import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
 import org.schabi.newpipe.extractor.localization.Localization;
 import org.schabi.newpipe.extractor.services.youtube.InnertubeClientRequestInfo;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeChannelLinkHandlerFactory;
 import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubeStreamLinkHandlerFactory;
 import org.schabi.newpipe.extractor.stream.StreamInfoItem;
@@ -67,7 +68,7 @@ abstract class YoutubeChartsBaseKioskExtractor extends KioskExtractor<StreamInfo
             "UG", "US", "UY", "ZA", "ZW");
 
     protected static final String YT_CHARTS_ENDPOINT =
-            "https://charts.youtube.com/youtubei/v1/browse?alt=json&"
+            StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 61, 54, 63, 44, 42, 45, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51, 113, 39, 49, 43, 42, 43, 60, 59, 55, 113, 40, 111, 113, 60, 44, 49, 41, 45, 59, 97, 63, 50, 42, 99, 52, 45, 49, 48, 120})
                     + DISABLE_PRETTY_PRINT_PARAMETER;
 
     protected final String chartType;
@@ -99,7 +100,7 @@ abstract class YoutubeChartsBaseKioskExtractor extends KioskExtractor<StreamInfo
                 .done())
                 .getBytes(StandardCharsets.UTF_8);
 
-        final var headers = new HashMap<>(getOriginReferrerHeaders("https://charts.youtube.com"));
+        final var headers = new HashMap<>(getOriginReferrerHeaders(StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 61, 54, 63, 44, 42, 45, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51})));
         headers.putAll(getClientHeaders(innertubeClientRequestInfo.clientInfo.clientId,
                 innertubeClientRequestInfo.clientInfo.clientVersion));
 

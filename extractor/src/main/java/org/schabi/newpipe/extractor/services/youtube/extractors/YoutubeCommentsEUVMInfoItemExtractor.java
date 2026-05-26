@@ -5,6 +5,7 @@ import org.schabi.newpipe.extractor.Image;
 import org.schabi.newpipe.extractor.Page;
 import org.schabi.newpipe.extractor.comments.CommentsInfoItemExtractor;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
 import org.schabi.newpipe.extractor.localization.TimeAgoParser;
 import org.schabi.newpipe.extractor.stream.Description;
@@ -151,7 +152,7 @@ class YoutubeCommentsEUVMInfoItemExtractor implements CommentsInfoItemExtractor 
                 }
             }
         }
-        return "https://www.youtube.com/channel/" + channelId;
+        return StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 41, 41, 41, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51, 113, 61, 54, 63, 48, 48, 59, 50, 113}) + channelId;
     }
 
     @Override

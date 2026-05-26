@@ -40,6 +40,7 @@ import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonWriter;
 
 import org.schabi.newpipe.extractor.Image;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.MediaFormat;
 import org.schabi.newpipe.extractor.MetaInfo;
 import org.schabi.newpipe.extractor.MultiInfoItemsCollector;
@@ -887,7 +888,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
 
                 if (reason.contains("a bot")) {
                     throw new SignInConfirmNotBotException(
-                            "YouTube probably temporarily blocked anonymous watch access with this"
+                            StringObfuscator.decode(new int[]{7, 49, 43, 10, 43, 60, 59, 126, 46, 44, 49, 60, 63, 60, 50, 39, 126, 42, 59, 51, 46, 49, 44, 63, 44, 55, 50, 39, 126, 60, 50, 49, 61, 53, 59, 58, 126, 63, 48, 49, 48, 39, 51, 49, 43, 45, 126, 41, 63, 42, 61, 54, 126, 63, 61, 61, 59, 45, 45, 126, 41, 55, 42, 54, 126, 42, 54, 55, 45})
                                     + " IP , got error " + status + ": \"" + reason + "\"");
                 }
             }
@@ -1502,7 +1503,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return license != null
                 && "Licence".equals(getTextFromObject(metadataRowRenderer.getObject(TITLE)))
                 ? license
-                : "YouTube licence";
+                : StringObfuscator.decode(new int[]{7, 49, 43, 10, 43, 60, 59, 126, 50, 55, 61, 59, 48, 61, 59});
     }
 
     @Override

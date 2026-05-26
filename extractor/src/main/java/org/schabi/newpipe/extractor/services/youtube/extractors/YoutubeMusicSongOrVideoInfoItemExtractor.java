@@ -5,6 +5,7 @@ import com.grack.nanojson.JsonObject;
 import org.schabi.newpipe.extractor.Image;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.localization.DateWrapper;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper;
 import org.schabi.newpipe.extractor.stream.StreamInfoItemExtractor;
 import org.schabi.newpipe.extractor.stream.StreamType;
@@ -39,7 +40,7 @@ public class YoutubeMusicSongOrVideoInfoItemExtractor implements StreamInfoItemE
     public String getUrl() throws ParsingException {
         final String id = songOrVideoInfoItem.getObject("playlistItemData").getString("videoId");
         if (!isNullOrEmpty(id)) {
-            return "https://music.youtube.com/watch?v=" + id;
+            return StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 51, 43, 45, 55, 61, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51, 113, 41, 63, 42, 61, 54, 97, 40, 99}) + id;
         }
         throw new ParsingException("Could not get URL");
     }

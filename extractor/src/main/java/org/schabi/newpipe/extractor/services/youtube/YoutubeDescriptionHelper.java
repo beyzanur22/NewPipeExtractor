@@ -272,7 +272,7 @@ public final class YoutubeDescriptionHelper {
 
         final Function<String, String> transformContent;
         if (isYoutube
-                || accessibilityLabel.isEmpty() || accessibilityLabel.startsWith("YouTube: ")) {
+                || accessibilityLabel.isEmpty() || accessibilityLabel.startsWith(StringObfuscator.decode(new int[]{7, 49, 43, 10, 43, 60, 59, 100, 126}))) {
             // if there is no accessibility label, or the link points to YouTube, cleanup the link
             // text, see LINK_CONTENT_CLEANER_REGEX's documentation for more details
             transformContent = (content) -> {

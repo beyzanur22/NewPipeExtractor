@@ -5,6 +5,7 @@ import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.exceptions.UnsupportedContentInCountryException;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 
 import javax.annotation.Nonnull;
@@ -24,7 +25,7 @@ public class YoutubeTrendingMusicExtractor extends YoutubeChartsBaseKioskExtract
         if (!YT_CHARTS_SUPPORTED_COUNTRY_CODES.contains(
                 getExtractorContentCountry().getCountryCode())) {
             throw new UnsupportedContentInCountryException(
-                    "YouTube Charts doesn't support this country for trending music videos charts");
+                    StringObfuscator.decode(new int[]{7, 49, 43, 10, 43, 60, 59, 126, 29, 54, 63, 44, 42, 45, 126, 58, 49, 59, 45, 48, 121, 42, 126, 45, 43, 46, 46, 49, 44, 42, 126, 42, 54, 55, 45, 126, 61, 49, 43, 48, 42, 44, 39, 126, 56, 49, 44, 126, 42, 44, 59, 48, 58, 55, 48, 57, 126, 51, 43, 45, 55, 61, 126, 40, 55, 58, 59, 49, 45, 126, 61, 54, 63, 44, 42, 45}));
         }
         super.onFetchPage(downloader);
     }

@@ -10,6 +10,7 @@ import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
 
 import org.schabi.newpipe.extractor.MediaFormat;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.NewPipe;
 import org.schabi.newpipe.extractor.downloader.Downloader;
 import org.schabi.newpipe.extractor.downloader.Response;
@@ -743,7 +744,7 @@ public final class YoutubeDashManifestCreatorsUtils {
             throws CreationException {
         try {
             final var headers = new HashMap<>(
-                    getOriginReferrerHeaders("https://www.youtube.com"));
+                    getOriginReferrerHeaders(StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 41, 41, 41, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51})));
 
             String responseMimeType = "";
 

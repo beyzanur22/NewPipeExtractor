@@ -2,6 +2,7 @@ package org.schabi.newpipe.extractor.services.youtube.linkHandler;
 
 import org.schabi.newpipe.extractor.channel.tabs.ChannelTabs;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.exceptions.UnsupportedTabException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandlerFactory;
 
@@ -43,7 +44,7 @@ public final class YoutubeChannelTabLinkHandlerFactory extends ListLinkHandlerFa
                          final List<String> contentFilter,
                          final String sortFilter)
             throws ParsingException, UnsupportedOperationException {
-        return "https://www.youtube.com/" + id + getUrlSuffix(contentFilter.get(0));
+        return StringObfuscator.decode(new int[]{54, 42, 42, 46, 45, 100, 113, 113, 41, 41, 41, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51, 113}) + id + getUrlSuffix(contentFilter.get(0));
     }
 
     @Override

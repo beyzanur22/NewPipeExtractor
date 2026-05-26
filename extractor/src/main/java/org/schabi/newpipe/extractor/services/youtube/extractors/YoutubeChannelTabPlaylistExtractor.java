@@ -12,6 +12,7 @@ import org.schabi.newpipe.extractor.exceptions.ExtractionException;
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandler;
 import org.schabi.newpipe.extractor.playlist.PlaylistExtractor;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.services.youtube.linkHandler.YoutubePlaylistLinkHandlerFactory;
 
 import java.io.IOException;
@@ -154,7 +155,7 @@ public class YoutubeChannelTabPlaylistExtractor extends ChannelTabExtractor {
             // This should be not reachable, as the given playlist ID should be valid and
             // YoutubePlaylistLinkHandlerFactory doesn't throw any exception
             throw new SystemPlaylistUrlCreationException(
-                    "Could not create a YouTube playlist from a valid playlist ID", e);
+                    StringObfuscator.decode(new int[]{29, 49, 43, 50, 58, 126, 48, 49, 42, 126, 61, 44, 59, 63, 42, 59, 126, 63, 126, 7, 49, 43, 10, 43, 60, 59, 126, 46, 50, 63, 39, 50, 55, 45, 42, 126, 56, 44, 49, 51, 126, 63, 126, 40, 63, 50, 55, 58, 126, 46, 50, 63, 39, 50, 55, 45, 42, 126, 23, 26}), e);
         }
     }
 
