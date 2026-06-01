@@ -132,6 +132,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private JsonObject iosStreamingData;
     @Nullable
     private JsonObject androidStreamingData;
+    @Nullable
+    private JsonObject webStreamingData;
 
     private JsonObject videoPrimaryInfoRenderer;
     private JsonObject videoSecondaryInfoRenderer;
@@ -147,11 +149,14 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     // three different strings are used.
     private String iosCpn;
     private String androidCpn;
+    private String webCpn;
 
     @Nullable
     private String androidStreamingUrlsPoToken;
     @Nullable
     private String iosStreamingUrlsPoToken;
+    @Nullable
+    private String webStreamingUrlsPoToken;
 
     public YoutubeStreamExtractor(final StreamingService service, final LinkHandler linkHandler) {
         super(service, linkHandler);
@@ -854,7 +859,10 @@ public class YoutubeStreamExtractor extends StreamExtractor {
             fetchIosClient(localization, contentCountry, videoId, iosPoTokenResult);
         }
 
-        fetchWebClientMetadataAndSetThumbnails(localization, contentCountry, videoId);
+        final PoTokenResult webPoTokenResult = noPoTokenProviderSet ? null
+                : poTokenProviderInstance.getWebClientPoToken(videoId);
+        fetchWebClientMetadataAndSetThumbnails(localization, contentCountry, videoId,
+                webPoTokenResult);
 
         final byte[] nextBody = JsonWriter.string(
                 prepareDesktopJsonBuilder(localization, contentCountry)
@@ -983,23 +991,16 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private void fetchWebClientMetadataAndSetThumbnails(
             @Nonnull final Localization localization,
             @Nonnull final ContentCountry contentCountry,
-            @Nonnull final String videoId) {
+            @Nonnull final String videoId,
+            @Nullable final PoTokenResult webPoTokenResult) {
         try {
             final JsonObject webPlayerResponse = YoutubeStreamHelper.getWebMetadataPlayerResponse(
                     localization, contentCountry, videoId);
 
-            // Important note: we don't checkPlayabilityStatus() here, because we use this request
-            // exclusively for metadata, not for extracting streams. It turns out that when
-            // YouTube returns a playability status error, the metadata may still be there.
-
             if (!isPlayerResponseNotValid(webPlayerResponse, videoId)) {
-                // The microformat JSON object of the content is only returned on the WEB client,
-                // so we need to store it instead of getting it directly from the playerResponse
                 playerMicroFormatRenderer = webPlayerResponse.getObject("microformat")
                         .getObject("playerMicroformatRenderer");
 
-                // Try to use web player response thumbnails first, as they should contain higher
-                // quality ones than mobile clients
                 final JsonObject thumbnailWebJsonObj = webPlayerResponse.getObject(VIDEO_DETAILS)
                         .getObject(THUMBNAIL);
                 if (thumbnailWebJsonObj.containsKey(THUMBNAILS)) {
@@ -1009,11 +1010,18 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                             .getObject(THUMBNAIL)
                             .getArray(THUMBNAILS);
                 }
+
+                // Web client'tan streaming data al (PoToken varsa)
+                final JsonObject webSD = webPlayerResponse.getObject(STREAMING_DATA);
+                if (webSD != null && !webSD.isEmpty()) {
+                    webStreamingData = webSD;
+                    webCpn = generateContentPlaybackNonce();
+                    if (webPoTokenResult != null) {
+                        webStreamingUrlsPoToken = webPoTokenResult.streamingDataPoToken;
+                    }
+                }
             }
         } catch (final Exception e) {
-            // Ignore exceptions related to WEB client fetch or parsing, as it is not
-            // compulsory to play contents
-            // Set thumbnails from playerResponse
             playerMicroFormatRenderer = new JsonObject();
             thumbnailsArray = playerResponse.getObject(VIDEO_DETAILS)
                     .getObject(THUMBNAIL)
@@ -1107,6 +1115,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
             final List<T> streamList = new ArrayList<>();
 
             java.util.stream.Stream.of(
+                    new Pair<>(webStreamingData,
+                            new Pair<>(webCpn, webStreamingUrlsPoToken)),
                     new Pair<>(androidStreamingData,
                             new Pair<>(androidCpn, androidStreamingUrlsPoToken)),
                     new Pair<>(iosStreamingData,
