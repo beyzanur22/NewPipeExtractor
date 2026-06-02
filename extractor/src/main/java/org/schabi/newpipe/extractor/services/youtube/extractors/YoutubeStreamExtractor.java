@@ -1178,7 +1178,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                     new Pair<>(androidStreamingData,
                             new Pair<>(androidCpn, androidStreamingUrlsPoToken)),
                     new Pair<>(androidVRStreamingData,
-                            new Pair<>(androidVRCpn, null)),
+                            new Pair<>(androidVRCpn, androidStreamingUrlsPoToken)),
                     new Pair<>(iosStreamingData,
                             new Pair<>(iosCpn, iosStreamingUrlsPoToken)))
                     .flatMap(pair -> getStreamsFromStreamingDataKey(
