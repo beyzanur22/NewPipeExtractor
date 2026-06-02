@@ -35,4 +35,9 @@ final class ClientsConstants {
     static final String ANDROID_CLIENT_ID = "3";
     static final String ANDROID_CLIENT_NAME = "ANDROID";
     static final String ANDROID_CLIENT_VERSION = "21.03.36";
+
+    static final String ANDROID_VR_CLIENT_ID = "28";
+    static final String ANDROID_VR_CLIENT_NAME = "ANDROID_VR";
+    static final String ANDROID_VR_CLIENT_VERSION = "1.65.10";
+    static final String ANDROID_VR_DEVICE_MODEL = "Oculus Quest 3";
 }

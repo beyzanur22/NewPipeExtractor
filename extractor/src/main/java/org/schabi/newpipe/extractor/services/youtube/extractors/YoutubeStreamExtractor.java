@@ -133,6 +133,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     @Nullable
     private JsonObject androidStreamingData;
     @Nullable
+    private JsonObject androidVRStreamingData;
+    @Nullable
     private JsonObject webStreamingData;
 
     private JsonObject videoPrimaryInfoRenderer;
@@ -149,6 +151,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     // three different strings are used.
     private String iosCpn;
     private String androidCpn;
+    private String androidVRCpn;
     private String webCpn;
 
     @Nullable
@@ -334,7 +337,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
             return Long.parseLong(duration);
         } catch (final Exception e) {
             return getDurationFromFirstAdaptiveFormat(Arrays.asList(
-                    androidStreamingData, iosStreamingData));
+                    androidStreamingData, androidVRStreamingData, iosStreamingData));
         }
     }
 
@@ -632,7 +635,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         // There is no DASH manifest available with the iOS client
         return getManifestUrl(
                 "dash",
-                List.of(new Pair<>(androidStreamingData, androidStreamingUrlsPoToken)),
+                List.of(new Pair<>(androidStreamingData, androidStreamingUrlsPoToken),
+                        new Pair<>(androidVRStreamingData, null)),
                 // Return version 7 of the DASH manifest, which is the latest one, reducing
                 // manifest size and allowing playback with some DASH players
                 "mpd_version=7");
@@ -651,7 +655,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         return getManifestUrl(
                 "hls",
                 List.of(new Pair<>(iosStreamingData, iosStreamingUrlsPoToken),
-                        new Pair<>(androidStreamingData, androidStreamingUrlsPoToken)),
+                        new Pair<>(androidStreamingData, androidStreamingUrlsPoToken),
+                        new Pair<>(androidVRStreamingData, null)),
                 "");
     }
 
@@ -853,6 +858,15 @@ public class YoutubeStreamExtractor extends StreamExtractor {
 
         setStreamType();
 
+        // Fallback to Android VR if Android client only returns SABR protocol (360p restriction)
+        if (isSabrOnlyStreamingData(androidStreamingData)) {
+            try {
+                fetchAndroidVRClient(localization, contentCountry, videoId);
+            } catch (final Exception ignored) {
+                // If Android VR fetch fails, continue with existing data
+            }
+        }
+
         if (fetchIosClient) {
             final PoTokenResult iosPoTokenResult = noPoTokenProviderSet ? null
                     : poTokenProviderInstance.getIosClientPoToken(videoId);
@@ -988,6 +1002,50 @@ public class YoutubeStreamExtractor extends StreamExtractor {
         }
     }
 
+    private void fetchAndroidVRClient(@Nonnull final Localization localization,
+                                      @Nonnull final ContentCountry contentCountry,
+                                      @Nonnull final String videoId)
+            throws IOException, ExtractionException {
+        androidVRCpn = generateContentPlaybackNonce();
+
+        final JsonObject androidVRPlayerResponse = YoutubeStreamHelper.getAndroidVRPlayerResponse(
+                contentCountry, localization, videoId, androidVRCpn);
+
+        if (!isPlayerResponseNotValid(androidVRPlayerResponse, videoId)) {
+            androidVRStreamingData = androidVRPlayerResponse.getObject(STREAMING_DATA);
+        }
+    }
+
+    private boolean isSabrOnlyStreamingData(@Nullable final JsonObject streamingData) {
+        if (streamingData == null || streamingData.isEmpty()) {
+            return false;
+        }
+
+        final boolean hasFormats = streamingData.has(FORMATS) &&
+                !streamingData.getArray(FORMATS).isEmpty();
+        final boolean hasAdaptiveFormats = streamingData.has(ADAPTIVE_FORMATS) &&
+                !streamingData.getArray(ADAPTIVE_FORMATS).isEmpty();
+
+        if (!hasFormats && !hasAdaptiveFormats) {
+            return true;
+        }
+
+        // Check if all formats are SABR (no url, signatureCipher, or cipher fields)
+        if (hasAdaptiveFormats) {
+            for (final Object format : streamingData.getArray(ADAPTIVE_FORMATS)) {
+                if (format instanceof JsonObject) {
+                    final JsonObject formatObj = (JsonObject) format;
+                    if (formatObj.has("url") || formatObj.has(SIGNATURE_CIPHER) ||
+                            formatObj.has(CIPHER)) {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        return hasAdaptiveFormats;
+    }
+
     private void fetchWebClientMetadataAndSetThumbnails(
             @Nonnull final Localization localization,
             @Nonnull final ContentCountry contentCountry,
@@ -1119,6 +1177,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                             new Pair<>(webCpn, webStreamingUrlsPoToken)),
                     new Pair<>(androidStreamingData,
                             new Pair<>(androidCpn, androidStreamingUrlsPoToken)),
+                    new Pair<>(androidVRStreamingData,
+                            new Pair<>(androidVRCpn, null)),
                     new Pair<>(iosStreamingData,
                             new Pair<>(iosCpn, iosStreamingUrlsPoToken)))
                     .flatMap(pair -> getStreamsFromStreamingDataKey(
