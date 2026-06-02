@@ -2,6 +2,7 @@ package org.schabi.newpipe.extractor.services.youtube.linkHandler;
 
 import org.schabi.newpipe.extractor.exceptions.ParsingException;
 import org.schabi.newpipe.extractor.linkhandler.ListLinkHandlerFactory;
+import org.schabi.newpipe.extractor.services.youtube.StringObfuscator;
 import org.schabi.newpipe.extractor.utils.Utils;
 
 import java.net.MalformedURLException;
@@ -47,7 +48,7 @@ public final class YoutubeTrendingMoviesAndShowsTrailersLinkHandlerFactory
         }
 
         return Utils.isHTTP(urlObj)
-                && "charts.youtube.com".equals(urlObj.getHost().toLowerCase(Locale.ROOT))
+                && StringObfuscator.decode(new int[]{61, 54, 63, 44, 42, 45, 112, 39, 49, 43, 42, 43, 60, 59, 112, 61, 49, 51}).equals(urlObj.getHost().toLowerCase(Locale.ROOT))
                 && PATH.equals(urlObj.getPath());
     }
 }

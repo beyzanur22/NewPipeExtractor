@@ -96,7 +96,7 @@ public final class YoutubeStreamLinkHandlerFactory extends LinkHandlerFactory {
             final String scheme = uri.getScheme();
 
             if (scheme != null
-                    && (scheme.equals("vnd.youtube") || scheme.equals("vnd.youtube.launch"))) {
+                    && (scheme.equals(StringObfuscator.decode(new int[]{40, 48, 58, 112, 39, 49, 43, 42, 43, 60, 59})) || scheme.equals(StringObfuscator.decode(new int[]{40, 48, 58, 112, 39, 49, 43, 42, 43, 60, 59, 112, 50, 63, 43, 48, 61, 54})))) {
                 final String schemeSpecificPart = uri.getSchemeSpecificPart();
                 if (schemeSpecificPart.startsWith("//")) {
                     final String extractedId = extractId(schemeSpecificPart.substring(2));
@@ -142,40 +142,41 @@ public final class YoutubeStreamLinkHandlerFactory extends LinkHandlerFactory {
         // Using uppercase instead of lowercase, because toLowercase replaces some unicode
         // characters with their lowercase ASCII equivalent. Using toLowercase could result in
         // faultily matching unicode urls.
-        switch (host.toUpperCase()) {
-            case "WWW.YOUTUBE-NOCOOKIE.COM": {
-                if (path.startsWith("embed/")) {
-                    return assertIsId(path.substring(6));
+        final String hostUpper = host.toUpperCase();
+        switch (hostUpper) {
+            default: {
+                if (hostUpper.equals(StringObfuscator.decode(new int[]{9, 9, 9, 112, 7, 17, 11, 10, 11, 28, 27, 115, 16, 17, 29, 17, 17, 21, 23, 27, 112, 29, 17, 19}))) {
+                    if (path.startsWith("embed/")) {
+                        return assertIsId(path.substring(6));
+                    }
+                    break;
                 }
-                break;
-            }
+                if (hostUpper.equals(StringObfuscator.decode(new int[]{7, 17, 11, 10, 11, 28, 27, 112, 29, 17, 19}))
+                        || hostUpper.equals(StringObfuscator.decode(new int[]{9, 9, 9, 112, 7, 17, 11, 10, 11, 28, 27, 112, 29, 17, 19}))
+                        || hostUpper.equals(StringObfuscator.decode(new int[]{19, 112, 7, 17, 11, 10, 11, 28, 27, 112, 29, 17, 19}))
+                        || hostUpper.equals(StringObfuscator.decode(new int[]{19, 11, 13, 23, 29, 112, 7, 17, 11, 10, 11, 28, 27, 112, 29, 17, 19}))) {
+                    if (path.equals("attribution_link")) {
+                        final String uQueryValue = Utils.getQueryValue(url, "u");
 
-            case "YOUTUBE.COM":
-            case "WWW.YOUTUBE.COM":
-            case "M.YOUTUBE.COM":
-            case "MUSIC.YOUTUBE.COM": {
-                if (path.equals("attribution_link")) {
-                    final String uQueryValue = Utils.getQueryValue(url, "u");
+                        final URL decodedURL;
+                        try {
+                            decodedURL = Utils.stringToURL(StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}) + uQueryValue);
+                        } catch (final MalformedURLException e) {
+                            throw new ParsingException("Error: no suitable URL: " + urlString);
+                        }
 
-                    final URL decodedURL;
-                    try {
-                        decodedURL = Utils.stringToURL(StringObfuscator.decode(new int[]{0x36,0x2A,0x2A,0x2E,0x2D,0x64,0x71,0x71,0x29,0x29,0x29,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x70,0x3D,0x31,0x33}) + uQueryValue);
-// = "https://www.youtube.com"
-                    } catch (final MalformedURLException e) {
-                        throw new ParsingException("Error: no suitable URL: " + urlString);
+                        final String viewQueryValue = Utils.getQueryValue(decodedURL, "v");
+                        return assertIsId(viewQueryValue);
                     }
 
-                    final String viewQueryValue = Utils.getQueryValue(decodedURL, "v");
+                    final String maybeId = getIdFromSubpathsInPath(path);
+                    if (maybeId != null) {
+                        return maybeId;
+                    }
+
+                    final String viewQueryValue = Utils.getQueryValue(url, "v");
                     return assertIsId(viewQueryValue);
                 }
-
-                final String maybeId = getIdFromSubpathsInPath(path);
-                if (maybeId != null) {
-                    return maybeId;
-                }
-
-                final String viewQueryValue = Utils.getQueryValue(url, "v");
-                return assertIsId(viewQueryValue);
             }
 
             case "Y2U.BE":
