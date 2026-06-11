@@ -129,6 +129,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     private JsonObject nextResponse;
 
     @Nullable
+    private JsonObject visionOsStreamingData;
+    @Nullable
     private JsonObject iosStreamingData;
     @Nullable
     private JsonObject androidStreamingData;
@@ -145,6 +147,7 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     // URLs (with the cpn parameter).
     // Also because a nonce should be unique, it should be different between clients used, so
     // three different strings are used.
+    private String visionOsCpn;
     private String iosCpn;
     private String androidCpn;
 
@@ -638,14 +641,10 @@ public class YoutubeStreamExtractor extends StreamExtractor {
     public String getHlsUrl() throws ParsingException {
         assertPageFetched();
 
-        // Return HLS manifest of the iOS client first because on livestreams, the HLS manifest
-        // returned has separated audio and video streams and poTokens requirement do not seem to
-        // impact HLS formats (if a poToken is provided, it is added)
-        // Also, on videos, non-iOS clients don't have an HLS manifest URL in their player response
-        // unless a Safari macOS user agent is used
         return getManifestUrl(
                 "hls",
-                List.of(new Pair<>(iosStreamingData, iosStreamingUrlsPoToken),
+                List.of(new Pair<>(visionOsStreamingData, null),
+                        new Pair<>(iosStreamingData, iosStreamingUrlsPoToken),
                         new Pair<>(androidStreamingData, androidStreamingUrlsPoToken)),
                 "");
     }
@@ -854,6 +853,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
             fetchIosClient(localization, contentCountry, videoId, iosPoTokenResult);
         }
 
+        fetchVisionOsClient(localization, contentCountry, videoId);
+
         fetchWebClientMetadataAndSetThumbnails(localization, contentCountry, videoId);
 
         final byte[] nextBody = JsonWriter.string(
@@ -975,7 +976,30 @@ public class YoutubeStreamExtractor extends StreamExtractor {
                 }
             }
         } catch (final Exception ignored) {
-            // Ignore exceptions related to IOS client fetch or parsing, as it is not
+            // Ignore exceptions related to IOS client fetching or parsing, as it is not
+            // compulsory to play contents
+        }
+    }
+
+    private void fetchVisionOsClient(@Nonnull final Localization localization,
+                                     @Nonnull final ContentCountry contentCountry,
+                                     @Nonnull final String videoId) {
+        try {
+            visionOsCpn = generateContentPlaybackNonce();
+
+            final JsonObject visionOsPlayerResponse = YoutubeStreamHelper.getVisionOsPlayerResponse(
+                    contentCountry, localization, videoId, visionOsCpn);
+
+            if (!isPlayerResponseNotValid(visionOsPlayerResponse, videoId)) {
+                visionOsStreamingData = visionOsPlayerResponse.getObject(STREAMING_DATA);
+
+                if (isNullOrEmpty(playerCaptionsTracklistRenderer)) {
+                    playerCaptionsTracklistRenderer = visionOsPlayerResponse.getObject(CAPTIONS)
+                            .getObject(PLAYER_CAPTIONS_TRACKLIST_RENDERER);
+                }
+            }
+        } catch (final Exception ignored) {
+            // Ignore exceptions related to visionOS client fetching or parsing, as it is not
             // compulsory to play contents
         }
     }

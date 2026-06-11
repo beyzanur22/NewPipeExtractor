@@ -26,6 +26,9 @@ import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.DES
 import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.IOS_CLIENT_VERSION;
 import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.IOS_DEVICE_MODEL;
 import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.IOS_USER_AGENT_VERSION;
+import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.VISIONOS_CLIENT_VERSION;
+import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.VISIONOS_DEVICE_MODEL;
+import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.VISIONOS_USER_AGENT_VERSION;
 import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.WEB_CLIENT_ID;
 import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.WEB_CLIENT_NAME;
 import static org.schabi.newpipe.extractor.services.youtube.ClientsConstants.WEB_HARDCODED_CLIENT_VERSION;
@@ -56,6 +59,8 @@ import org.schabi.newpipe.extractor.exceptions.ReCaptchaException;
 import org.schabi.newpipe.extractor.localization.ContentCountry;
 import org.schabi.newpipe.extractor.localization.Localization;
 import org.schabi.newpipe.extractor.playlist.PlaylistInfo;
+import org.schabi.newpipe.extractor.services.youtube.protos.video.Xtags.XTags;
+import org.schabi.newpipe.extractor.services.youtube.protos.video.Xtags.KeyValuePair;
 import org.schabi.newpipe.extractor.stream.AudioTrackType;
 import org.schabi.newpipe.extractor.utils.JsonUtils;
 import org.schabi.newpipe.extractor.utils.Parser;
@@ -66,6 +71,9 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
+import com.google.protobuf.InvalidProtocolBufferException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -179,6 +187,7 @@ public final class YoutubeParsingHelper {
             Pattern.compile("&c=WEB_EMBEDDED_PLAYER");
     private static final Pattern C_ANDROID_PATTERN = Pattern.compile("&c=ANDROID");
     private static final Pattern C_IOS_PATTERN = Pattern.compile("&c=IOS");
+    private static final Pattern C_VISIONOS_PATTERN = Pattern.compile(StringObfuscator.decode(new int[]{0x78,0x3D,0x63,0x08,0x17,0x0D,0x17,0x11,0x10,0x11,0x0D}));
 
     private static final Set<String> GOOGLE_URLS = Set.of("google.", "m.google.", "www.google.");
     private static final Set<String> INVIDIOUS_URLS = Set.of("invidio.us", "dev.invidio.us",
@@ -1140,6 +1149,15 @@ public static String getUrlFromNavigationEndpoint(
                 + ")";
     }
 
+    @Nonnull
+    public static String getVisionOsUserAgent(@Nullable final Localization localization) {
+        return StringObfuscator.decode(new int[]{0x3D,0x31,0x33,0x70,0x39,0x31,0x31,0x39,0x32,0x3B,0x70,0x28,0x37,0x2D,0x37,0x31,0x30,0x31,0x2D,0x70,0x27,0x31,0x2B,0x2A,0x2B,0x3C,0x3B,0x71}) + VISIONOS_CLIENT_VERSION + "("
+                + VISIONOS_DEVICE_MODEL + "; U; CPU " + StringObfuscator.decode(new int[]{0x28,0x37,0x2D,0x37,0x31,0x30,0x11,0x0D,0x7E}) + VISIONOS_USER_AGENT_VERSION
+                + " like Mac OS X; "
+                + (localization != null ? localization : Localization.DEFAULT).getCountryCode()
+                + ")";
+    }
+
     /**
      * Returns a {@link Map} containing the required YouTube Music headers.
      */
@@ -1410,6 +1428,10 @@ public static String getUrlFromNavigationEndpoint(
         return Parser.isMatch(C_IOS_PATTERN, url);
     }
 
+    public static boolean isVisionOsStreamingUrl(@Nonnull final String url) {
+        return Parser.isMatch(C_VISIONOS_PATTERN, url);
+    }
+
     /**
      * Determines how the consent cookie that is required for YouTube, {@code SOCS}, will be
      * generated.
@@ -1448,25 +1470,22 @@ public static String getUrlFromNavigationEndpoint(
      * @return {@link AudioTrackType} or {@code null} if no track type was found
      */
     @Nullable
-    public static AudioTrackType extractAudioTrackType(final String streamUrl) {
-        final String xtags;
-        try {
-            xtags = Utils.getQueryValue(new URL(streamUrl), "xtags");
-        } catch (final MalformedURLException e) {
-            return null;
-        }
+    public static AudioTrackType extractAudioTrackType(@Nullable final String xtags) {
         if (xtags == null) {
             return null;
         }
-
-        String atype = null;
-        for (final String param : xtags.split(":")) {
-            final String[] kv = param.split("=", 2);
-            if (kv.length > 1 && kv[0].equals("acont")) {
-                atype = kv[1];
-                break;
-            }
+        final String atype;
+        try {
+            atype = XTags.parseFrom(Base64.getUrlDecoder().decode(xtags))
+                    .getXtagsList().stream()
+                    .filter(tag -> "acont".equals(tag.getKey()))
+                    .findFirst()
+                    .map(KeyValuePair::getValue)
+                    .orElse(null);
+        } catch (final InvalidProtocolBufferException ignored) {
+            return null;
         }
+
         if (atype == null) {
             return null;
         }

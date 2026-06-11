@@ -3,10 +3,12 @@ package org.schabi.newpipe.extractor.services.youtube.dashmanifestcreators;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getAndroidUserAgent;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getIosUserAgent;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getOriginReferrerHeaders;
+import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.getVisionOsUserAgent;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.isAndroidStreamingUrl;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.isIosStreamingUrl;
-import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.isWebStreamingUrl;
+import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.isVisionOsStreamingUrl;
 import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.isWebEmbeddedPlayerStreamingUrl;
+import static org.schabi.newpipe.extractor.services.youtube.YoutubeParsingHelper.isWebStreamingUrl;
 import static org.schabi.newpipe.extractor.utils.Utils.isNullOrEmpty;
 
 import org.schabi.newpipe.extractor.MediaFormat;
@@ -605,8 +607,6 @@ public final class YoutubeDashManifestCreatorsUtils {
             throws CreationException {
         final boolean isHtml5StreamingUrl = isWebStreamingUrl(baseStreamingUrl)
                 || isWebEmbeddedPlayerStreamingUrl(baseStreamingUrl);
-        final boolean isAndroidStreamingUrl = isAndroidStreamingUrl(baseStreamingUrl);
-        final boolean isIosStreamingUrl = isIosStreamingUrl(baseStreamingUrl);
         if (isHtml5StreamingUrl) {
             baseStreamingUrl += ALR_YES;
         }
@@ -619,16 +619,29 @@ public final class YoutubeDashManifestCreatorsUtils {
                 return getStreamingWebUrlWithoutRedirects(downloader, baseStreamingUrl,
                         mimeTypeExpected);
             }
-        } else if (isAndroidStreamingUrl || isIosStreamingUrl) {
+        } else if (isAndroidStreamingUrl(baseStreamingUrl)) {
             try {
-                final var headers = Map.of("User-Agent",
-                        List.of(isAndroidStreamingUrl ? getAndroidUserAgent(null)
-                                : getIosUserAgent(null)));
-                final byte[] emptyBody = "".getBytes(StandardCharsets.UTF_8);
-                return downloader.post(baseStreamingUrl, headers, emptyBody);
+                return downloader.post(baseStreamingUrl,
+                        Map.of("User-Agent", List.of(getAndroidUserAgent(null))),
+                        "".getBytes(StandardCharsets.UTF_8));
             } catch (final IOException | ExtractionException e) {
-                throw new CreationException("Could not get the "
-                        + (isIosStreamingUrl ? "ANDROID" : "IOS") + " streaming URL response", e);
+                throw new CreationException("Could not get the ANDROID streaming URL response", e);
+            }
+        } else if (isIosStreamingUrl(baseStreamingUrl)) {
+            try {
+                return downloader.post(baseStreamingUrl,
+                        Map.of("User-Agent", List.of(getIosUserAgent(null))),
+                        "".getBytes(StandardCharsets.UTF_8));
+            } catch (final IOException | ExtractionException e) {
+                throw new CreationException("Could not get the IOS streaming URL response", e);
+            }
+        } else if (isVisionOsStreamingUrl(baseStreamingUrl)) {
+            try {
+                return downloader.post(baseStreamingUrl,
+                        Map.of("User-Agent", List.of(getVisionOsUserAgent(null))),
+                        "".getBytes(StandardCharsets.UTF_8));
+            } catch (final IOException | ExtractionException e) {
+                throw new CreationException(StringObfuscator.decode(new int[]{0x1D,0x31,0x2B,0x32,0x3A,0x7E,0x30,0x31,0x2A,0x7E,0x39,0x3B,0x2A,0x7E,0x2A,0x36,0x3B,0x7E,0x08,0x17,0x0D,0x17,0x11,0x10,0x11,0x0D,0x7E,0x2D,0x2A,0x2C,0x3B,0x3F,0x33,0x37,0x30,0x39,0x7E,0x0B,0x0C,0x12,0x7E,0x2C,0x3B,0x2D,0x2E,0x31,0x30,0x2D,0x3B}), e);
             }
         }
 
