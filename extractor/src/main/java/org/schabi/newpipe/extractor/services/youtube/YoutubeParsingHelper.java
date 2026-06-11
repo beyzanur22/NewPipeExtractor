@@ -1461,12 +1461,11 @@ public static String getUrlFromNavigationEndpoint(
     }
 
     /**
-     * Extract the audio track type from a YouTube stream URL.
+     * Extract the audio track type from the formats XTags.
      * <p>
-     * The track type is parsed from the {@code xtags} URL parameter
-     * (Example: {@code acont=original:lang=en}).
+     * Example: {@code acont=original, lang=en}.
      * </p>
-     * @param streamUrl YouTube stream URL
+     * @param xtags XTags of the audio track
      * @return {@link AudioTrackType} or {@code null} if no track type was found
      */
     @Nullable
