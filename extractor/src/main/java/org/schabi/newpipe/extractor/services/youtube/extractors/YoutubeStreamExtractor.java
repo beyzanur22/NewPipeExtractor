@@ -1131,6 +1131,8 @@ public class YoutubeStreamExtractor extends StreamExtractor {
             final List<T> streamList = new ArrayList<>();
 
             java.util.stream.Stream.of(
+                    new Pair<>(visionOsStreamingData,
+                            new Pair<>(visionOsCpn, (String) null)),
                     new Pair<>(androidStreamingData,
                             new Pair<>(androidCpn, androidStreamingUrlsPoToken)),
                     new Pair<>(iosStreamingData,
