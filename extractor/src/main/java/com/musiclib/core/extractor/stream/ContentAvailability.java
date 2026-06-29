@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created by FineFindus on 10.07.25.
  *
  * Copyright (C) 2025 FineFindus <FineFindus@proton.me>

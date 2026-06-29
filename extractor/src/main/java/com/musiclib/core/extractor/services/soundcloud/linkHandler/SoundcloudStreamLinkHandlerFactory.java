@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud.linkHandler;
+package com.musiclib.core.extractor.services.soundcloud.linkHandler;
 
 import java.util.regex.Pattern;
 

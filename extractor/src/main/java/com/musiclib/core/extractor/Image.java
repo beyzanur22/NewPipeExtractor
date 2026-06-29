@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import javax.annotation.Nonnull;
 import java.io.Serializable;

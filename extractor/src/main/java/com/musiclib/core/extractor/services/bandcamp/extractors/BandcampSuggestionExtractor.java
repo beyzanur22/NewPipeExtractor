@@ -1,4 +1,4 @@
-﻿// Created by Fynn Godau 2019, licensed GNU GPL version 3 or later
+// Created by Fynn Godau 2019, licensed GNU GPL version 3 or later
 
 package com.musiclib.core.extractor.services.bandcamp.extractors;
 

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube.extractors;
+package com.musiclib.core.extractor.services.peertube.extractors;
 
 import static com.musiclib.core.extractor.services.peertube.PeertubeParsingHelper.getAvatarsFromOwnerAccountOrVideoChannelObject;
 import static com.musiclib.core.extractor.services.peertube.PeertubeParsingHelper.getThumbnailsFromPlaylistOrVideoItem;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.stream;
+package com.musiclib.core.extractor.services.youtube.stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;

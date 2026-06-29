@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 public class ContentNotSupportedException extends ParsingException {
     public ContentNotSupportedException(final String message) {

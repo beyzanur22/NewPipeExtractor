@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import java.net.MalformedURLException;
 import java.net.URL;

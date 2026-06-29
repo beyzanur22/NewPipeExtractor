@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 import com.musiclib.core.extractor.services.youtube.StringObfuscator;
 

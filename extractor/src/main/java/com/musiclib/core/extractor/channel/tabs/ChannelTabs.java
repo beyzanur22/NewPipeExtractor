@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.channel.tabs;
+package com.musiclib.core.extractor.channel.tabs;
 
 /**
  * Constants of channel tabs supported by the extractor.

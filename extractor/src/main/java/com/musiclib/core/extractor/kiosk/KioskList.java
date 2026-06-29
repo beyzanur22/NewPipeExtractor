@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.kiosk;
+package com.musiclib.core.extractor.kiosk;
 
 import static com.musiclib.core.extractor.utils.Utils.isNullOrEmpty;
 

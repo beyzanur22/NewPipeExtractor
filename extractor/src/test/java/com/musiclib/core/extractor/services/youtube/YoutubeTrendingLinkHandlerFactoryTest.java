@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 /*
  * Created by Christian Schabesberger on 12.08.17.

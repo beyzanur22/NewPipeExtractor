@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.feed;
+package com.musiclib.core.extractor.feed;
 
 import com.musiclib.core.extractor.ListExtractor.InfoItemsPage;
 import com.musiclib.core.extractor.ListInfo;

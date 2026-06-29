@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 /**
  * Exception for contents not supported in a country.

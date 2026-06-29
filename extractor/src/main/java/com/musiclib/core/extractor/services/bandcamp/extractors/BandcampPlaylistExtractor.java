@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.bandcamp.extractors;
+package com.musiclib.core.extractor.services.bandcamp.extractors;
 
 import static com.musiclib.core.extractor.services.bandcamp.extractors.BandcampExtractorHelper.getImagesFromImageId;
 import static com.musiclib.core.extractor.services.bandcamp.extractors.BandcampExtractorHelper.getImagesFromImageUrl;

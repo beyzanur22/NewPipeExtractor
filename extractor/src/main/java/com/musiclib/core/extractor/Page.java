@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import java.io.Serializable;
 import java.util.List;

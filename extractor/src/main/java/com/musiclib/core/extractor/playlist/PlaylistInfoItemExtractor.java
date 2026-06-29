@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.playlist;
+package com.musiclib.core.extractor.playlist;
 
 import com.musiclib.core.extractor.InfoItemExtractor;
 import com.musiclib.core.extractor.exceptions.ParsingException;

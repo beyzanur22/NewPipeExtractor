@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube;
+package com.musiclib.core.extractor.services.peertube;
 
 import static com.musiclib.core.extractor.ServiceList.PeerTube;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestGetPageInNewExtractor;

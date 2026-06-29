@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube.linkHandler;
+package com.musiclib.core.extractor.services.peertube.linkHandler;
 
 import com.musiclib.core.extractor.ServiceList;
 import com.musiclib.core.extractor.exceptions.FoundAdException;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

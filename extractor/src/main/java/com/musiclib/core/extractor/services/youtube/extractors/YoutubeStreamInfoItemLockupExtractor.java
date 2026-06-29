@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.extractors;
+package com.musiclib.core.extractor.services.youtube.extractors;
 
 import static com.musiclib.core.extractor.utils.Utils.isNullOrEmpty;
 

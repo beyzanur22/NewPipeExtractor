@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ServiceList.YouTube;

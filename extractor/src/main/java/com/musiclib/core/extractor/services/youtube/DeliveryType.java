@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 /**
  * Streaming format types used by YouTube in their streams.

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 public class SoundCloudGoPlusContentException extends ContentNotAvailableException {
     public SoundCloudGoPlusContentException() {

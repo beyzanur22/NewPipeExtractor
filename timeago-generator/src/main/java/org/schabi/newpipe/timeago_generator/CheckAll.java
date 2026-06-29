@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.timeago_generator;
+package com.musiclib.core.timeago_generator;
 
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;

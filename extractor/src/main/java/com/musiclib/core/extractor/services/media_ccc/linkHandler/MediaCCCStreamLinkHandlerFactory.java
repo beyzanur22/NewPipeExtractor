@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media_ccc.linkHandler;
+package com.musiclib.core.extractor.services.media_ccc.linkHandler;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.linkhandler.LinkHandlerFactory;

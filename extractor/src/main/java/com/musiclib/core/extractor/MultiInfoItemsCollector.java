@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import com.musiclib.core.extractor.channel.ChannelInfoItemExtractor;
 import com.musiclib.core.extractor.channel.ChannelInfoItemsCollector;

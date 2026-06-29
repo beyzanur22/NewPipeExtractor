@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.downloader;
+package com.musiclib.core.extractor.downloader;
 
 import com.musiclib.core.extractor.localization.Localization;
 

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.stream;
+package com.musiclib.core.extractor.stream;
 
 /**
  * An enum to represent the different delivery methods of {@link Stream streams} which are returned

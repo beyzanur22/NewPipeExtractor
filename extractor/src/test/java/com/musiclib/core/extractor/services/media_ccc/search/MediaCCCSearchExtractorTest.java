@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media_ccc.search;
+package com.musiclib.core.extractor.services.media_ccc.search;
 
 import static com.musiclib.core.extractor.ServiceList.MediaCCC;
 import static com.musiclib.core.extractor.services.media_ccc.linkHandler.MediaCCCSearchQueryHandlerFactory.CONFERENCES;

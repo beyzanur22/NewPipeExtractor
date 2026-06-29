@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.downloader;
+package com.musiclib.core.downloader;
 
 import com.musiclib.core.extractor.downloader.Downloader;
 import com.musiclib.core.extractor.utils.Utils;

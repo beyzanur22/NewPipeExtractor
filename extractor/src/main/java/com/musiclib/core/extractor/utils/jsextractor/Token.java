@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils.jsextractor;
+package com.musiclib.core.extractor.utils.jsextractor;
 
 public enum Token {
     ERROR,

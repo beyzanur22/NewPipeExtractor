@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils;
+package com.musiclib.core.extractor.utils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

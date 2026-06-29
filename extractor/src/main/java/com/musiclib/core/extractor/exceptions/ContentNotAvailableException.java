@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 public class ContentNotAvailableException extends ParsingException {
     public ContentNotAvailableException(final String message) {

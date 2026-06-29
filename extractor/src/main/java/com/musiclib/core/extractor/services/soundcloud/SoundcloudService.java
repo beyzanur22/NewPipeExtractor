@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud;
+package com.musiclib.core.extractor.services.soundcloud;
 
 import static com.musiclib.core.extractor.StreamingService.ServiceInfo.MediaCapability.AUDIO;
 import static com.musiclib.core.extractor.StreamingService.ServiceInfo.MediaCapability.COMMENTS;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud.extractors;
+package com.musiclib.core.extractor.services.soundcloud.extractors;
 
 import static com.musiclib.core.extractor.services.soundcloud.linkHandler.SoundcloudSearchQueryHandlerFactory.ITEMS_PER_PAGE;
 import static com.musiclib.core.extractor.utils.Utils.isNullOrEmpty;

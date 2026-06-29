@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud.search;
+package com.musiclib.core.extractor.services.soundcloud.search;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.musiclib.core.extractor.ServiceList.SoundCloud;

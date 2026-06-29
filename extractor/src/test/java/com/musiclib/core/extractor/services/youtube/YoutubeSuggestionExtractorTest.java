@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Created by Christian Schabesberger on 18.11.16.
  *
  * Copyright (C) 2016 Christian Schabesberger <chris.schabesberger@mailbox.org>

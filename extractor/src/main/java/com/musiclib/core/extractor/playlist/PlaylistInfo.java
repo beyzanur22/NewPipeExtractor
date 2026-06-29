@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.playlist;
+package com.musiclib.core.extractor.playlist;
 
 import com.musiclib.core.extractor.Image;
 import com.musiclib.core.extractor.ListExtractor.InfoItemsPage;

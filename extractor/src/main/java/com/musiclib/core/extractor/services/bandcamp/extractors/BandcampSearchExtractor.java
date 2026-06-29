@@ -1,4 +1,4 @@
-﻿// Created by Fynn Godau 2019, licensed GNU GPL version 3 or later
+// Created by Fynn Godau 2019, licensed GNU GPL version 3 or later
 //
 // SPDX-FileCopyrightText: 2026 NewPipe e.V. <https://newpipe-ev.de>
 // SPDX-License-Identifier: GPL-3.0-or-later

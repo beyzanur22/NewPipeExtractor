@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.suggestion;
+package com.musiclib.core.extractor.suggestion;
 
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.exceptions.ExtractionException;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.localization;
+package com.musiclib.core.extractor.localization;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;

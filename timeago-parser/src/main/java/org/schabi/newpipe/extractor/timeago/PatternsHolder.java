@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.timeago;
+package com.musiclib.core.extractor.timeago;
 
 import static java.util.Arrays.asList;
 

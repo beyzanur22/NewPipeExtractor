@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Contains classes for Rate limiting.
  * <br/>
  * This code is based on

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media_ccc;
+package com.musiclib.core.extractor.services.media_ccc;
 
 import static com.musiclib.core.extractor.StreamingService.ServiceInfo.MediaCapability.AUDIO;
 import static com.musiclib.core.extractor.StreamingService.ServiceInfo.MediaCapability.VIDEO;

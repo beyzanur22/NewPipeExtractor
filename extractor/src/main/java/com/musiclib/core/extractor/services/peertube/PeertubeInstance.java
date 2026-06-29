@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube;
+package com.musiclib.core.extractor.services.peertube;
 
 import com.grack.nanojson.JsonObject;
 import com.grack.nanojson.JsonParser;

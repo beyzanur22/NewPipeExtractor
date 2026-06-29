@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.bandcamp;
+package com.musiclib.core.extractor.services.bandcamp;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static com.musiclib.core.extractor.ServiceList.Bandcamp;

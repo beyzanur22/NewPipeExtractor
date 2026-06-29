@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube;
+package com.musiclib.core.extractor.services.peertube;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;

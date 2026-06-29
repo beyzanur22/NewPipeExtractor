@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.bandcamp.extractors.streaminfoitem;
+package com.musiclib.core.extractor.services.bandcamp.extractors.streaminfoitem;
 
 import org.jsoup.nodes.Element;
 import com.musiclib.core.extractor.Image;

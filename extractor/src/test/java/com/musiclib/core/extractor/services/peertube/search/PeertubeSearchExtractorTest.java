@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube.search;
+package com.musiclib.core.extractor.services.peertube.search;
 
 import static com.musiclib.core.extractor.ServiceList.PeerTube;
 import static com.musiclib.core.extractor.services.DefaultTests.assertNoDuplicatedItems;

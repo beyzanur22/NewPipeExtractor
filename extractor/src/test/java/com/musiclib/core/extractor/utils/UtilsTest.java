@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils;
+package com.musiclib.core.extractor.utils;
 
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.exceptions.ParsingException;

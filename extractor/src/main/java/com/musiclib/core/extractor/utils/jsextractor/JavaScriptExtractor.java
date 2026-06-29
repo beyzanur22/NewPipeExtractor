@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils.jsextractor;
+package com.musiclib.core.extractor.utils.jsextractor;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;
 

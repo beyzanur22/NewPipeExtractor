@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.stream;
+package com.musiclib.core.extractor.stream;
 
 
 import javax.annotation.Nullable;

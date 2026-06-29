@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.subscription;
+package com.musiclib.core.extractor.subscription;
 
 import java.io.Serializable;
 

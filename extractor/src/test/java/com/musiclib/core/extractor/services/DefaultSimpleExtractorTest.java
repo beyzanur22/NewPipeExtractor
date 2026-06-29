@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services;
+package com.musiclib.core.extractor.services;
 
 import com.musiclib.core.extractor.Extractor;
 

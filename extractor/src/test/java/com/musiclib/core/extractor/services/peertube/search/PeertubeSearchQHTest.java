@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube.search;
+package com.musiclib.core.extractor.services.peertube.search;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.timeago_generator;
+package com.musiclib.core.timeago_generator;
 
 import java.util.*;
 

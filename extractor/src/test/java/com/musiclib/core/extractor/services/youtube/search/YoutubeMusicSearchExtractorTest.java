@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.search;
+package com.musiclib.core.extractor.services.youtube.search;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 import static java.util.Collections.singletonList;

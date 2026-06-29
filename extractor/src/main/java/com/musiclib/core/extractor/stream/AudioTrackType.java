@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.stream;
+package com.musiclib.core.extractor.stream;
 
 /**
  * An enum representing the track type of {@link AudioStream}s extracted by a {@link

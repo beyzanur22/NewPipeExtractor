@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.downloader;
+package com.musiclib.core.extractor.downloader;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

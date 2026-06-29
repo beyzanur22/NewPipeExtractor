@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 public class PrivateContentException extends ContentNotAvailableException {
     public PrivateContentException(final String message) {

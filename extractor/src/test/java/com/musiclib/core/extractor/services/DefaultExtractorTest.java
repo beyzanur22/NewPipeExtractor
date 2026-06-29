@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services;
+package com.musiclib.core.extractor.services;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertIsSecureUrl;

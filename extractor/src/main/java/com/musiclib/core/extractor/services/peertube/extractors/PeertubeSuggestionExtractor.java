@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube.extractors;
+package com.musiclib.core.extractor.services.peertube.extractors;
 
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.suggestion.SuggestionExtractor;

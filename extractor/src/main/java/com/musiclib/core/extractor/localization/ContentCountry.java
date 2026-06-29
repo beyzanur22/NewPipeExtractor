@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.localization;
+package com.musiclib.core.extractor.localization;
 
 import javax.annotation.Nonnull;
 

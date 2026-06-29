@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils;
+package com.musiclib.core.extractor.utils;
 
 /**
  * Logging class for outputting logs from the extractor to the desired output<br><br>

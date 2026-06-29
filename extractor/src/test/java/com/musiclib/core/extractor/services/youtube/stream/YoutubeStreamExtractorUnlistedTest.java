@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.stream;
+package com.musiclib.core.extractor.services.youtube.stream;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 import static com.musiclib.core.extractor.stream.StreamExtractor.Privacy.UNLISTED;

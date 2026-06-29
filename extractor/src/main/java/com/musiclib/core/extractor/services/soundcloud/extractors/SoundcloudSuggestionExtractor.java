@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud.extractors;
+package com.musiclib.core.extractor.services.soundcloud.extractors;
 
 import static com.musiclib.core.extractor.services.soundcloud.SoundcloudParsingHelper.SOUNDCLOUD_API_V2_URL;
 

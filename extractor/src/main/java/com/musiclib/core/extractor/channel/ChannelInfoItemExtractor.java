@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.channel;
+package com.musiclib.core.extractor.channel;
 
 import com.musiclib.core.extractor.InfoItemExtractor;
 import com.musiclib.core.extractor.exceptions.ParsingException;

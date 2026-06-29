@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.localization;
+package com.musiclib.core.extractor.localization;
 
 import com.musiclib.core.extractor.timeago.PatternsHolder;
 import com.musiclib.core.extractor.timeago.PatternsManager;

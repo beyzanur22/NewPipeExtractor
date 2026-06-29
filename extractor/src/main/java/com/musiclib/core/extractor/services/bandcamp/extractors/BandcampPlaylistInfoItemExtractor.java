@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.bandcamp.extractors;
+package com.musiclib.core.extractor.services.bandcamp.extractors;
 
 import org.jsoup.nodes.Element;
 import com.musiclib.core.extractor.Image;

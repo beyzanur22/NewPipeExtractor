@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud;
+package com.musiclib.core.extractor.services.soundcloud;
 
 import static com.musiclib.core.extractor.Image.ResolutionLevel.LOW;
 import static com.musiclib.core.extractor.Image.ResolutionLevel.MEDIUM;

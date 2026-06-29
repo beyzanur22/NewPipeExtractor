@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.bandcamp.extractors.streaminfoitem;
+package com.musiclib.core.extractor.services.bandcamp.extractors.streaminfoitem;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.localization.DateWrapper;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media_ccc;
+package com.musiclib.core.extractor.services.media_ccc;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertFalse;

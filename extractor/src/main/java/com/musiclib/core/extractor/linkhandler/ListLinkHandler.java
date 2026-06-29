@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.linkhandler;
+package com.musiclib.core.extractor.linkhandler;
 
 import java.util.Collections;
 import java.util.List;

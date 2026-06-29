@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils;
+package com.musiclib.core.extractor.utils;
 
 public interface Logger {
     void debug(String tag, String message);

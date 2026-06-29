@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 /*
  * Created by Adam Howard on 08/11/15.

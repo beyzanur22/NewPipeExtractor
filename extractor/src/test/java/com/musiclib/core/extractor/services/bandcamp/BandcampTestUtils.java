@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.bandcamp;
+package com.musiclib.core.extractor.services.bandcamp;
 
 import com.musiclib.core.extractor.Image;
 import com.musiclib.core.extractor.services.DefaultTests;

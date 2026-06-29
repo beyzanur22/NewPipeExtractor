@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 /**
  * Content can't be extracted because the service requires logging in to confirm the user is not a

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.linkHandler;
+package com.musiclib.core.extractor.services.youtube.linkHandler;
 
 import static com.musiclib.core.extractor.utils.Utils.encodeUrlUtf8;
 import static com.musiclib.core.extractor.utils.Utils.isNullOrEmpty;

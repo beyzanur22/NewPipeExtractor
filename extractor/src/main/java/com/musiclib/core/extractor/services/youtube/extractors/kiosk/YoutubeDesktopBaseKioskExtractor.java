@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.extractors.kiosk;
+package com.musiclib.core.extractor.services.youtube.extractors.kiosk;
 
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.DISABLE_PRETTY_PRINT_PARAMETER;
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.YOUTUBEI_V1_URL;

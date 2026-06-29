@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.soundcloud.extractors;
+package com.musiclib.core.extractor.services.soundcloud.extractors;
 
 import com.grack.nanojson.JsonObject;
 

@@ -1,4 +1,4 @@
-﻿
+
 package com.musiclib.core.extractor.services.bandcamp.linkHandler;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;

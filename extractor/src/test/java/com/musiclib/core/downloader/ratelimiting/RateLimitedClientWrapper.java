@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.downloader.ratelimiting;
+package com.musiclib.core.downloader.ratelimiting;
 
 import com.musiclib.core.downloader.ratelimiting.limiter.RateLimiter;
 

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.kiosk;
+package com.musiclib.core.extractor.kiosk;
 
 /*
  * Created by Christian Schabesberger on 12.08.17.

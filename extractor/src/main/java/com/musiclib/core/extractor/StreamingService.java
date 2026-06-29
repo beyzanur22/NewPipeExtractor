@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import com.musiclib.core.extractor.channel.ChannelExtractor;
 import com.musiclib.core.extractor.channel.tabs.ChannelTabExtractor;

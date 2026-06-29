@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 /*
  * Created by beneth <bmauduit@beneth.fr> on 07.12.16.

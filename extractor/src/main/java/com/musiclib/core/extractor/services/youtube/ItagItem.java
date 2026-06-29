@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 import com.musiclib.core.extractor.MediaFormat;
 import com.musiclib.core.extractor.exceptions.ParsingException;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.getUrlFromNavigationEndpoint;
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.isYoutubeServiceURL;

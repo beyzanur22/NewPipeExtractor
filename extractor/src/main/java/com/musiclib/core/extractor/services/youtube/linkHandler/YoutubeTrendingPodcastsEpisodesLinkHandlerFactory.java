@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.linkHandler;
+package com.musiclib.core.extractor.services.youtube.linkHandler;
 
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.isInvidiousURL;
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.isYoutubeURL;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.linkHandler;
+package com.musiclib.core.extractor.services.youtube.linkHandler;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.linkhandler.LinkHandler;

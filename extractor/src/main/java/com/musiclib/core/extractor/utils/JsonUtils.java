@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.utils;
+package com.musiclib.core.extractor.utils;
 
 import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;

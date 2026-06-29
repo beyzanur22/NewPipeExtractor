@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.youtube;
 
 import com.grack.nanojson.JsonParser;
 import com.grack.nanojson.JsonParserException;

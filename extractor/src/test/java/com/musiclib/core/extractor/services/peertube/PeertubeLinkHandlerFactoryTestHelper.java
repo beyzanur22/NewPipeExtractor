@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.peertube;
+package com.musiclib.core.extractor.services.peertube;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.linkhandler.LinkHandlerFactory;

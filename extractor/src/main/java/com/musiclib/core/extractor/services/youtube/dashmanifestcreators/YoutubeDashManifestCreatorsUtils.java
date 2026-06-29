@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.youtube.dashmanifestcreators;
+package com.musiclib.core.extractor.services.youtube.dashmanifestcreators;
 
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.getAndroidUserAgent;
 import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.getIosUserAgent;

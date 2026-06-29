@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services;
+package com.musiclib.core.extractor.services;
 
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.InfoItem;

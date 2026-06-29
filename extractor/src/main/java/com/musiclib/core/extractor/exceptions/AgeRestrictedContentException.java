@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.exceptions;
+package com.musiclib.core.extractor.exceptions;
 
 public class AgeRestrictedContentException extends ContentNotAvailableException {
     public AgeRestrictedContentException(final String message) {
