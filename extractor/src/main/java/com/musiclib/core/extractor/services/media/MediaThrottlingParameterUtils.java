@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media;
+package com.musiclib.core.extractor.services.media;
 
 import static com.musiclib.core.extractor.utils.Parser.matchMultiplePatterns;
 

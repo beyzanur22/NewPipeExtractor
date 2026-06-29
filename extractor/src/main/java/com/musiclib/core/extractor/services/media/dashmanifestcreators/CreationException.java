@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.dashmanifestcreators;
+package com.musiclib.core.extractor.services.media.dashmanifestcreators;
 
 import javax.annotation.Nonnull;
 

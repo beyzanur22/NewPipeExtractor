@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media;
+package com.musiclib.core.extractor.services.media;
 
 import com.grack.nanojson.JsonBuilder;
 import com.grack.nanojson.JsonObject;

@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.extractors.kiosk;
+package com.musiclib.core.extractor.services.media.extractors.kiosk;
 
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.downloader.Downloader;

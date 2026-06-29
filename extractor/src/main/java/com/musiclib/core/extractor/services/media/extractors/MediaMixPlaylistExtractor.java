@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.extractors;
+package com.musiclib.core.extractor.services.media.extractors;
 
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.DISABLE_PRETTY_PRINT_PARAMETER;
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.MediaI_V1_URL;

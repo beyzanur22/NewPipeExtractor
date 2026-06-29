@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import com.musiclib.core.extractor.exceptions.ExtractionException;
 import com.musiclib.core.extractor.linkhandler.LinkHandler;

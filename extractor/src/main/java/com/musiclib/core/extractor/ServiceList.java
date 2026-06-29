@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor;
+package com.musiclib.core.extractor;
 
 import com.musiclib.core.extractor.services.bandcamp.BandcampService;
 import com.musiclib.core.extractor.services.media_ccc.MediaCCCService;

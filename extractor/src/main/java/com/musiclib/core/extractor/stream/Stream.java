@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.stream;
+package com.musiclib.core.extractor.stream;
 
 import com.musiclib.core.extractor.MediaFormat;
 import com.musiclib.core.extractor.services.media.ItagItem;

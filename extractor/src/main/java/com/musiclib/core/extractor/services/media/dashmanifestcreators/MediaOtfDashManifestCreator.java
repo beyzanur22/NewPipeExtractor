@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.dashmanifestcreators;
+package com.musiclib.core.extractor.services.media.dashmanifestcreators;
 
 import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.ALR_YES;
 import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.RN_0;

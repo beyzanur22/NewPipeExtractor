@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media;
+package com.musiclib.core.extractor.services.media;
 
 import com.musiclib.core.extractor.MediaFormat;
 import com.musiclib.core.extractor.exceptions.ParsingException;

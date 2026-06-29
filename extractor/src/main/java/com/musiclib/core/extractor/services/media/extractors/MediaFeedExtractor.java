@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.extractors;
+package com.musiclib.core.extractor.services.media.extractors;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

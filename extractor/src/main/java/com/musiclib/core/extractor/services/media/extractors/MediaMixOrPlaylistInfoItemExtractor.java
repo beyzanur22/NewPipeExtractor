@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.extractors;
+package com.musiclib.core.extractor.services.media.extractors;
 
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.extractPlaylistTypeFromPlaylistUrl;
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.getTextFromObject;

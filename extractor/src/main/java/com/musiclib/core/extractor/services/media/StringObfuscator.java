@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media;
+package com.musiclib.core.extractor.services.media;
 
 public final class StringObfuscator {
     private static final int KEY = 0x5E;

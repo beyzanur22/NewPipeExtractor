@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.dashmanifestcreators;
+package com.musiclib.core.extractor.services.media.dashmanifestcreators;
 
 import com.musiclib.core.extractor.services.media.DeliveryType;
 import com.musiclib.core.extractor.services.media.ItagItem;

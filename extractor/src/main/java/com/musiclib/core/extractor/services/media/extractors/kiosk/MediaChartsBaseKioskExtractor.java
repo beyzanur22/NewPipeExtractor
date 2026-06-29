@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.extractors.kiosk;
+package com.musiclib.core.extractor.services.media.extractors.kiosk;
 
 import com.grack.nanojson.JsonArray;
 import com.grack.nanojson.JsonObject;

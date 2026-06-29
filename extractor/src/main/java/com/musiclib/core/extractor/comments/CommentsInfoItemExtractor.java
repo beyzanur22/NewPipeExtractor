@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.comments;
+package com.musiclib.core.extractor.comments;
 
 import com.musiclib.core.extractor.Image;
 import com.musiclib.core.extractor.InfoItemExtractor;

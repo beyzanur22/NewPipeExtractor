@@ -1,4 +1,4 @@
-﻿package com.musiclib.core.extractor.services.media.linkHandler;
+package com.musiclib.core.extractor.services.media.linkHandler;
 
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.isInvidiousURL;
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.isMediaURL;

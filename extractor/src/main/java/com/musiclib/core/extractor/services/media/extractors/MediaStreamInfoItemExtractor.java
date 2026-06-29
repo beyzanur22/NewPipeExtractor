@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Copyright (C) 2016 Christian Schabesberger <chris.schabesberger@mailbox.org>
  * MediaStreamInfoItemExtractor.java is part of NewPipe Extractor.
  *
