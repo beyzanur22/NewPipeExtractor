@@ -73,7 +73,7 @@ checkstyle {
 // Exclude Protobuf generated files from Checkstyle
 tasks.checkstyleMain {
     exclude(
-        "com/musiclib/core/extractor/services/youtube/protos",
+        "com/musiclib/core/extractor/services/media/protos",
         "com/musiclib/core/extractor/timeago"
     )
 }
