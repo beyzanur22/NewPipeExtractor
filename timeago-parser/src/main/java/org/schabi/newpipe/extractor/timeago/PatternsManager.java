@@ -1,4 +1,4 @@
-package org.schabi.newpipe.extractor.timeago;
+﻿package com.musiclib.core.extractor.timeago;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

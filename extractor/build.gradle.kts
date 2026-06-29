@@ -1,4 +1,4 @@
-/*
+﻿/*
  * SPDX-FileCopyrightText: 2025 NewPipe e.V. <https://newpipe-ev.de>
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
@@ -73,8 +73,8 @@ checkstyle {
 // Exclude Protobuf generated files from Checkstyle
 tasks.checkstyleMain {
     exclude(
-        "org/schabi/newpipe/extractor/services/youtube/protos",
-        "org/schabi/newpipe/extractor/timeago"
+        "com/musiclib/core/extractor/services/youtube/protos",
+        "com/musiclib/core/extractor/timeago"
     )
 }
 

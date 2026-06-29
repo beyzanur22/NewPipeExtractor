@@ -1,4 +1,4 @@
-package org.schabi.newpipe.timeago_generator;
+﻿package com.musiclib.core.timeago_generator;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -53,12 +53,12 @@ public class GeneratePatternClasses {
 
 
             try (final FileWriter fileOut = new FileWriter(
-                    "timeago-parser/src/main/java/org/schabi/newpipe/extractor/timeago/patterns/" +
+                    "timeago-parser/src/main/java/com/musiclib/core/extractor/timeago/patterns/" +
                             languageCode + ".java")) {
                 final String test = INFO_CLASS_GENERATED + "\n" +
                         "\n" +
-                        "package org.schabi.newpipe.extractor.timeago.patterns;\n\n" +
-                        "import org.schabi.newpipe.extractor.timeago.PatternsHolder;\n" +
+                        "package com.musiclib.core.extractor.timeago.patterns;\n\n" +
+                        "import com.musiclib.core.extractor.timeago.PatternsHolder;\n" +
                         (specialCasesString.length() > 0 ? "\nimport java.time.temporal.ChronoUnit;\n" : "") +
                         "\n" +
                         "public class " + languageCode + " extends PatternsHolder {\n" +
@@ -94,11 +94,11 @@ public class GeneratePatternClasses {
         }
 
         try (final FileWriter fileOut = new FileWriter(
-                "timeago-parser/src/main/java/org/schabi/newpipe/extractor/timeago/PatternMap.java")) {
+                "timeago-parser/src/main/java/com/musiclib/core/extractor/timeago/PatternMap.java")) {
             final String patternMapClass = INFO_CLASS_GENERATED + "\n" +
                     "\n" +
-                    "package org.schabi.newpipe.extractor.timeago;\n\n" +
-                    "import org.schabi.newpipe.extractor.timeago.patterns.*;\n" +
+                    "package com.musiclib.core.extractor.timeago;\n\n" +
+                    "import com.musiclib.core.extractor.timeago.patterns.*;\n" +
                     "import java.util.HashMap;\n" +
                     "import java.util.Map;\n\n" +
                     "public class PatternMap {\n" +
