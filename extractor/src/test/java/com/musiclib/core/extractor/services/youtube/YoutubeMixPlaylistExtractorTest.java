@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.DISABLE_PRETTY_PRINT_PARAMETER;
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.MediaI_V1_URL;
 import static com.musiclib.core.extractor.services.media.MediaParsingHelper.prepareDesktopJsonBuilder;
@@ -59,7 +59,7 @@ public class MediaMixPlaylistExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/watch?v=" + VIDEO_ID + "&list=RD" + VIDEO_ID;
+            return "https://www.MediaSvc.com/watch?v=" + VIDEO_ID + "&list=RD" + VIDEO_ID;
         }
 
         @Test
@@ -146,7 +146,7 @@ public class MediaMixPlaylistExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/watch?v=" + VIDEO_ID_AT_INDEX
+            return "https://www.MediaSvc.com/watch?v=" + VIDEO_ID_AT_INDEX
                 + "&list=RD" + VIDEO_ID + "&index=" + INDEX;
         }
 
@@ -226,7 +226,7 @@ public class MediaMixPlaylistExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/watch?v=" + VIDEO_ID
+            return "https://www.MediaSvc.com/watch?v=" + VIDEO_ID
                 + "&list=RDMM" + VIDEO_ID;
         }
 
@@ -310,7 +310,7 @@ public class MediaMixPlaylistExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/watch?v=" + VIDEO_ID
+            return "https://www.MediaSvc.com/watch?v=" + VIDEO_ID
                 + "&list=RD" + VIDEO_ID;
         }
 
@@ -323,7 +323,7 @@ public class MediaMixPlaylistExtractorTest {
     public static class InvalidVideoId extends Base {
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/watch?v=" + "abcde"
+            return "https://www.MediaSvc.com/watch?v=" + "abcde"
                 + "&list=RD" + "abcde";
         }
 
@@ -344,7 +344,7 @@ public class MediaMixPlaylistExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/watch?v=" + VIDEO_ID
+            return "https://www.MediaSvc.com/watch?v=" + VIDEO_ID
                 + "&list=RDGMEMYH9CUrFO7CfLJpaD7UR85w";
         }
 
@@ -428,7 +428,7 @@ public class MediaMixPlaylistExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://m.youtube.com/watch?v=" + VIDEO_ID
+            return "https://m.MediaSvc.com/watch?v=" + VIDEO_ID
                 + "&list=RDAMVM" + VIDEO_ID;
         }
 

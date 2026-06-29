@@ -10,7 +10,7 @@ import static com.musiclib.core.extractor.ExtractorAsserts.assertGreater;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertGreaterOrEqual;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertIsValidUrl;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertNotBlank;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.ADAPTATION_SET;
 import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.AUDIO_CHANNEL_CONFIGURATION;
 import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.BASE_URL;
@@ -64,7 +64,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * The generation of DASH manifests for OTF streams, which can be tested, uses a video licenced
  * under the Creative Commons Attribution licence (reuse allowed): {@code A New Era of Open?
  * COVID-19 and the Pursuit for Equitable Solutions} (<a href=
- * "https://www.youtube.com/watch?v=DJ8GQUNUXGM">https://www.youtube.com/watch?v=DJ8GQUNUXGM</a>)
+ * "https://www.MediaSvc.com/watch?v=DJ8GQUNUXGM">https://www.MediaSvc.com/watch?v=DJ8GQUNUXGM</a>)
  * </p>
  *
  * <p>
@@ -81,7 +81,7 @@ class MediaDashManifestCreatorsTest extends DefaultSimpleExtractorTest<MediaStre
     implements InitYoutubeTest {
     // Setting a higher number may let Google video servers return 403s
     private static final int MAX_STREAMS_TO_TEST_PER_METHOD = 3;
-    private static final String URL = "https://www.youtube.com/watch?v=DJ8GQUNUXGM";
+    private static final String URL = "https://www.MediaSvc.com/watch?v=DJ8GQUNUXGM";
     private long videoLength;
 
     @Override

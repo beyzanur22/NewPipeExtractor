@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertContains;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertGreater;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.comments.CommentsInfoItem.UNKNOWN_REPLY_COUNT;
 
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ public class MediaCommentsExtractorTest {
      * Test a "normal" YouTube
      */
     public static class Thomas extends Base {
-        private static final String URL = "https://www.youtube.com/watch?v=D00Au7k3i6o";
+        private static final String URL = "https://www.MediaSvc.com/watch?v=D00Au7k3i6o";
         private static final String commentContent = "Category: Education";
 
         @Override
@@ -128,7 +128,7 @@ public class MediaCommentsExtractorTest {
      * Test a video with an empty comment
      */
     public static class EmptyComment extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=VM_6n762j6M";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=VM_6n762j6M";
 
         @Override
         protected String extractorUrl() {
@@ -162,7 +162,7 @@ public class MediaCommentsExtractorTest {
     }
 
     public static class HeartedByCreator extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=RwTdoQNVMTY";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=RwTdoQNVMTY";
 
         @Override
         protected String extractorUrl() {
@@ -199,7 +199,7 @@ public class MediaCommentsExtractorTest {
     }
 
     public static class Pinned extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=bjFtFMilb34";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=bjFtFMilb34";
 
         @Override
         protected String extractorUrl() {
@@ -235,7 +235,7 @@ public class MediaCommentsExtractorTest {
      * A pinned comment with >15K likes is used for the test
      */
     public static class LikesVotes extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=QqsLTNkzvaY";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=QqsLTNkzvaY";
 
         @Override
         protected String extractorUrl() {
@@ -261,7 +261,7 @@ public class MediaCommentsExtractorTest {
      * A pinned comment with >15K likes is used for the test
      */
     public static class LocalizedVoteCount extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=QqsLTNkzvaY";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=QqsLTNkzvaY";
 
         @Override
         protected String extractorUrl() {
@@ -289,7 +289,7 @@ public class MediaCommentsExtractorTest {
     }
 
     public static class RepliesTest extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=xaQJbozY_Is";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=xaQJbozY_Is";
 
         @Override
         protected String extractorUrl() {
@@ -331,7 +331,7 @@ public class MediaCommentsExtractorTest {
     }
 
     public static class ChannelOwnerTest extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=bem4adjGKjE";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=bem4adjGKjE";
 
         @Override
         protected String extractorUrl() {
@@ -369,7 +369,7 @@ public class MediaCommentsExtractorTest {
 
 
     public static class CreatorReply extends Base {
-        private final static String URL = "https://www.youtube.com/watch?v=bem4adjGKjE";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=bem4adjGKjE";
 
         @Override
         protected String extractorUrl() {
@@ -408,7 +408,7 @@ public class MediaCommentsExtractorTest {
 
     public static class Formatting extends Base {
 
-        private final static String URL = "https://www.youtube.com/watch?v=zYpyS2HaZHM";
+        private final static String URL = "https://www.MediaSvc.com/watch?v=zYpyS2HaZHM";
 
         @Override
         protected String extractorUrl() {

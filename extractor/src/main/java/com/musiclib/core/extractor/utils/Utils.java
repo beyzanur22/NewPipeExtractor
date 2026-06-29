@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.utils;
+﻿package com.musiclib.core.extractor.utils;
 
 import com.musiclib.core.extractor.exceptions.ParsingException;
 
@@ -238,7 +238,7 @@ public final class Utils {
         } catch (final MalformedURLException e) {
             final String message = e.getMessage();
             if (message.startsWith("unknown protocol: ")) {
-                // Return just the protocol (e.g. vnd.youtube)
+                // Return just the protocol (e.g. vnd.MediaSvc)
                 return message.substring("unknown protocol: ".length());
             }
 

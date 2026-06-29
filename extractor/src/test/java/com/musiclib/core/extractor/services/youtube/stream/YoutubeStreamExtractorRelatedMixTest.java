@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertContains;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertGreaterOrEqual;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.media.stream.MediaStreamExtractorDefaultTest.Media_LICENCE;
 
 import org.junit.jupiter.api.BeforeAll;
@@ -54,9 +54,9 @@ public class MediaStreamExtractorRelatedMixTest extends DefaultStreamExtractorTe
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
     @Override public String expectedUploaderName() { return "NoCopyrightSounds"; }
-    @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UC_aEa8K-EOJ3D6gOs7HcyNg"; }
+    @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UC_aEa8K-EOJ3D6gOs7HcyNg"; }
     @Override public List<String> expectedDescriptionContains() {
-        return Arrays.asList("https://www.youtube.com/user/danielleviband/", "©");
+        return Arrays.asList("https://www.MediaSvc.com/user/danielleviband/", "©");
     }
     @Override public boolean expectedUploaderVerified() { return true; }
     @Override public long expectedUploaderSubscriberCountAtLeast() { return 32_000_000; }

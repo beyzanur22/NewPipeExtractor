@@ -1,6 +1,6 @@
 ﻿package com.musiclib.core.extractor.services.media.stream;
 
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.StreamingService;
@@ -39,7 +39,7 @@ public class MediaStreamExtractorLivestreamTest extends DefaultStreamExtractorTe
 
     @Override public StreamType expectedStreamType() { return StreamType.LIVE_STREAM; }
     @Override public String expectedUploaderName() { return "Lofi Girl"; }
-    @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow"; }
+    @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCSJ4gkVC6NrvII8umztf0Ow"; }
     @Override public long expectedUploaderSubscriberCountAtLeast() { return 9_800_000; }
     @Override public List<String> expectedDescriptionContains() {
         return Arrays.asList("Lofi Girl merch",

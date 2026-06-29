@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertEmptyErrors;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.DefaultTests.assertNoDuplicatedItems;
 import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.CHANNELS;
 import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.PLAYLISTS;
@@ -363,7 +363,7 @@ public class MediaSearchExtractorTest {
         @Test
         void testUploaderUrl() throws IOException, ExtractionException {
             final List<InfoItem> items = extractor().getInitialPage().getItems();
-            assertEquals("https://www.youtube.com/channel/UCZxLew-WXWm5dhRZBgEFl-Q",
+            assertEquals("https://www.MediaSvc.com/channel/UCZxLew-WXWm5dhRZBgEFl-Q",
                 ((StreamInfoItem) items.get(0)).getUploaderUrl());
         }
         @Test

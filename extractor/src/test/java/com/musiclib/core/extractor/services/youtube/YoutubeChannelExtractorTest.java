@@ -9,7 +9,7 @@ import static com.musiclib.core.extractor.ExtractorAsserts.assertContains;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertEmpty;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertNotEmpty;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertTabsContain;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestGetPageInNewExtractor;
 import static com.musiclib.core.extractor.utils.Utils.isNullOrEmpty;
 
@@ -43,7 +43,7 @@ public class MediaChannelExtractorTest {
         @Test
         void deletedFetch() throws Exception {
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/UCAUc4iz6edWerIjlnL8OSSw");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/UCAUc4iz6edWerIjlnL8OSSw");
 
             assertThrows(ContentNotAvailableException.class, extractor::fetchPage);
         }
@@ -51,7 +51,7 @@ public class MediaChannelExtractorTest {
         @Test
         void nonExistentFetch() throws Exception {
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/DOESNT-EXIST");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/DOESNT-EXIST");
 
             assertThrows(ContentNotAvailableException.class, extractor::fetchPage);
         }
@@ -60,7 +60,7 @@ public class MediaChannelExtractorTest {
         void accountTerminatedTOSFetch() throws Exception {
             // "This account has been terminated for a violation of YouTube's Terms of Service."
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/UCTGjY2I-ZUGnwVoWAGRd7XQ");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/UCTGjY2I-ZUGnwVoWAGRd7XQ");
 
             final AccountTerminatedException ex =
                     assertThrows(AccountTerminatedException.class, extractor::fetchPage);
@@ -71,7 +71,7 @@ public class MediaChannelExtractorTest {
         void accountTerminatedCommunityFetch() throws Exception {
             // "This account has been terminated for violating YouTube's Community Guidelines."
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/UC-nQp2ewj2Yeg5w7VyoVBwQ");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/UC-nQp2ewj2Yeg5w7VyoVBwQ");
 
             final AccountTerminatedException ex =
                     assertThrows(AccountTerminatedException.class, extractor::fetchPage);
@@ -83,7 +83,7 @@ public class MediaChannelExtractorTest {
             // "This account has been terminated due to multiple or severe violations
             // of YouTube's policy prohibiting hate speech."
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/UCPWXIOPK-9myzek6jHR5yrg");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/UCPWXIOPK-9myzek6jHR5yrg");
 
             final AccountTerminatedException ex =
                     assertThrows(AccountTerminatedException.class, extractor::fetchPage);
@@ -96,7 +96,7 @@ public class MediaChannelExtractorTest {
             // of YouTube's policy against spam, deceptive practices and misleading content
             // or other Terms of Service violations."
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/UCoaO4U_p7G7AwalqSbGCZOA");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/UCoaO4U_p7G7AwalqSbGCZOA");
 
             final AccountTerminatedException ex =
                     assertThrows(AccountTerminatedException.class, extractor::fetchPage);
@@ -108,7 +108,7 @@ public class MediaChannelExtractorTest {
             // "This account has been terminated because we received multiple third-party claims
             // of copyright infringement regarding material that the user posted."
             final ChannelExtractor extractor =
-                    YouTube.getChannelExtractor("https://www.youtube.com/channel/UCI4i4RgFT5ilfMpna4Z_Y8w");
+                    YouTube.getChannelExtractor("https://www.MediaSvc.com/channel/UCI4i4RgFT5ilfMpna4Z_Y8w");
 
             final AccountTerminatedException ex =
                     assertThrows(AccountTerminatedException.class, extractor::fetchPage);
@@ -142,7 +142,7 @@ public class MediaChannelExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "http://www.youtube.com/@Gronkh";
+            return "http://www.MediaSvc.com/@Gronkh";
         }
 
         @Override
@@ -166,13 +166,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCYJ61XIK64sp6ZFFS8sctxw", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCYJ61XIK64sp6ZFFS8sctxw", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("http://www.youtube.com/@Gronkh", extractor().getOriginalUrl());
+            assertEquals("http://www.MediaSvc.com/@Gronkh", extractor().getOriginalUrl());
         }
 
         @Override
@@ -196,7 +196,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UCYJ61XIK64sp6ZFFS8sctxw", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCYJ61XIK64sp6ZFFS8sctxw", extractor().getFeedUrl());
         }
 
         @Override
@@ -232,7 +232,7 @@ public class MediaChannelExtractorTest {
     public static class VSauce extends Base {
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/user/Vsauce";
+            return "https://www.MediaSvc.com/user/Vsauce";
         }
 
         @Override
@@ -256,13 +256,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UC6nSFpj9HTCZ5t-N3Rm3-HA", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UC6nSFpj9HTCZ5t-N3Rm3-HA", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/user/Vsauce", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/user/Vsauce", extractor().getOriginalUrl());
         }
 
         @Override
@@ -286,7 +286,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA", extractor().getFeedUrl());
         }
 
         @Override
@@ -322,7 +322,7 @@ public class MediaChannelExtractorTest {
     public static class Kurzgesagt extends Base {
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q";
+            return "https://www.MediaSvc.com/channel/UCsXVk37bltHxD1rDPwtNM8Q";
         }
 
         @Override
@@ -346,13 +346,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCsXVk37bltHxD1rDPwtNM8Q", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCsXVk37bltHxD1rDPwtNM8Q", extractor().getOriginalUrl());
         }
 
         @Override
@@ -379,7 +379,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q", extractor().getFeedUrl());
         }
 
         @Override
@@ -420,7 +420,7 @@ public class MediaChannelExtractorTest {
         @Override
         protected MediaChannelExtractor createExtractor() throws Exception {
             return (MediaChannelExtractor) YouTube.getChannelExtractor(
-                "https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q");
+                "https://www.MediaSvc.com/channel/UCsXVk37bltHxD1rDPwtNM8Q");
         }
 
         @Override
@@ -449,7 +449,7 @@ public class MediaChannelExtractorTest {
     public static class CaptainDisillusion extends Base {
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/user/CaptainDisillusion/videos";
+            return "https://www.MediaSvc.com/user/CaptainDisillusion/videos";
         }
 
         @Override
@@ -473,13 +473,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCEOXxzW2vU0P-0THehuIIeg", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCEOXxzW2vU0P-0THehuIIeg", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/user/CaptainDisillusion/videos", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/user/CaptainDisillusion/videos", extractor().getOriginalUrl());
         }
 
         @Override
@@ -503,7 +503,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UCEOXxzW2vU0P-0THehuIIeg", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCEOXxzW2vU0P-0THehuIIeg", extractor().getFeedUrl());
         }
 
         @Override
@@ -539,7 +539,7 @@ public class MediaChannelExtractorTest {
     public static class RandomChannel extends Base {
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/channel/UCUaQMQS9lY5lit3vurpXQ6w";
+            return "https://www.MediaSvc.com/channel/UCUaQMQS9lY5lit3vurpXQ6w";
         }
 
         @Override
@@ -563,13 +563,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCUaQMQS9lY5lit3vurpXQ6w", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCUaQMQS9lY5lit3vurpXQ6w", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCUaQMQS9lY5lit3vurpXQ6w", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCUaQMQS9lY5lit3vurpXQ6w", extractor().getOriginalUrl());
         }
 
         @Override
@@ -593,7 +593,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UCUaQMQS9lY5lit3vurpXQ6w", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCUaQMQS9lY5lit3vurpXQ6w", extractor().getFeedUrl());
         }
 
         @Override
@@ -628,7 +628,7 @@ public class MediaChannelExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw";
+            return "https://www.MediaSvc.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw";
         }
 
         @Override
@@ -652,13 +652,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw", extractor().getOriginalUrl());
         }
 
         @Test
@@ -683,7 +683,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UCEgdi0XIXXZ-qJOFPf4JSKw", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCEgdi0XIXXZ-qJOFPf4JSKw", extractor().getFeedUrl());
         }
 
         @Override
@@ -725,7 +725,7 @@ public class MediaChannelExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig";
+            return "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig";
         }
 
         @Test
@@ -752,7 +752,7 @@ public class MediaChannelExtractorTest {
         @Override
         public void testFeedUrl() throws Exception {
             assertEquals(
-                    "https://www.youtube.com/feeds/videos.xml?channel_id=UCbfnHqxXs_K3kvaH-WlNlig",
+                    "https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCbfnHqxXs_K3kvaH-WlNlig",
                 extractor().getFeedUrl());
         }
 
@@ -784,14 +784,14 @@ public class MediaChannelExtractorTest {
         @Test
         @Override
         public void testUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig",
+            assertEquals("https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig",
                 extractor().getUrl());
         }
 
         @Test
         @Override
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig",
+            assertEquals("https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig",
                 extractor().getOriginalUrl());
         }
 
@@ -833,7 +833,7 @@ public class MediaChannelExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg";
+            return "https://www.MediaSvc.com/channel/UCQvWX73GQygcwXOTSf_VDVg";
         }
 
         @Test
@@ -860,7 +860,7 @@ public class MediaChannelExtractorTest {
         @Override
         public void testFeedUrl() throws Exception {
             assertEquals(
-                    "https://www.youtube.com/feeds/videos.xml?channel_id=UCQvWX73GQygcwXOTSf_VDVg",
+                    "https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCQvWX73GQygcwXOTSf_VDVg",
                 extractor().getFeedUrl());
         }
 
@@ -913,14 +913,14 @@ public class MediaChannelExtractorTest {
         @Test
         @Override
         public void testUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg",
+            assertEquals("https://www.MediaSvc.com/channel/UCQvWX73GQygcwXOTSf_VDVg",
                 extractor().getUrl());
         }
 
         @Test
         @Override
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCQvWX73GQygcwXOTSf_VDVg",
+            assertEquals("https://www.MediaSvc.com/channel/UCQvWX73GQygcwXOTSf_VDVg",
                 extractor().getOriginalUrl());
         }
     }
@@ -929,7 +929,7 @@ public class MediaChannelExtractorTest {
 
         @Override
         protected String extractorUrl() {
-            return "https://www.youtube.com/@ShempOfficial";
+            return "https://www.MediaSvc.com/@ShempOfficial";
         }
 
         @Override
@@ -953,13 +953,13 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/channel/UCEAXWzgcuF6XEiJcszhikQA", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCEAXWzgcuF6XEiJcszhikQA", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/@ShempOfficial", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/@ShempOfficial", extractor().getOriginalUrl());
         }
 
         @Override
@@ -983,7 +983,7 @@ public class MediaChannelExtractorTest {
         @Override
         @Test
         public void testFeedUrl() throws Exception {
-            assertEquals("https://www.youtube.com/feeds/videos.xml?channel_id=UCEAXWzgcuF6XEiJcszhikQA", extractor().getFeedUrl());
+            assertEquals("https://www.MediaSvc.com/feeds/videos.xml?channel_id=UCEAXWzgcuF6XEiJcszhikQA", extractor().getFeedUrl());
         }
 
         @Override

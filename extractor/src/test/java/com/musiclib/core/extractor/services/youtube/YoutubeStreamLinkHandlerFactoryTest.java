@@ -35,15 +35,15 @@ public class MediaStreamLinkHandlerFactoryTest {
     @Test
     void getIdForAd() {
         assertThrows(FoundAdException.class, () -> linkHandler.fromUrl(
-                "https://googleads.g.doubleclick.net/aclk?sa=l&ai=C-2IPgeVTWPf4GcOStgfOnIOADf78n61GvKmmobYDrgIQASDj-5MDKAJg9ZXOgeAEoAGgy_T-A8gBAakC2gkpmquIsT6oAwGqBJMBT9BgD5kVgbN0dX602bFFaDw9vsxq-We-S8VkrXVBi6W_e7brZ36GCz1WO3EPEeklYuJjXLUowwCOKsd-8xr1UlS_tusuFJv9iX35xoBHKTRvs8-0aDbfEIm6in37QDfFuZjqgEMB8-tg0Jn_Pf1RU5OzbuU40B4Gy25NUTnOxhDKthOhKBUSZEksCEerUV8GMu10iAXCxquwApIFBggDEAEYAaAGGsgGlIjthrUDgAfItIsBqAemvhvYBwHSCAUIgGEQAbgT6AE&num=1&sig=AOD64_1DybDd4qAm5O7o9UAbTNRdqXXHFQ&ctype=21&video_id=dMO_IXYPZew&client=ca-pub-6219811747049371&adurl=http://www.youtube.com/watch%3Fv%3DdMO_IXYPZew"));
+                "https://googleads.g.doubleclick.net/aclk?sa=l&ai=C-2IPgeVTWPf4GcOStgfOnIOADf78n61GvKmmobYDrgIQASDj-5MDKAJg9ZXOgeAEoAGgy_T-A8gBAakC2gkpmquIsT6oAwGqBJMBT9BgD5kVgbN0dX602bFFaDw9vsxq-We-S8VkrXVBi6W_e7brZ36GCz1WO3EPEeklYuJjXLUowwCOKsd-8xr1UlS_tusuFJv9iX35xoBHKTRvs8-0aDbfEIm6in37QDfFuZjqgEMB8-tg0Jn_Pf1RU5OzbuU40B4Gy25NUTnOxhDKthOhKBUSZEksCEerUV8GMu10iAXCxquwApIFBggDEAEYAaAGGsgGlIjthrUDgAfItIsBqAemvhvYBwHSCAUIgGEQAbgT6AE&num=1&sig=AOD64_1DybDd4qAm5O7o9UAbTNRdqXXHFQ&ctype=21&video_id=dMO_IXYPZew&client=ca-pub-6219811747049371&adurl=http://www.MediaSvc.com/watch%3Fv%3DdMO_IXYPZew"));
     }
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "https://www.youtube.com/watch?v=jZViOEv90d",
-            "https://www.youtube.com/watchjZViOEv90d",
-            "https://www.youtube.com/",
-            "https://www.youtube.com/channel/UCBR8-60-B28hp2BmDPdntcQ",
+            "https://www.MediaSvc.com/watch?v=jZViOEv90d",
+            "https://www.MediaSvc.com/watchjZViOEv90d",
+            "https://www.MediaSvc.com/",
+            "https://www.MediaSvc.com/channel/UCBR8-60-B28hp2BmDPdntcQ",
             "https://invidious.fdn.fr/channel/UCBR8-60-B28hp2BmDPdntcQ"
     })
     void getIdForInvalidUrls(final String invalidUrl) {
@@ -52,22 +52,22 @@ public class MediaStreamLinkHandlerFactoryTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "https://www.youtube.com/watch?v=9Dpqou5cI08",
-            "https://www.youtube.com/watch?v=9Dpqou5cI08&t=100",
-            "https://WWW.YouTube.com/watch?v=9Dpqou5cI08&t=100",
-            "HTTPS://www.youtube.com/watch?v=9Dpqou5cI08&t=100",
+            "https://www.MediaSvc.com/watch?v=9Dpqou5cI08",
+            "https://www.MediaSvc.com/watch?v=9Dpqou5cI08&t=100",
+            "https://WWW.MediaSvc.com/watch?v=9Dpqou5cI08&t=100",
+            "HTTPS://www.MediaSvc.com/watch?v=9Dpqou5cI08&t=100",
             "https://youtu.be/9Dpqou5cI08?t=9s",
             "HTTPS://Youtu.be/9Dpqou5cI08?t=9s",
-            "https://www.youtube.com/embed/9Dpqou5cI08",
-            "https://www.youtube-nocookie.com/embed/9Dpqou5cI08",
-            "http://www.youtube.com/watch?v=9Dpqou5cI08",
+            "https://www.MediaSvc.com/embed/9Dpqou5cI08",
+            "https://www.MediaSvc-nocookie.com/embed/9Dpqou5cI08",
+            "http://www.MediaSvc.com/watch?v=9Dpqou5cI08",
             "http://youtube.com/watch?v=9Dpqou5cI08",
             "http://youtu.be/9Dpqou5cI08?t=9s",
-            "http://www.youtube.com/embed/9Dpqou5cI08",
-            "http://www.Youtube.com/embed/9Dpqou5cI08",
-            "http://www.youtube-nocookie.com/embed/9Dpqou5cI08",
-            "vnd.youtube://www.youtube.com/watch?v=9Dpqou5cI08",
-            "vnd.youtube:9Dpqou5cI08"
+            "http://www.MediaSvc.com/embed/9Dpqou5cI08",
+            "http://www.MediaSvc.com/embed/9Dpqou5cI08",
+            "http://www.MediaSvc-nocookie.com/embed/9Dpqou5cI08",
+            "vnd.MediaSvc://www.MediaSvc.com/watch?v=9Dpqou5cI08",
+            "vnd.MediaSvc:9Dpqou5cI08"
     })
     void getId_9Dpqou5cI08_fromYt(final String url) throws Exception {
         assertEquals("9Dpqou5cI08", linkHandler.fromUrl(url).getId());
@@ -75,11 +75,11 @@ public class MediaStreamLinkHandlerFactoryTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "https://www.youtube.com/shorts/IOS2fqxwYbA",
-            "http://www.youtube.com/shorts/IOS2fqxwYbA",
-            "http://www.youtube.com/v/IOS2fqxwYbA",
-            "https://www.youtube.com/w/IOS2fqxwYbA",
-            "https://www.youtube.com/watch/IOS2fqxwYbA"
+            "https://www.MediaSvc.com/shorts/IOS2fqxwYbA",
+            "http://www.MediaSvc.com/shorts/IOS2fqxwYbA",
+            "http://www.MediaSvc.com/v/IOS2fqxwYbA",
+            "https://www.MediaSvc.com/w/IOS2fqxwYbA",
+            "https://www.MediaSvc.com/watch/IOS2fqxwYbA"
     })
     void getId_IOS2fqxwYbA_fromYt(final String url) throws Exception {
         assertEquals("IOS2fqxwYbA", linkHandler.fromUrl(url).getId());
@@ -87,9 +87,9 @@ public class MediaStreamLinkHandlerFactoryTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "https://m.youtube.com/watch?v=-cdveCh1kQk)",
-            "https://www.youtube.com/watch?v=-cdveCh1kQk-",
-            "https://WWW.YouTube.com/watch?v=-cdveCh1kQkwhatever",
+            "https://m.MediaSvc.com/watch?v=-cdveCh1kQk)",
+            "https://www.MediaSvc.com/watch?v=-cdveCh1kQk-",
+            "https://WWW.MediaSvc.com/watch?v=-cdveCh1kQkwhatever",
             "https://youtu.be/-cdveCh1kQk)hello",
             "HTTPS://youtu.be/-cdveCh1kQk)"
     })
@@ -99,15 +99,15 @@ public class MediaStreamLinkHandlerFactoryTest {
 
     @ParameterizedTest
     @CsvSource({
-            "W-fFHeTX70Q,https://www.youtube.com/watch?v=W-fFHeTX70Q",
-            "uEJuoEs1UxY,http://www.youtube.com/watch_popup?v=uEJuoEs1UxY",
-            "uEJuoEs1UxY,http://www.Youtube.com/watch_popup?v=uEJuoEs1UxY",
+            "W-fFHeTX70Q,https://www.MediaSvc.com/watch?v=W-fFHeTX70Q",
+            "uEJuoEs1UxY,http://www.MediaSvc.com/watch_popup?v=uEJuoEs1UxY",
+            "uEJuoEs1UxY,http://www.MediaSvc.com/watch_popup?v=uEJuoEs1UxY",
             "7_WWz2DSnT8,https://youtu.be/7_WWz2DSnT8",
-            "oy6NvWeVruY,https://m.youtube.com/watch?v=oy6NvWeVruY",
-            "EhxJLojIE_o,http://www.youtube.com/attribution_link?a=JdfC0C9V6ZI&u=%2Fwatch%3Fv%3DEhxJLojIE_o%26feature%3Dshare",
-            "n8X9_MgEdCg,vnd.youtube://n8X9_MgEdCg",
-            "O0EDx9WAelc,https://music.youtube.com/watch?v=O0EDx9WAelc",
-            "O0EDx9WAelc,HTTPS://www.youtube.com/watch?v=O0EDx9WAelc]",
+            "oy6NvWeVruY,https://m.MediaSvc.com/watch?v=oy6NvWeVruY",
+            "EhxJLojIE_o,http://www.MediaSvc.com/attribution_link?a=JdfC0C9V6ZI&u=%2Fwatch%3Fv%3DEhxJLojIE_o%26feature%3Dshare",
+            "n8X9_MgEdCg,vnd.MediaSvc://n8X9_MgEdCg",
+            "O0EDx9WAelc,https://music.MediaSvc.com/watch?v=O0EDx9WAelc",
+            "O0EDx9WAelc,HTTPS://www.MediaSvc.com/watch?v=O0EDx9WAelc]",
             "OGS7c0-CmRs,https://YouTu.be/OGS7c0-CmRswhatever)"
     })
     void getId_diverse_fromYt(final String expectedId, final String url) throws Exception {
@@ -116,28 +116,28 @@ public class MediaStreamLinkHandlerFactoryTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
-            "https://www.youtube.com/watch?v=9Dpqou5cI08",
-            "https://www.youtube.com/watch?v=9Dpqou5cI08&t=100",
-            "https://WWW.YouTube.com/watch?v=9Dpqou5cI08&t=100",
-            "HTTPS://www.youtube.com/watch?v=9Dpqou5cI08&t=100",
+            "https://www.MediaSvc.com/watch?v=9Dpqou5cI08",
+            "https://www.MediaSvc.com/watch?v=9Dpqou5cI08&t=100",
+            "https://WWW.MediaSvc.com/watch?v=9Dpqou5cI08&t=100",
+            "HTTPS://www.MediaSvc.com/watch?v=9Dpqou5cI08&t=100",
             "https://youtu.be/9Dpqou5cI08?t=9s",
-            "https://www.youtube.com/embed/9Dpqou5cI08",
-            "https://www.youtube-nocookie.com/embed/9Dpqou5cI08",
-            "http://www.youtube.com/watch?v=9Dpqou5cI08",
+            "https://www.MediaSvc.com/embed/9Dpqou5cI08",
+            "https://www.MediaSvc-nocookie.com/embed/9Dpqou5cI08",
+            "http://www.MediaSvc.com/watch?v=9Dpqou5cI08",
             "http://youtu.be/9Dpqou5cI08?t=9s",
-            "http://www.youtube.com/embed/9Dpqou5cI08",
-            "http://www.youtube-nocookie.com/embed/9Dpqou5cI08",
-            "http://www.youtube.com/attribution_link?a=JdfC0C9V6ZI&u=%2Fwatch%3Fv%3DEhxJLojIE_o%26feature%3Dshare",
-            "vnd.youtube://www.youtube.com/watch?v=9Dpqou5cI08",
-            "vnd.youtube:9Dpqou5cI08",
-            "vnd.youtube.launch:9Dpqou5cI08",
-            "https://music.youtube.com/watch?v=O0EDx9WAelc",
-            "https://www.youtube.com/shorts/IOS2fqxwYbA",
-            "http://www.youtube.com/shorts/IOS2fqxwYbA",
-            "http://www.youtube.com/v/IOS2fqxwYbA",
-            "https://www.youtube.com/w/IOS2fqxwYbA",
-            "https://www.youtube.com/watch/IOS2fqxwYbA",
-            "https://www.youtube.com/live/rUxyKA_-grg"
+            "http://www.MediaSvc.com/embed/9Dpqou5cI08",
+            "http://www.MediaSvc-nocookie.com/embed/9Dpqou5cI08",
+            "http://www.MediaSvc.com/attribution_link?a=JdfC0C9V6ZI&u=%2Fwatch%3Fv%3DEhxJLojIE_o%26feature%3Dshare",
+            "vnd.MediaSvc://www.MediaSvc.com/watch?v=9Dpqou5cI08",
+            "vnd.MediaSvc:9Dpqou5cI08",
+            "vnd.MediaSvc.launch:9Dpqou5cI08",
+            "https://music.MediaSvc.com/watch?v=O0EDx9WAelc",
+            "https://www.MediaSvc.com/shorts/IOS2fqxwYbA",
+            "http://www.MediaSvc.com/shorts/IOS2fqxwYbA",
+            "http://www.MediaSvc.com/v/IOS2fqxwYbA",
+            "https://www.MediaSvc.com/w/IOS2fqxwYbA",
+            "https://www.MediaSvc.com/watch/IOS2fqxwYbA",
+            "https://www.MediaSvc.com/live/rUxyKA_-grg"
     })
     void acceptYtUrl(final String url) throws ParsingException {
         assertTrue(linkHandler.acceptUrl(url));

@@ -33,8 +33,8 @@ class MediaSubscriptionExtractorTest {
     @BeforeAll
     public static void setupClass() {
         InitNewPipeTest.initEmpty();
-        subscriptionExtractor = new MediaSubscriptionExtractor(ServiceList.YouTube);
-        urlHandler = ServiceList.YouTube.getChannelLHFactory();
+        subscriptionExtractor = new MediaSubscriptionExtractor(ServiceList.MediaSvc);
+        urlHandler = ServiceList.MediaSvc.getChannelLHFactory();
     }
 
     @Test
@@ -47,7 +47,7 @@ class MediaSubscriptionExtractorTest {
             assertNotNull(item.getName());
             assertNotNull(item.getUrl());
             assertTrue(urlHandler.acceptUrl(item.getUrl()));
-            assertEquals(ServiceList.YouTube.getServiceId(), item.getServiceId());
+            assertEquals(ServiceList.MediaSvc.getServiceId(), item.getServiceId());
         }
     }
 
@@ -65,8 +65,8 @@ class MediaSubscriptionExtractorTest {
                 new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8)));
 
         assertEquals(1, items.size());
-        assertEquals(ServiceList.YouTube.getServiceId(), items.get(0).getServiceId());
-        assertEquals("https://www.youtube.com/channel/UCEOXxzW2vU0P-0THehuIIeg", items.get(0).getUrl());
+        assertEquals(ServiceList.MediaSvc.getServiceId(), items.get(0).getServiceId());
+        assertEquals("https://www.MediaSvc.com/channel/UCEOXxzW2vU0P-0THehuIIeg", items.get(0).getUrl());
         assertEquals("", items.get(0).getName());
     }
 
@@ -78,8 +78,8 @@ class MediaSubscriptionExtractorTest {
                 new ByteArrayInputStream(source.getBytes(StandardCharsets.UTF_8)));
 
         assertEquals(1, items.size());
-        assertEquals(ServiceList.YouTube.getServiceId(), items.get(0).getServiceId());
-        assertEquals("https://www.youtube.com/channel/UCEOXxzW2vU0P-0THehuIIeg", items.get(0).getUrl());
+        assertEquals(ServiceList.MediaSvc.getServiceId(), items.get(0).getServiceId());
+        assertEquals("https://www.MediaSvc.com/channel/UCEOXxzW2vU0P-0THehuIIeg", items.get(0).getUrl());
         assertEquals("name2", items.get(0).getName());
     }
 
@@ -121,7 +121,7 @@ class MediaSubscriptionExtractorTest {
             assertNotNull(item.getName());
             assertNotNull(item.getUrl());
             assertTrue(urlHandler.acceptUrl(item.getUrl()));
-            assertEquals(ServiceList.YouTube.getServiceId(), item.getServiceId());
+            assertEquals(ServiceList.MediaSvc.getServiceId(), item.getServiceId());
         }
     }
 

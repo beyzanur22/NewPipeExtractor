@@ -1,7 +1,7 @@
 ﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.DefaultTests.assertNoMoreItems;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestMoreItems;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestRelatedItems;
@@ -49,7 +49,7 @@ public class MediaKioskExtractorTest {
         @Test
         public void testUrl() throws Exception {
             assertEquals(
-                    "https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig/livetab?ss=CKEK",
+                    "https://www.MediaSvc.com/channel/UC4R8DWoMoI7CAwX8_LjQHig/livetab?ss=CKEK",
                     extractor().getUrl());
         }
 
@@ -57,7 +57,7 @@ public class MediaKioskExtractorTest {
         @Test
         public void testOriginalUrl() throws Exception {
             assertEquals(
-                    "https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig/livetab?ss=CKEK",
+                    "https://www.MediaSvc.com/channel/UC4R8DWoMoI7CAwX8_LjQHig/livetab?ss=CKEK",
                     extractor().getOriginalUrl());
         }
 
@@ -107,13 +107,13 @@ public class MediaKioskExtractorTest {
         @Override
         @Test
         public void testUrl() throws Exception {
-            assertEquals("https://www.youtube.com/podcasts/popularepisodes", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/podcasts/popularepisodes", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://www.youtube.com/podcasts/popularepisodes",
+            assertEquals("https://www.MediaSvc.com/podcasts/popularepisodes",
                     extractor().getOriginalUrl());
         }
 
@@ -161,13 +161,13 @@ public class MediaKioskExtractorTest {
         @Override
         @Test
         public void testUrl() throws Exception {
-            assertEquals("https://www.youtube.com/gaming/trending", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/gaming/trending", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://www.youtube.com/gaming/trending", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/gaming/trending", extractor().getOriginalUrl());
         }
 
         @Override
@@ -215,14 +215,14 @@ public class MediaKioskExtractorTest {
         @Override
         @Test
         public void testUrl() throws Exception {
-            assertEquals("https://charts.youtube.com/charts/TrendingTrailers",
+            assertEquals("https://charts.MediaSvc.com/charts/TrendingTrailers",
                     extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://charts.youtube.com/charts/TrendingTrailers",
+            assertEquals("https://charts.MediaSvc.com/charts/TrendingTrailers",
                     extractor().getOriginalUrl());
         }
 
@@ -271,14 +271,14 @@ public class MediaKioskExtractorTest {
         @Override
         @Test
         public void testUrl() throws Exception {
-            assertEquals("https://charts.youtube.com/charts/TrendingVideos/RightNow",
+            assertEquals("https://charts.MediaSvc.com/charts/TrendingVideos/RightNow",
                     extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://charts.youtube.com/charts/TrendingVideos/RightNow",
+            assertEquals("https://charts.MediaSvc.com/charts/TrendingVideos/RightNow",
                     extractor().getOriginalUrl());
         }
 
@@ -327,13 +327,13 @@ public class MediaKioskExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/feed/trending", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/feed/trending", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/feed/trending", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/feed/trending", extractor().getOriginalUrl());
         }
 
         @Override

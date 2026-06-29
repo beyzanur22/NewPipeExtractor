@@ -1,6 +1,6 @@
 ﻿package com.musiclib.core.extractor.services.media.stream;
 
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import org.junit.jupiter.api.Disabled;
 import com.musiclib.core.extractor.StreamingService;
@@ -34,7 +34,7 @@ public class MediaStreamExtractorAgeRestrictedTest extends DefaultStreamExtracto
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
     @Override public String expectedUploaderName() { return "DAN TV"; }
-    @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCcQHIVL83g5BEQe2IJFb-6w"; }
+    @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCcQHIVL83g5BEQe2IJFb-6w"; }
     @Override public long expectedUploaderSubscriberCountAtLeast() { return 50; }
     @Override public boolean expectedUploaderVerified() { return false; }
     @Override public boolean expectedDescriptionIsEmpty() { return true; }

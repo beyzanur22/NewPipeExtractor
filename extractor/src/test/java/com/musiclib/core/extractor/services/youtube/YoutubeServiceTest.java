@@ -23,7 +23,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.BeforeAll;
@@ -76,7 +76,7 @@ public class MediaServiceTest {
     @Test
     void getPlayListExtractorIsNormalPlaylist() throws Exception {
         final PlaylistExtractor extractor = service.getPlaylistExtractor(
-            "https://www.youtube.com/watch?v=JhqtYOnNrTs&list=PL-EkZZikQIQVqk9rBWzEo5b-2GeozElS");
+            "https://www.MediaSvc.com/watch?v=JhqtYOnNrTs&list=PL-EkZZikQIQVqk9rBWzEo5b-2GeozElS");
         assertInstanceOf(MediaPlaylistExtractor.class, extractor);
     }
 
@@ -84,17 +84,17 @@ public class MediaServiceTest {
     void getPlaylistExtractorIsMix() throws Exception {
         final String videoId = "_AzeUSL9lZc";
         PlaylistExtractor extractor = YouTube.getPlaylistExtractor(
-            "https://www.youtube.com/watch?v=" + videoId + "&list=RD" + videoId);
+            "https://www.MediaSvc.com/watch?v=" + videoId + "&list=RD" + videoId);
         assertInstanceOf(MediaMixPlaylistExtractor.class, extractor);
 
         extractor = YouTube.getPlaylistExtractor(
-            "https://www.youtube.com/watch?v=" + videoId + "&list=RDMM" + videoId);
+            "https://www.MediaSvc.com/watch?v=" + videoId + "&list=RDMM" + videoId);
         assertInstanceOf(MediaMixPlaylistExtractor.class, extractor);
 
         final String mixVideoId = "qHtzO49SDmk";
 
         extractor = YouTube.getPlaylistExtractor(
-            "https://www.youtube.com/watch?v=" + mixVideoId + "&list=RD" + videoId);
+            "https://www.MediaSvc.com/watch?v=" + mixVideoId + "&list=RD" + videoId);
         assertInstanceOf(MediaMixPlaylistExtractor.class, extractor);
     }
 }

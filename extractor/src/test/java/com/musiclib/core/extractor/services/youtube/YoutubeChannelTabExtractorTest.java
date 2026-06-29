@@ -1,7 +1,7 @@
 ﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.InfoItem;
@@ -25,8 +25,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.VIDEOS; }
         @Override public String expectedId() throws Exception { return "UCTwECeGqMZee77BjdoYtI2Q"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UCTwECeGqMZee77BjdoYtI2Q/videos"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/user/creativecommons/videos"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCTwECeGqMZee77BjdoYtI2Q/videos"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/user/creativecommons/videos"; }
         @Override public InfoItem.InfoType expectedInfoItemType() { return InfoItem.InfoType.STREAM; }
         @Override public boolean expectedHasMoreItems() { return true; }
     }
@@ -42,8 +42,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.PLAYLISTS; }
         @Override public String expectedId() throws Exception { return "UC2DjFE7Xf11URZqWBigcVOQ"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UC2DjFE7Xf11URZqWBigcVOQ/playlists"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/@EEVblog/playlists"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UC2DjFE7Xf11URZqWBigcVOQ/playlists"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/@EEVblog/playlists"; }
         @Override public InfoItem.InfoType expectedInfoItemType() { return InfoItem.InfoType.PLAYLIST; }
         @Override public boolean expectedHasMoreItems() { return true; }
     }
@@ -60,8 +60,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.LIVESTREAMS; }
         @Override public String expectedId() throws Exception { return "UCR-DXc1voovS8nhAvccRZhg"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UCR-DXc1voovS8nhAvccRZhg/streams"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/c/JeffGeerling/streams"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCR-DXc1voovS8nhAvccRZhg/streams"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/c/JeffGeerling/streams"; }
         @Override public InfoItem.InfoType expectedInfoItemType() { return InfoItem.InfoType.STREAM; }
         @Override public boolean expectedHasMoreItems() { return true; }
     }
@@ -78,8 +78,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.SHORTS; }
         @Override public String expectedId() throws Exception { return "UCh8gHdtzO2tXd593_bjErWg"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UCh8gHdtzO2tXd593_bjErWg/shorts"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/channel/UCh8gHdtzO2tXd593_bjErWg/shorts"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCh8gHdtzO2tXd593_bjErWg/shorts"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCh8gHdtzO2tXd593_bjErWg/shorts"; }
         @Override public InfoItem.InfoType expectedInfoItemType() { return InfoItem.InfoType.STREAM; }
         @Override public boolean expectedHasMoreItems() { return true; }
     }
@@ -95,8 +95,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.ALBUMS; }
         @Override public String expectedId() throws Exception { return "UCq19-LqvG35A-30oyAiPiqA"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UCq19-LqvG35A-30oyAiPiqA/releases"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/@Radiohead/releases"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCq19-LqvG35A-30oyAiPiqA/releases"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/@Radiohead/releases"; }
         @Override public InfoItem.InfoType expectedInfoItemType() { return InfoItem.InfoType.PLAYLIST; }
         @Override public boolean expectedHasMoreItems() { return true; }
     }
@@ -115,7 +115,7 @@ class MediaChannelTabExtractorTest {
         @Override
         protected ChannelTabExtractor createExtractor() throws Exception {
             final ChannelExtractor channelExtractor = YouTube.getChannelExtractor(
-                "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig");
+                "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig");
             channelExtractor.fetchPage();
 
             // the videos tab is the first one
@@ -125,8 +125,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.VIDEOS; }
         @Override public String expectedId() throws Exception { return "UCbfnHqxXs_K3kvaH-WlNlig"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/videos"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/videos"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/videos"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/videos"; }
         @Override public InfoItem.InfoType expectedInfoItemType() { return InfoItem.InfoType.STREAM; }
         @Override public boolean expectedHasMoreItems() { return true; }
     }
@@ -137,7 +137,7 @@ class MediaChannelTabExtractorTest {
         @Override
         protected ChannelTabExtractor createExtractor() throws Exception {
             final ChannelExtractor channelExtractor = YouTube.getChannelExtractor(
-                "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig");
+                "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig");
             channelExtractor.fetchPage();
 
             // the shorts tab is the second one
@@ -147,8 +147,8 @@ class MediaChannelTabExtractorTest {
         @Override public StreamingService expectedService() throws Exception { return YouTube; }
         @Override public String expectedName() throws Exception { return ChannelTabs.SHORTS; }
         @Override public String expectedId() throws Exception { return "UCbfnHqxXs_K3kvaH-WlNlig"; }
-        @Override public String expectedUrlContains() throws Exception { return "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/shorts"; }
-        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.youtube.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/shorts"; }
+        @Override public String expectedUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/shorts"; }
+        @Override public String expectedOriginalUrlContains() throws Exception { return "https://www.MediaSvc.com/channel/UCbfnHqxXs_K3kvaH-WlNlig/shorts"; }
         @Override public boolean expectedHasMoreItems() { return false; }
 
         @Test

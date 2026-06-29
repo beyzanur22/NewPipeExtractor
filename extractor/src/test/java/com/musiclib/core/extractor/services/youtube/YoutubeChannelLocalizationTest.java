@@ -1,7 +1,7 @@
 ﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.fail;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestRelatedItems;
 
 import org.junit.jupiter.api.Test;
@@ -29,10 +29,10 @@ public class MediaChannelLocalizationTest implements InitYoutubeTest {
 
     @Test
     public void testAllSupportedLocalizations() throws Exception {
-        testLocalizationsFor("https://www.youtube.com/user/NBCNews");
-        testLocalizationsFor("https://www.youtube.com/channel/UCcmpeVbSSQlZRvHfdC-CRwg/videos");
-        testLocalizationsFor("https://www.youtube.com/channel/UC65afEgL62PGFWXY7n6CUbA");
-        testLocalizationsFor("https://www.youtube.com/channel/UCEOXxzW2vU0P-0THehuIIeg");
+        testLocalizationsFor("https://www.MediaSvc.com/user/NBCNews");
+        testLocalizationsFor("https://www.MediaSvc.com/channel/UCcmpeVbSSQlZRvHfdC-CRwg/videos");
+        testLocalizationsFor("https://www.MediaSvc.com/channel/UC65afEgL62PGFWXY7n6CUbA");
+        testLocalizationsFor("https://www.MediaSvc.com/channel/UCEOXxzW2vU0P-0THehuIIeg");
     }
 
     private void testLocalizationsFor(final String channelUrl) throws Exception {

@@ -1,6 +1,6 @@
 ﻿package com.musiclib.core.extractor.services.media.search;
 
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static java.util.Collections.singletonList;
 
 import org.junit.jupiter.api.Disabled;
@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 
 // Doesn't work with mocks. Makes request with different `dataToSend` I think
 public class MediaMusicSearchExtractorTest {
-    private static final String BASE_SEARCH_URL = "music.youtube.com/search?q=";
+    private static final String BASE_SEARCH_URL = "music.MediaSvc.com/search?q=";
 
     public static class MusicSongs extends DefaultSearchExtractorTest implements InitYoutubeTest {
         private static final String QUERY = "mocromaniac";

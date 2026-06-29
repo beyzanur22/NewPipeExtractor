@@ -23,7 +23,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -48,24 +48,24 @@ public class MediaTrendingLinkHandlerFactoryTest {
 
     @Test
     public void getUrl() throws Exception {
-        assertEquals("https://www.youtube.com/feed/trending", linkHandlerFactory.fromId("").getUrl());
+        assertEquals("https://www.MediaSvc.com/feed/trending", linkHandlerFactory.fromId("").getUrl());
     }
 
     @Test
     public void getId() throws Exception {
-        assertEquals("Trending", linkHandlerFactory.fromUrl("https://www.youtube.com/feed/trending").getId());
+        assertEquals("Trending", linkHandlerFactory.fromUrl("https://www.MediaSvc.com/feed/trending").getId());
     }
 
     @ParameterizedTest
     @ValueSource(strings = {
-        "https://www.youtube.com/feed/trending",
-        "https://www.youtube.com/feed/trending?adsf=fjaj#fhe",
-        "http://www.youtube.com/feed/trending",
-        "www.youtube.com/feed/trending",
+        "https://www.MediaSvc.com/feed/trending",
+        "https://www.MediaSvc.com/feed/trending?adsf=fjaj#fhe",
+        "http://www.MediaSvc.com/feed/trending",
+        "www.MediaSvc.com/feed/trending",
         "youtube.com/feed/trending",
         "youtube.com/feed/trending?akdsakjf=dfije&kfj=dkjak",
         "https://youtube.com/feed/trending",
-        "m.youtube.com/feed/trending",
+        "m.MediaSvc.com/feed/trending",
         "https://www.invidio.us/feed/trending",
         "https://invidio.us/feed/trending",
         "invidio.us/feed/trending"
@@ -78,14 +78,14 @@ public class MediaTrendingLinkHandlerFactoryTest {
     @ValueSource(strings = {
         "https://youtu.be/feed/trending",
         "kdskjfiiejfia",
-        "https://www.youtube.com/bullshit/feed/trending",
-        "https://www.youtube.com/feed/trending/bullshit",
-        "https://www.youtube.com/feed/bullshit/trending",
+        "https://www.MediaSvc.com/bullshit/feed/trending",
+        "https://www.MediaSvc.com/feed/trending/bullshit",
+        "https://www.MediaSvc.com/feed/bullshit/trending",
         "peter klaut aepferl youtube.com/feed/trending",
         "youtube.com/feed/trending askjkf",
         "askdjfi youtube.com/feed/trending askjkf",
         "    youtube.com/feed/trending",
-        "https://www.youtube.com/feed/trending.html",
+        "https://www.MediaSvc.com/feed/trending.html",
         ""
     })
     public void shouldNotAcceptUrl(final String url) throws ParsingException {

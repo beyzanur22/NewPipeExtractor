@@ -35,7 +35,7 @@ public final class ServiceList {
         // no instance
     }
 
-    public static final MediaService YouTube = new MediaService(0);
+    public static final MediaService MediaSvc = new MediaService(0);
     public static final SoundcloudService SoundCloud = new SoundcloudService(1);
     public static final MediaCCCService MediaCCC = new MediaCCCService(2);
     public static final PeertubeService PeerTube = new PeertubeService(3);
@@ -46,7 +46,7 @@ public final class ServiceList {
      * and give it the next free id.
      */
     private static final List<StreamingService> SERVICES = List.of(
-            YouTube, SoundCloud, MediaCCC, PeerTube, Bandcamp);
+            MediaSvc, SoundCloud, MediaCCC, PeerTube, Bandcamp);
 
     /**
      * Get all the supported services.

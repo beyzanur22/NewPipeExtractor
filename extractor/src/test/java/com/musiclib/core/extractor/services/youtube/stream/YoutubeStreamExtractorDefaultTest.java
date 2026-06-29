@@ -25,7 +25,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -61,7 +61,7 @@ import java.util.Objects;
 import javax.annotation.Nullable;
 
 public class MediaStreamExtractorDefaultTest {
-    static final String BASE_URL = "https://www.youtube.com/watch?v=";
+    static final String BASE_URL = "https://www.MediaSvc.com/watch?v=";
     public static final String Media_LICENCE = "YouTube licence";
 
     public static class NotAvailable {
@@ -146,10 +146,10 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "PewDiePie"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 110_000_000; }
         @Override public List<String> expectedDescriptionContains() {
-            return Arrays.asList("https://www.youtube.com/channel/UC7l23W7gFi4Uho6WSzckZRA",
+            return Arrays.asList("https://www.MediaSvc.com/channel/UC7l23W7gFi4Uho6WSzckZRA",
                     "https://www.handcraftpictures.com/");
         }
         @Override public boolean expectedUploaderVerified() { return true; }
@@ -185,13 +185,13 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "Unbox Therapy"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCsTcErHg8oDvUnTzoqsYeNw"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCsTcErHg8oDvUnTzoqsYeNw"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 18_000_000; }
         @Override public List<String> expectedDescriptionContains() {
-            return Arrays.asList("https://www.youtube.com/watch?v=X7FLCHVXpsA&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34",
-                    "https://www.youtube.com/watch?v=Lqv6G0pDNnw&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34",
-                    "https://www.youtube.com/watch?v=XxaRBPyrnBU&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34",
-                    "https://www.youtube.com/watch?v=U-9tUEOFKNU&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34");
+            return Arrays.asList("https://www.MediaSvc.com/watch?v=X7FLCHVXpsA&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34",
+                    "https://www.MediaSvc.com/watch?v=Lqv6G0pDNnw&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34",
+                    "https://www.MediaSvc.com/watch?v=XxaRBPyrnBU&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34",
+                    "https://www.MediaSvc.com/watch?v=U-9tUEOFKNU&amp;list=PL7u4lWXQ3wfI_7PgX0C-VTiwLeu0S4v34");
         }
         @Override public long expectedLength() { return 434; }
         @Override public long expectedViewCountAtLeast() { return 21229200; }
@@ -233,7 +233,7 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "GoogleDoodles"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCdq61m8s_48EhJ5OM_MCeGw"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCdq61m8s_48EhJ5OM_MCeGw"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 2200000; }
         @Override public List<String> expectedDescriptionContains() { return Arrays.asList("Doodle", "Google", "video"); }
         @Override public long expectedLength() { return 145; }
@@ -268,7 +268,7 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "tagesschau"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UC5NOEUbkLheQcaaRldYW5GA"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UC5NOEUbkLheQcaaRldYW5GA"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 1_000_000; }
         @Override public boolean expectedUploaderVerified() { return true; }
         @Override public List<String> expectedDescriptionContains() {
@@ -324,7 +324,7 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "MAITHINK X"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCyHDQ5C6z1NDmJ4g6SerW8g"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCyHDQ5C6z1NDmJ4g6SerW8g"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 1_400_000; }
         @Override public List<String> expectedDescriptionContains()  {return Arrays.asList("Vitamin", "2:44", "Was ist Vitamin D?");}
         @Override public boolean expectedUploaderVerified() { return true; }
@@ -387,7 +387,7 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "ARTE"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCwI-JbGNsojunnHbFAc0M4Q"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCwI-JbGNsojunnHbFAc0M4Q"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 3_000_000; }
         @Override public List<String> expectedDescriptionContains() { return Arrays.asList("sommets", "fans", "cadeau"); }
         @Override public long expectedLength() { return 45; }
@@ -435,7 +435,7 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "ABCs of Anaesthesia"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCs1fy2n5Ey0c9VZRBL7UCsg"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCs1fy2n5Ey0c9VZRBL7UCsg"; }
         @Override public long expectedUploaderSubscriberCountAtLeast() { return 200_000; }
         @Override public List<String> expectedDescriptionContains() { return Arrays.asList("https://www.facebook.com/groups/2082807131964430", "LMA"); }
         @Override public long expectedLength() { return 343; }
@@ -482,7 +482,7 @@ public class MediaStreamExtractorDefaultTest {
 
         @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
         @Override public String expectedUploaderName() { return "Makani"; }
-        @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UC-iMZJ8NppwT2fLwzFWJKOQ"; }
+        @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UC-iMZJ8NppwT2fLwzFWJKOQ"; }
         @Override public List<String> expectedDescriptionContains() { return Arrays.asList("Makani", "prototype", "rotors"); }
         @Override public long expectedLength() { return 175; }
         @Override public long expectedViewCountAtLeast() { return 88_000; }
@@ -533,7 +533,7 @@ public class MediaStreamExtractorDefaultTest {
         @Override
         protected MediaStreamExtractor createExtractor() throws Exception {
             return (MediaStreamExtractor) YouTube
-                .getStreamExtractor("https://www.youtube.com/watch?v=tjz2u2DiveM");
+                .getStreamExtractor("https://www.MediaSvc.com/watch?v=tjz2u2DiveM");
         }
 
         @Test

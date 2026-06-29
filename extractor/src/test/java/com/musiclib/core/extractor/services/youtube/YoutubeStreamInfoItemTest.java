@@ -34,11 +34,11 @@ class MediaStreamInfoItemTest {
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
-        () -> assertEquals("https://www.youtube.com/watch?v=M_8QNw_JM4I", extractor.getUrl()),
+        () -> assertEquals("https://www.MediaSvc.com/watch?v=M_8QNw_JM4I", extractor.getUrl()),
         () -> assertEquals("This video will premiere in 6 months.", extractor.getName()),
         () -> assertEquals(33, extractor.getDuration()),
         () -> assertEquals("Blunt Brothers Productions", extractor.getUploaderName()),
-        () -> assertEquals("https://www.youtube.com/channel/UCUPrbbdnot-aPgNM65svgOg", extractor.getUploaderUrl()),
+        () -> assertEquals("https://www.MediaSvc.com/channel/UCUPrbbdnot-aPgNM65svgOg", extractor.getUploaderUrl()),
         () -> assertFalse(extractor.getUploaderAvatars().isEmpty()),
         () -> assertTrue(extractor.isUploaderVerified()),
         () -> {
@@ -67,11 +67,11 @@ class MediaStreamInfoItemTest {
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
-        () -> assertEquals("https://www.youtube.com/watch?v=VIDEO_ID", extractor.getUrl()),
+        () -> assertEquals("https://www.MediaSvc.com/watch?v=VIDEO_ID", extractor.getUrl()),
         () -> assertEquals("VIDEO_TITLE", extractor.getName()),
         () -> assertEquals(-1, extractor.getDuration()),
         () -> assertEquals("VIDEO_CHANNEL_NAME", extractor.getUploaderName()),
-        () -> assertEquals("https://www.youtube.com/channel/UCD_on7-zu7Zuc3zissQvrgw", extractor.getUploaderUrl()),
+        () -> assertEquals("https://www.MediaSvc.com/channel/UCD_on7-zu7Zuc3zissQvrgw", extractor.getUploaderUrl()),
         () -> assertFalse(extractor.getUploaderAvatars().isEmpty()),
         () -> assertFalse(extractor.isUploaderVerified()),
         () -> assertEquals("14/08/2025, 13:00", extractor.getTextualUploadDate()),
@@ -96,7 +96,7 @@ class MediaStreamInfoItemTest {
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
-        () -> assertEquals("https://www.youtube.com/watch?v=dQw4w9WgXcQ", extractor.getUrl()),
+        () -> assertEquals("https://www.MediaSvc.com/watch?v=dQw4w9WgXcQ", extractor.getUrl()),
         () -> assertEquals("VIDEO_TITLE", extractor.getName()),
         () -> assertEquals(974, extractor.getDuration()),
         () -> assertFalse(extractor.getThumbnails().isEmpty())
@@ -113,7 +113,7 @@ class MediaStreamInfoItemTest {
         assertAll(
         () -> assertEquals(StreamType.LIVE_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
-        () -> assertEquals("https://www.youtube.com/watch?v=LIVE_VIDEO_ID", extractor.getUrl()),
+        () -> assertEquals("https://www.MediaSvc.com/watch?v=LIVE_VIDEO_ID", extractor.getUrl()),
         () -> assertEquals("LIVE_VIDEO_TITLE", extractor.getName()),
         () -> assertEquals(-1, extractor.getDuration()),
         () -> assertNull(extractor.getTextualUploadDate()),
@@ -288,11 +288,11 @@ class MediaStreamInfoItemTest {
         assertAll(
                 () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
                 () -> assertFalse(extractor.isAd()),
-                () -> assertEquals("https://www.youtube.com/watch?v=nc1kN8ZSfGQ", extractor.getUrl()),
+                () -> assertEquals("https://www.MediaSvc.com/watch?v=nc1kN8ZSfGQ", extractor.getUrl()),
                 () -> assertEquals("", extractor.getName()),
                 () -> assertEquals(39, extractor.getDuration()),
                 () -> assertEquals("hyper", extractor.getUploaderName()),
-                () -> assertEquals("https://www.youtube.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ", extractor.getUploaderUrl()),
+                () -> assertEquals("https://www.MediaSvc.com/channel/UCSezUnbvCLYBXuUlPcXU_QQ", extractor.getUploaderUrl()),
                 () -> assertFalse(extractor.getUploaderAvatars().isEmpty()),
                 () -> assertTrue(extractor.isUploaderVerified()),
                 () -> assertEquals("8 years ago", extractor.getTextualUploadDate()),

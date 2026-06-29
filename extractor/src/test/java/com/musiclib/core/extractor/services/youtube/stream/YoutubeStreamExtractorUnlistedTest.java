@@ -1,6 +1,6 @@
 ﻿package com.musiclib.core.extractor.services.media.stream;
 
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.stream.StreamExtractor.Privacy.UNLISTED;
 
 import com.musiclib.core.extractor.StreamingService;
@@ -32,10 +32,10 @@ public class MediaStreamExtractorUnlistedTest extends DefaultStreamExtractorTest
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
     @Override public String expectedUploaderName() { return "Hooked"; }
-    @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCPysfiuOv4VKBeXFFPhKXyw"; }
+    @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCPysfiuOv4VKBeXFFPhKXyw"; }
     @Override public long expectedUploaderSubscriberCountAtLeast() { return 24_300; }
     @Override public List<String> expectedDescriptionContains() {
-        return Arrays.asList("https://www.youtube.com/user/Roccowschiptune",
+        return Arrays.asList("https://www.MediaSvc.com/user/Roccowschiptune",
                 "https://www.facebook.com/HookedMagazinDE");
     }
     @Override public long expectedLength() { return 2488; }

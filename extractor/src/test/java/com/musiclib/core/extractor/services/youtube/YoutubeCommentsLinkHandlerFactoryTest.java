@@ -28,18 +28,18 @@ public class MediaCommentsLinkHandlerFactoryTest {
 
     @Test
     public void getIdFromYt() throws ParsingException {
-        assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://www.youtube.com/watch?v=VM_6n762j6M").getId());
-        assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://m.youtube.com/watch?v=VM_6n762j6M").getId());
+        assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://www.MediaSvc.com/watch?v=VM_6n762j6M").getId());
+        assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://m.MediaSvc.com/watch?v=VM_6n762j6M").getId());
         assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://youtube.com/watch?v=VM_6n762j6M").getId());
-        assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://WWW.youtube.com/watch?v=VM_6n762j6M").getId());
+        assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://WWW.MediaSvc.com/watch?v=VM_6n762j6M").getId());
         assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://youtu.be/VM_6n762j6M").getId());
         assertEquals("VM_6n762j6M", linkHandler.fromUrl("https://youtu.be/VM_6n762j6M&t=20").getId());
     }
 
     @Test
     public void testAcceptUrl() throws ParsingException {
-        assertTrue(linkHandler.acceptUrl("https://www.youtube.com/watch?v=VM_6n762j6M&t=20"));
-        assertTrue(linkHandler.acceptUrl("https://WWW.youtube.com/watch?v=VM_6n762j6M&t=20"));
+        assertTrue(linkHandler.acceptUrl("https://www.MediaSvc.com/watch?v=VM_6n762j6M&t=20"));
+        assertTrue(linkHandler.acceptUrl("https://WWW.MediaSvc.com/watch?v=VM_6n762j6M&t=20"));
         assertTrue(linkHandler.acceptUrl("https://youtube.com/watch?v=VM_6n762j6M&t=20"));
         assertTrue(linkHandler.acceptUrl("https://youtu.be/VM_6n762j6M&t=20"));
     }
@@ -49,7 +49,7 @@ public class MediaCommentsLinkHandlerFactoryTest {
         assertFalse(linkHandler.acceptUrl("https://www.you com/watch?v=VM_6n762j6M"));
         assertFalse(linkHandler.acceptUrl("https://com/watch?v=VM_6n762j6M"));
         assertFalse(linkHandler.acceptUrl("htt ://com/watch?v=VM_6n762j6M"));
-        assertFalse(linkHandler.acceptUrl("ftp://www.youtube.com/watch?v=VM_6n762j6M"));
+        assertFalse(linkHandler.acceptUrl("ftp://www.MediaSvc.com/watch?v=VM_6n762j6M"));
     }
 
     @Test

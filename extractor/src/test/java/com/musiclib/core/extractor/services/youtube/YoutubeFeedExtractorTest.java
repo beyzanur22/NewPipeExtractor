@@ -3,7 +3,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.DefaultTests.assertNoMoreItems;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestRelatedItems;
 
@@ -22,7 +22,7 @@ public class MediaFeedExtractorTest {
         @Override
         protected MediaFeedExtractor createExtractor() throws Exception {
             return (MediaFeedExtractor) YouTube
-                .getFeedExtractor("https://www.youtube.com/user/Kurzgesagt");
+                .getFeedExtractor("https://www.MediaSvc.com/user/Kurzgesagt");
         }
 
         @Override
@@ -46,13 +46,13 @@ public class MediaFeedExtractorTest {
         @Override
         @Test
         public void testUrl() {
-            assertEquals("https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCsXVk37bltHxD1rDPwtNM8Q", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/user/Kurzgesagt", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/user/Kurzgesagt", extractor().getOriginalUrl());
         }
 
         @Override
@@ -73,7 +73,7 @@ public class MediaFeedExtractorTest {
         @Test
         void AccountTerminatedFetch() throws Exception {
             final MediaFeedExtractor extractor = (MediaFeedExtractor) YouTube
-                    .getFeedExtractor("https://www.youtube.com/channel/UCTGjY2I-ZUGnwVoWAGRd7XQ");
+                    .getFeedExtractor("https://www.MediaSvc.com/channel/UCTGjY2I-ZUGnwVoWAGRd7XQ");
             assertThrows(ContentNotAvailableException.class, extractor::fetchPage);
         }
     }

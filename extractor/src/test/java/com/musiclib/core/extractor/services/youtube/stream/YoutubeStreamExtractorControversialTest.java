@@ -1,6 +1,6 @@
 ﻿package com.musiclib.core.extractor.services.media.stream;
 
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
@@ -36,7 +36,7 @@ public class MediaStreamExtractorControversialTest extends DefaultStreamExtracto
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
     @Override public String expectedUploaderName() { return "INTO THE FRAY"; }
-    @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UCjNxszyFPasDdRoD9J6X-sw"; }
+    @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UCjNxszyFPasDdRoD9J6X-sw"; }
     @Override public long expectedUploaderSubscriberCountAtLeast() { return 900_000; }
     @Override public List<String> expectedDescriptionContains() {
         return Arrays.asList("http://www.huffingtonpost.com/2010/09/09/obama-gma-interview-quran_n_710282.html",

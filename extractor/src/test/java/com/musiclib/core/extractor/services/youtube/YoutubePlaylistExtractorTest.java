@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertContains;
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.services.DefaultTests.assertNoMoreItems;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestGetPageInNewExtractor;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestListOfItems;
@@ -42,14 +42,14 @@ public class MediaPlaylistExtractorTest {
         @Test
         void nonExistentFetch() throws Exception {
             final PlaylistExtractor extractor =
-                    YouTube.getPlaylistExtractor("https://www.youtube.com/playlist?list=PL11111111111111111111111111111111");
+                    YouTube.getPlaylistExtractor("https://www.MediaSvc.com/playlist?list=PL11111111111111111111111111111111");
             assertThrows(ContentNotAvailableException.class, extractor::fetchPage);
         }
 
         @Test
         void invalidId() throws Exception {
             final PlaylistExtractor extractor =
-                    YouTube.getPlaylistExtractor("https://www.youtube.com/playlist?list=INVALID_ID");
+                    YouTube.getPlaylistExtractor("https://www.MediaSvc.com/playlist?list=INVALID_ID");
             assertThrows(ContentNotAvailableException.class, extractor::fetchPage);
         }
     }
@@ -68,7 +68,7 @@ public class MediaPlaylistExtractorTest {
     public static class TimelessPopHits extends Base {
         @Override
         protected String urlForExtraction() {
-            return "http://www.youtube.com/watch?v=lp-EO5I60KA&list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
+            return "http://www.MediaSvc.com/watch?v=lp-EO5I60KA&list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj";
         }
 
         @Override
@@ -92,13 +92,13 @@ public class MediaPlaylistExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/playlist?list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/playlist?list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("http://www.youtube.com/watch?v=lp-EO5I60KA&list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj", extractor().getOriginalUrl());
+            assertEquals("http://www.MediaSvc.com/watch?v=lp-EO5I60KA&list=PLMC9KNkIncKtPzgY-5rmhvj7fax8fdxoj", extractor().getOriginalUrl());
         }
 
         @Override
@@ -127,7 +127,7 @@ public class MediaPlaylistExtractorTest {
 
         @Test
         void testUploaderUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCs72iRpTEuwV3y6pdWYLgiw", extractor().getUploaderUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCs72iRpTEuwV3y6pdWYLgiw", extractor().getUploaderUrl());
         }
 
         @Override
@@ -170,7 +170,7 @@ public class MediaPlaylistExtractorTest {
     public static class HugePlaylist extends Base {
         @Override
         protected String urlForExtraction() {
-            return "https://www.youtube.com/watch?v=8SbUC-UaAxE&list=PLWwAypAcFRgKAIIFqBr9oy-ZYZnixa_Fj";
+            return "https://www.MediaSvc.com/watch?v=8SbUC-UaAxE&list=PLWwAypAcFRgKAIIFqBr9oy-ZYZnixa_Fj";
         }
 
         @Test
@@ -201,13 +201,13 @@ public class MediaPlaylistExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/playlist?list=PLWwAypAcFRgKAIIFqBr9oy-ZYZnixa_Fj", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/playlist?list=PLWwAypAcFRgKAIIFqBr9oy-ZYZnixa_Fj", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/watch?v=8SbUC-UaAxE&list=PLWwAypAcFRgKAIIFqBr9oy-ZYZnixa_Fj", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/watch?v=8SbUC-UaAxE&list=PLWwAypAcFRgKAIIFqBr9oy-ZYZnixa_Fj", extractor().getOriginalUrl());
         }
 
         @Override
@@ -242,7 +242,7 @@ public class MediaPlaylistExtractorTest {
 
         @Test
         void testUploaderUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCHSPWoY1J5fbDVbcnyeqwdw", extractor().getUploaderUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCHSPWoY1J5fbDVbcnyeqwdw", extractor().getUploaderUrl());
         }
 
         @Override
@@ -284,7 +284,7 @@ public class MediaPlaylistExtractorTest {
     public static class LearningPlaylist extends Base {
         @Override
         protected String urlForExtraction() {
-            return "https://www.youtube.com/playlist?list=PL8dPuuaLjXtOAKed_MxxWBNaPno5h3Zs8";
+            return "https://www.MediaSvc.com/playlist?list=PL8dPuuaLjXtOAKed_MxxWBNaPno5h3Zs8";
         }
 
         @Override
@@ -308,13 +308,13 @@ public class MediaPlaylistExtractorTest {
         @Override
         @Test
         public void testUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/playlist?list=PL8dPuuaLjXtOAKed_MxxWBNaPno5h3Zs8", extractor().getUrl());
+            assertEquals("https://www.MediaSvc.com/playlist?list=PL8dPuuaLjXtOAKed_MxxWBNaPno5h3Zs8", extractor().getUrl());
         }
 
         @Override
         @Test
         public void testOriginalUrl() throws ParsingException {
-            assertEquals("https://www.youtube.com/playlist?list=PL8dPuuaLjXtOAKed_MxxWBNaPno5h3Zs8", extractor().getOriginalUrl());
+            assertEquals("https://www.MediaSvc.com/playlist?list=PL8dPuuaLjXtOAKed_MxxWBNaPno5h3Zs8", extractor().getOriginalUrl());
         }
 
         @Override
@@ -343,7 +343,7 @@ public class MediaPlaylistExtractorTest {
 
         @Test
         void testUploaderUrl() throws Exception {
-            assertEquals("https://www.youtube.com/channel/UCX6b17PVsYBQ0ip5gyeme-Q", extractor().getUploaderUrl());
+            assertEquals("https://www.MediaSvc.com/channel/UCX6b17PVsYBQ0ip5gyeme-Q", extractor().getUploaderUrl());
         }
 
         @Override
@@ -387,7 +387,7 @@ public class MediaPlaylistExtractorTest {
 
         @Override
         protected String urlForExtraction() {
-            return "https://www.youtube.com/playlist?list=UUSHBR8-60-B28hp2BmDPdntcQ";
+            return "https://www.MediaSvc.com/playlist?list=UUSHBR8-60-B28hp2BmDPdntcQ";
         }
 
         @Test
@@ -411,14 +411,14 @@ public class MediaPlaylistExtractorTest {
         @Test
         @Override
         public void testUrl() throws Exception {
-            assertEquals("https://www.youtube.com/playlist?list=UUSHBR8-60-B28hp2BmDPdntcQ",
+            assertEquals("https://www.MediaSvc.com/playlist?list=UUSHBR8-60-B28hp2BmDPdntcQ",
                 extractor().getUrl());
         }
 
         @Test
         @Override
         public void testOriginalUrl() throws Exception {
-            assertEquals("https://www.youtube.com/playlist?list=UUSHBR8-60-B28hp2BmDPdntcQ",
+            assertEquals("https://www.MediaSvc.com/playlist?list=UUSHBR8-60-B28hp2BmDPdntcQ",
                 extractor().getOriginalUrl());
         }
 
@@ -488,7 +488,7 @@ public class MediaPlaylistExtractorTest {
         void testNoContinuations() throws Exception {
             final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
-                            "https://www.youtube.com/playlist?list=PLXJg25X-OulsVsnvZ7RVtSDW-id9_RzAO");
+                            "https://www.MediaSvc.com/playlist?list=PLXJg25X-OulsVsnvZ7RVtSDW-id9_RzAO");
             extractor.fetchPage();
 
             assertNoMoreItems(extractor);
@@ -498,7 +498,7 @@ public class MediaPlaylistExtractorTest {
         void testOnlySingleContinuation() throws Exception {
             final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
-                            "https://www.youtube.com/playlist?list=PLoumn5BIsUDeGF1vy5Nylf_RJKn5aL_nr");
+                            "https://www.MediaSvc.com/playlist?list=PLoumn5BIsUDeGF1vy5Nylf_RJKn5aL_nr");
             extractor.fetchPage();
 
             final ListExtractor.InfoItemsPage<StreamInfoItem> page = defaultTestMoreItems(
@@ -514,7 +514,7 @@ public class MediaPlaylistExtractorTest {
             final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
                 // autogenerated playlist with only membersOnly videos
-                            "https://www.youtube.com/playlist?list=UUMOQuLXlFNAeDJMSmuzHU5axw");
+                            "https://www.MediaSvc.com/playlist?list=UUMOQuLXlFNAeDJMSmuzHU5axw");
             extractor.fetchPage();
 
             final List<StreamInfoItem> allItems = extractor.getInitialPage().getItems()
@@ -537,7 +537,7 @@ public class MediaPlaylistExtractorTest {
         void uploaderName() throws Exception {
             final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
-                            "https://www.youtube.com/playlist?list=PLWxziGKTUvQFIsbbFcTZz7jOT4TMGnZBh");
+                            "https://www.MediaSvc.com/playlist?list=PLWxziGKTUvQFIsbbFcTZz7jOT4TMGnZBh");
             extractor.fetchPage();
 
             final List<StreamInfoItem> allItems = extractor.getInitialPage().getItems()

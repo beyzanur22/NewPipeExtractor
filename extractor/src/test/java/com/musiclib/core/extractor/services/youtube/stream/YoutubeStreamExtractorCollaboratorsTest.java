@@ -1,6 +1,6 @@
 ﻿package com.musiclib.core.extractor.services.media.stream;
 
-import static com.musiclib.core.extractor.ServiceList.YouTube;
+import static com.musiclib.core.extractor.ServiceList.MediaSvc;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertNotEmpty;
 import static com.musiclib.core.extractor.services.DefaultTests.defaultTestImageCollection;
 
@@ -35,7 +35,7 @@ public class MediaStreamExtractorCollaboratorsTest extends DefaultStreamExtracto
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }
     @Override public String expectedUploaderName() { return "CrunchLabs"; }
-    @Override public String expectedUploaderUrl() { return "https://www.youtube.com/channel/UC513PdAP2-jWkJunTh5kXRw"; }
+    @Override public String expectedUploaderUrl() { return "https://www.MediaSvc.com/channel/UC513PdAP2-jWkJunTh5kXRw"; }
     @Override public long expectedUploaderSubscriberCountAtLeast() { return 227_0000; }
     @Override public boolean expectedUploaderVerified() { return true; }
     @Override public boolean expectedDescriptionIsEmpty() { return false; }
