@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -22,7 +22,7 @@ import com.musiclib.core.extractor.playlist.PlaylistExtractor;
 import com.musiclib.core.extractor.playlist.PlaylistInfo;
 import com.musiclib.core.extractor.services.BasePlaylistExtractorTest;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubePlaylistExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaPlaylistExtractor;
 import com.musiclib.core.extractor.stream.Description;
 import com.musiclib.core.extractor.stream.StreamInfoItem;
 import com.musiclib.core.extractor.stream.ContentAvailability;
@@ -33,9 +33,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Test for {@link YoutubePlaylistExtractor}
+ * Test for {@link MediaPlaylistExtractor}
  */
-public class YoutubePlaylistExtractorTest {
+public class MediaPlaylistExtractorTest {
 
     public static class NotAvailable implements InitYoutubeTest {
 
@@ -54,12 +54,12 @@ public class YoutubePlaylistExtractorTest {
         }
     }
 
-    abstract static class Base extends DefaultSimpleExtractorTest<YoutubePlaylistExtractor>
+    abstract static class Base extends DefaultSimpleExtractorTest<MediaPlaylistExtractor>
         implements BasePlaylistExtractorTest, InitYoutubeTest {
 
         @Override
-        protected YoutubePlaylistExtractor createExtractor() throws Exception {
-            return (YoutubePlaylistExtractor) YouTube.getPlaylistExtractor(urlForExtraction());
+        protected MediaPlaylistExtractor createExtractor() throws Exception {
+            return (MediaPlaylistExtractor) YouTube.getPlaylistExtractor(urlForExtraction());
         }
 
         protected abstract String urlForExtraction();
@@ -116,13 +116,13 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
         }
 
         @Override
         @Test
         public void testBanners() throws ParsingException {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Test
@@ -140,7 +140,7 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testUploaderAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getUploaderAvatars());
+            MediaTestsUtils.testImages(extractor().getUploaderAvatars());
         }
 
         @Override
@@ -231,13 +231,13 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
         }
 
         @Override
         @Test
         public void testBanners() throws ParsingException {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Test
@@ -254,7 +254,7 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testUploaderAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getUploaderAvatars());
+            MediaTestsUtils.testImages(extractor().getUploaderAvatars());
         }
 
         @Override
@@ -332,13 +332,13 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
         }
 
         @Override
         @Test
         public void testBanners() throws ParsingException {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Test
@@ -356,7 +356,7 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testUploaderAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getUploaderAvatars());
+            MediaTestsUtils.testImages(extractor().getUploaderAvatars());
         }
 
         @Override
@@ -437,13 +437,13 @@ public class YoutubePlaylistExtractorTest {
         @Test
         @Override
         public void testThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
         }
 
         @Test
         @Override
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Test
@@ -455,7 +455,7 @@ public class YoutubePlaylistExtractorTest {
         @Override
         @Test
         public void testUploaderAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getUploaderAvatars());
+            MediaTestsUtils.testImages(extractor().getUploaderAvatars());
         }
 
         @Test
@@ -486,7 +486,7 @@ public class YoutubePlaylistExtractorTest {
 
         @Test
         void testNoContinuations() throws Exception {
-            final YoutubePlaylistExtractor extractor = (YoutubePlaylistExtractor) YouTube
+            final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
                             "https://www.youtube.com/playlist?list=PLXJg25X-OulsVsnvZ7RVtSDW-id9_RzAO");
             extractor.fetchPage();
@@ -496,7 +496,7 @@ public class YoutubePlaylistExtractorTest {
 
         @Test
         void testOnlySingleContinuation() throws Exception {
-            final YoutubePlaylistExtractor extractor = (YoutubePlaylistExtractor) YouTube
+            final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
                             "https://www.youtube.com/playlist?list=PLoumn5BIsUDeGF1vy5Nylf_RJKn5aL_nr");
             extractor.fetchPage();
@@ -511,7 +511,7 @@ public class YoutubePlaylistExtractorTest {
 
         @Test
         void testOnlyMembersOnlyVideos() throws Exception {
-            final YoutubePlaylistExtractor extractor = (YoutubePlaylistExtractor) YouTube
+            final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
                 // autogenerated playlist with only membersOnly videos
                             "https://www.youtube.com/playlist?list=UUMOQuLXlFNAeDJMSmuzHU5axw");
@@ -535,7 +535,7 @@ public class YoutubePlaylistExtractorTest {
 
         @Test
         void uploaderName() throws Exception {
-            final YoutubePlaylistExtractor extractor = (YoutubePlaylistExtractor) YouTube
+            final MediaPlaylistExtractor extractor = (MediaPlaylistExtractor) YouTube
                     .getPlaylistExtractor(
                             "https://www.youtube.com/playlist?list=PLWxziGKTUvQFIsbbFcTZz7jOT4TMGnZBh");
             extractor.fetchPage();

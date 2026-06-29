@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.fail;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 /**
  * A class that tests multiple channels and ranges of "time ago".
  */
-public class YoutubeChannelLocalizationTest implements InitYoutubeTest {
+public class MediaChannelLocalizationTest implements InitYoutubeTest {
     private static final boolean DEBUG = false;
     private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 

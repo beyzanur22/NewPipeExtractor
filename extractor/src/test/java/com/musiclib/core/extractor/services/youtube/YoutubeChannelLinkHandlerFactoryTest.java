@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -8,19 +8,19 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.InitNewPipeTest;
 import com.musiclib.core.extractor.exceptions.ParsingException;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeChannelLinkHandlerFactory;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaChannelLinkHandlerFactory;
 
 /**
- * Test for {@link YoutubeChannelLinkHandlerFactory}
+ * Test for {@link MediaChannelLinkHandlerFactory}
  */
-public class YoutubeChannelLinkHandlerFactoryTest {
+public class MediaChannelLinkHandlerFactoryTest {
 
-    private static YoutubeChannelLinkHandlerFactory linkHandler;
+    private static MediaChannelLinkHandlerFactory linkHandler;
 
     @BeforeAll
     public static void setUp() throws Exception {
         InitNewPipeTest.initEmpty();
-        linkHandler = YoutubeChannelLinkHandlerFactory.getInstance();
+        linkHandler = MediaChannelLinkHandlerFactory.getInstance();
     }
 
     @Test
@@ -89,11 +89,11 @@ public class YoutubeChannelLinkHandlerFactoryTest {
         assertEquals("channel/UClq42foiSgl7sSpLupnugGA", linkHandler.fromUrl("https://invidio.us/channel/UClq42foiSgl7sSpLupnugGA/videos?disable_polymer=1").getId());
 
         assertEquals("c/creatoracademy", linkHandler.fromUrl("https://www.youtube.com/c/creatoracademy").getId());
-        assertEquals("c/YouTubeCreators", linkHandler.fromUrl("https://www.youtube.com/c/YouTubeCreators").getId());
+        assertEquals("c/MediaCreators", linkHandler.fromUrl("https://www.youtube.com/c/MediaCreators").getId());
         assertEquals("c/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders", linkHandler.fromUrl("https://www.youtube.com/c/%EB%85%B8%EB%A7%88%EB%93%9C%EC%BD%94%EB%8D%94NomadCoders").getId());
 
         assertEquals("@Gronkh", linkHandler.fromUrl("https://www.youtube.com/@Gronkh?ucbcb=1").getId());
-        assertEquals("@YouTubeCreators", linkHandler.fromUrl("https://www.youtube.com/@YouTubeCreators/shorts").getId());
+        assertEquals("@MediaCreators", linkHandler.fromUrl("https://www.youtube.com/@MediaCreators/shorts").getId());
 
         assertEquals("PewDiePie", linkHandler.fromUrl("https://www.youtube.com/PewDiePie").getId());
         assertEquals("DreamTraps", linkHandler.fromUrl("https://www.youtube.com/DreamTraps").getId());

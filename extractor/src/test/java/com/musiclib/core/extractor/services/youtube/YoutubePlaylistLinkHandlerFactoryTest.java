@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -12,18 +12,18 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import com.musiclib.core.extractor.InitNewPipeTest;
 import com.musiclib.core.extractor.exceptions.ParsingException;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubePlaylistLinkHandlerFactory;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaPlaylistLinkHandlerFactory;
 
 /**
- * Test for {@link YoutubePlaylistLinkHandlerFactory}
+ * Test for {@link MediaPlaylistLinkHandlerFactory}
  */
-public class YoutubePlaylistLinkHandlerFactoryTest {
-    private static YoutubePlaylistLinkHandlerFactory linkHandler;
+public class MediaPlaylistLinkHandlerFactoryTest {
+    private static MediaPlaylistLinkHandlerFactory linkHandler;
 
     @BeforeAll
     public static void setUp() {
         InitNewPipeTest.initEmpty();
-        linkHandler = YoutubePlaylistLinkHandlerFactory.getInstance();
+        linkHandler = MediaPlaylistLinkHandlerFactory.getInstance();
     }
 
     @Test

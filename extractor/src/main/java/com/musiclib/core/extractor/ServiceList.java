@@ -1,10 +1,10 @@
-package com.musiclib.core.extractor;
+﻿package com.musiclib.core.extractor;
 
 import com.musiclib.core.extractor.services.bandcamp.BandcampService;
 import com.musiclib.core.extractor.services.media_ccc.MediaCCCService;
 import com.musiclib.core.extractor.services.peertube.PeertubeService;
 import com.musiclib.core.extractor.services.soundcloud.SoundcloudService;
-import com.musiclib.core.extractor.services.youtube.YoutubeService;
+import com.musiclib.core.extractor.services.media.MediaService;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public final class ServiceList {
         // no instance
     }
 
-    public static final YoutubeService YouTube = new YoutubeService(0);
+    public static final MediaService YouTube = new MediaService(0);
     public static final SoundcloudService SoundCloud = new SoundcloudService(1);
     public static final MediaCCCService MediaCCC = new MediaCCCService(2);
     public static final PeertubeService PeerTube = new PeertubeService(3);

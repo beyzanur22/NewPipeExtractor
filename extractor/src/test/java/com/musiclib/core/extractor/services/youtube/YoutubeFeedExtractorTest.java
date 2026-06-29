@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,16 +12,16 @@ import com.musiclib.core.extractor.exceptions.ContentNotAvailableException;
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.services.BaseListExtractorTest;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeFeedExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaFeedExtractor;
 
-public class YoutubeFeedExtractorTest {
+public class MediaFeedExtractorTest {
 
-    public static class Kurzgesagt extends DefaultSimpleExtractorTest<YoutubeFeedExtractor>
+    public static class Kurzgesagt extends DefaultSimpleExtractorTest<MediaFeedExtractor>
         implements BaseListExtractorTest, InitYoutubeTest {
 
         @Override
-        protected YoutubeFeedExtractor createExtractor() throws Exception {
-            return (YoutubeFeedExtractor) YouTube
+        protected MediaFeedExtractor createExtractor() throws Exception {
+            return (MediaFeedExtractor) YouTube
                 .getFeedExtractor("https://www.youtube.com/user/Kurzgesagt");
         }
 
@@ -72,7 +72,7 @@ public class YoutubeFeedExtractorTest {
 
         @Test
         void AccountTerminatedFetch() throws Exception {
-            final YoutubeFeedExtractor extractor = (YoutubeFeedExtractor) YouTube
+            final MediaFeedExtractor extractor = (MediaFeedExtractor) YouTube
                     .getFeedExtractor("https://www.youtube.com/channel/UCTGjY2I-ZUGnwVoWAGRd7XQ");
             assertThrows(ContentNotAvailableException.class, extractor::fetchPage);
         }

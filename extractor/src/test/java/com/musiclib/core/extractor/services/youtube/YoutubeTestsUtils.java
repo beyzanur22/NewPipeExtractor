@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import com.musiclib.core.extractor.ExtractorAsserts;
 import com.musiclib.core.extractor.Image;
@@ -11,8 +11,8 @@ import java.util.Random;
 /**
  * Utility class for YouTube tests.
  */
-public final class YoutubeTestsUtils {
-    private YoutubeTestsUtils() {
+public final class MediaTestsUtils {
+    private MediaTestsUtils() {
         // No impl
     }
 
@@ -25,10 +25,10 @@ public final class YoutubeTestsUtils {
      * </p>
      */
     public static void ensureStateless() {
-        YoutubeParsingHelper.setConsentAccepted(false);
-        YoutubeParsingHelper.resetClientVersion();
-        YoutubeParsingHelper.setNumberGenerator(new Random(1));
-        YoutubeJavaScriptPlayerManager.clearAllCaches();
+        MediaParsingHelper.setConsentAccepted(false);
+        MediaParsingHelper.resetClientVersion();
+        MediaParsingHelper.setNumberGenerator(new Random(1));
+        MediaJavaScriptPlayerManager.clearAllCaches();
     }
 
     /**

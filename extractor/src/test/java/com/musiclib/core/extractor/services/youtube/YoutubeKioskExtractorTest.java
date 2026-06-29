@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
@@ -11,20 +11,20 @@ import org.junit.jupiter.api.Disabled;
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.services.BaseListExtractorTest;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
-import com.musiclib.core.extractor.services.youtube.extractors.kiosk.YoutubeLiveExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.kiosk.YoutubeTrendingExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.kiosk.YoutubeTrendingGamingVideosExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.kiosk.YoutubeTrendingMoviesAndShowsTrailersExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.kiosk.YoutubeTrendingMusicExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.kiosk.YoutubeTrendingPodcastsEpisodesExtractor;
+import com.musiclib.core.extractor.services.media.extractors.kiosk.MediaLiveExtractor;
+import com.musiclib.core.extractor.services.media.extractors.kiosk.MediaTrendingExtractor;
+import com.musiclib.core.extractor.services.media.extractors.kiosk.MediaTrendingGamingVideosExtractor;
+import com.musiclib.core.extractor.services.media.extractors.kiosk.MediaTrendingMoviesAndShowsTrailersExtractor;
+import com.musiclib.core.extractor.services.media.extractors.kiosk.MediaTrendingMusicExtractor;
+import com.musiclib.core.extractor.services.media.extractors.kiosk.MediaTrendingPodcastsEpisodesExtractor;
 
-public class YoutubeKioskExtractorTest {
+public class MediaKioskExtractorTest {
 
-    public static class Live extends DefaultSimpleExtractorTest<YoutubeLiveExtractor>
+    public static class Live extends DefaultSimpleExtractorTest<MediaLiveExtractor>
             implements BaseListExtractorTest, InitYoutubeTest {
         @Override
-        protected YoutubeLiveExtractor createExtractor() throws Exception {
-            return (YoutubeLiveExtractor) YouTube.getKioskList().getDefaultKioskExtractor();
+        protected MediaLiveExtractor createExtractor() throws Exception {
+            return (MediaLiveExtractor) YouTube.getKioskList().getDefaultKioskExtractor();
         }
 
         @Override
@@ -77,11 +77,11 @@ public class YoutubeKioskExtractorTest {
     }
 
     public static class TrendingPodcastsEpisodes extends
-            DefaultSimpleExtractorTest<YoutubeTrendingPodcastsEpisodesExtractor>
+            DefaultSimpleExtractorTest<MediaTrendingPodcastsEpisodesExtractor>
             implements BaseListExtractorTest, InitYoutubeTest {
         @Override
-        protected YoutubeTrendingPodcastsEpisodesExtractor createExtractor() throws Exception {
-            return (YoutubeTrendingPodcastsEpisodesExtractor) YouTube.getKioskList()
+        protected MediaTrendingPodcastsEpisodesExtractor createExtractor() throws Exception {
+            return (MediaTrendingPodcastsEpisodesExtractor) YouTube.getKioskList()
                     .getExtractorById("trending_podcasts_episodes", null);
         }
 
@@ -131,11 +131,11 @@ public class YoutubeKioskExtractorTest {
     }
 
     public static class TrendingGamingVideos extends
-            DefaultSimpleExtractorTest<YoutubeTrendingGamingVideosExtractor>
+            DefaultSimpleExtractorTest<MediaTrendingGamingVideosExtractor>
             implements BaseListExtractorTest, InitYoutubeTest {
         @Override
-        protected YoutubeTrendingGamingVideosExtractor createExtractor() throws Exception {
-            return (YoutubeTrendingGamingVideosExtractor) YouTube.getKioskList()
+        protected MediaTrendingGamingVideosExtractor createExtractor() throws Exception {
+            return (MediaTrendingGamingVideosExtractor) YouTube.getKioskList()
                     .getExtractorById("trending_gaming", null);
         }
 
@@ -184,11 +184,11 @@ public class YoutubeKioskExtractorTest {
     }
 
     public static class TrendingMoviesAndShowsTrailers extends
-            DefaultSimpleExtractorTest<YoutubeTrendingMoviesAndShowsTrailersExtractor>
+            DefaultSimpleExtractorTest<MediaTrendingMoviesAndShowsTrailersExtractor>
             implements BaseListExtractorTest, InitYoutubeTest {
         @Override
-        protected YoutubeTrendingMoviesAndShowsTrailersExtractor createExtractor() throws Exception {
-            return (YoutubeTrendingMoviesAndShowsTrailersExtractor) YouTube.getKioskList()
+        protected MediaTrendingMoviesAndShowsTrailersExtractor createExtractor() throws Exception {
+            return (MediaTrendingMoviesAndShowsTrailersExtractor) YouTube.getKioskList()
                     .getExtractorById("trending_movies_and_shows", null);
         }
 
@@ -240,11 +240,11 @@ public class YoutubeKioskExtractorTest {
     }
 
     public static class TrendingMusic extends
-            DefaultSimpleExtractorTest<YoutubeTrendingMusicExtractor>
+            DefaultSimpleExtractorTest<MediaTrendingMusicExtractor>
             implements BaseListExtractorTest, InitYoutubeTest {
         @Override
-        protected YoutubeTrendingMusicExtractor createExtractor() throws Exception {
-            return (YoutubeTrendingMusicExtractor) YouTube.getKioskList()
+        protected MediaTrendingMusicExtractor createExtractor() throws Exception {
+            return (MediaTrendingMusicExtractor) YouTube.getKioskList()
                     .getExtractorById("trending_music", null);
         }
 
@@ -297,12 +297,12 @@ public class YoutubeKioskExtractorTest {
 
     // Deprecated (i.e. removed from the interface of YouTube) since July 21, 2025
     @Disabled("Trending section was removed from YouTube")
-    public static class Trending extends DefaultSimpleExtractorTest<YoutubeTrendingExtractor>
+    public static class Trending extends DefaultSimpleExtractorTest<MediaTrendingExtractor>
             implements BaseListExtractorTest, InitYoutubeTest {
 
         @Override
-        protected YoutubeTrendingExtractor createExtractor() throws Exception {
-            return (YoutubeTrendingExtractor) YouTube.getKioskList().getExtractorById(
+        protected MediaTrendingExtractor createExtractor() throws Exception {
+            return (MediaTrendingExtractor) YouTube.getKioskList().getExtractorById(
                     "Trending", null);
         }
 

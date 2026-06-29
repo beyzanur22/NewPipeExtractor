@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
@@ -11,7 +11,7 @@ import com.musiclib.core.extractor.channel.tabs.ChannelTabExtractor;
 import com.musiclib.core.extractor.channel.tabs.ChannelTabs;
 import com.musiclib.core.extractor.services.DefaultListExtractorTest;
 
-class YoutubeChannelTabExtractorTest {
+class MediaChannelTabExtractorTest {
 
     static class Videos extends DefaultListExtractorTest<ChannelTabExtractor>
         implements InitYoutubeTest {
@@ -106,7 +106,7 @@ class YoutubeChannelTabExtractorTest {
     // Fetching the tabs individually would use the standard tabs without fallback to
     // system playlists for stream tabs, we need to fetch the channel extractor to get the
     // channel playlist tabs
-    // TODO: implement system playlists fallback in YoutubeChannelTabExtractor for stream
+    // TODO: implement system playlists fallback in MediaChannelTabExtractor for stream
     //  tabs
 
     static class AgeRestrictedTabsVideos extends DefaultListExtractorTest<ChannelTabExtractor>

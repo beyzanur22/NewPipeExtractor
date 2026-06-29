@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -12,19 +12,19 @@ import org.junit.jupiter.params.provider.ValueSource;
 import com.musiclib.core.extractor.InitNewPipeTest;
 import com.musiclib.core.extractor.exceptions.FoundAdException;
 import com.musiclib.core.extractor.exceptions.ParsingException;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeStreamLinkHandlerFactory;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaStreamLinkHandlerFactory;
 
 /**
- * Test for {@link YoutubeStreamLinkHandlerFactory}
+ * Test for {@link MediaStreamLinkHandlerFactory}
  */
 @SuppressWarnings("HttpUrlsUsage")
-public class YoutubeStreamLinkHandlerFactoryTest {
-    private static YoutubeStreamLinkHandlerFactory linkHandler;
+public class MediaStreamLinkHandlerFactoryTest {
+    private static MediaStreamLinkHandlerFactory linkHandler;
 
     @BeforeAll
     public static void setUp() throws Exception {
         InitNewPipeTest.initEmpty();
-        linkHandler = YoutubeStreamLinkHandlerFactory.getInstance();
+        linkHandler = MediaStreamLinkHandlerFactory.getInstance();
     }
 
     @Test

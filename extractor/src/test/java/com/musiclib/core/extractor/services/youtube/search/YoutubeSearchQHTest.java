@@ -1,18 +1,18 @@
-package com.musiclib.core.extractor.services.youtube.search;
+﻿package com.musiclib.core.extractor.services.media.search;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.CHANNELS;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.MUSIC_SONGS;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.PLAYLISTS;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.VIDEOS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.CHANNELS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.MUSIC_SONGS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.PLAYLISTS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.VIDEOS;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class YoutubeSearchQHTest {
+public class MediaSearchQHTest {
 
     private static final List<String> L_MUSIC_SONGS = List.of(MUSIC_SONGS);
 

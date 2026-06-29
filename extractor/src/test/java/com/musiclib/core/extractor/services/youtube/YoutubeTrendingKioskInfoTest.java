@@ -1,10 +1,10 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 /*
  * Created by Christian Schabesberger on 12.08.17.
  *
  * Copyright (C) 2017 Christian Schabesberger <chris.schabesberger@mailbox.org>
- * YoutubeTrendingKioskInfoTest.java is part of NewPipe Extractor.
+ * MediaTrendingKioskInfoTest.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,12 +28,12 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.kiosk.KioskInfo;
 import com.musiclib.core.extractor.linkhandler.LinkHandlerFactory;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeLiveLinkHandlerFactory;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaLiveLinkHandlerFactory;
 
 /**
  * Test for {@link KioskInfo}
  */
-class YoutubeTrendingKioskInfoTest implements InitYoutubeTest {
+class MediaTrendingKioskInfoTest implements InitYoutubeTest {
 
     KioskInfo kioskInfo;
 
@@ -43,10 +43,10 @@ class YoutubeTrendingKioskInfoTest implements InitYoutubeTest {
         InitYoutubeTest.super.setUp();
 
         final LinkHandlerFactory linkHandlerFactory = YouTube.getKioskList()
-                .getListLinkHandlerFactoryByType(YoutubeLiveLinkHandlerFactory.KIOSK_ID);
+                .getListLinkHandlerFactoryByType(MediaLiveLinkHandlerFactory.KIOSK_ID);
 
         kioskInfo = KioskInfo.getInfo(YouTube,
-                linkHandlerFactory.fromId(YoutubeLiveLinkHandlerFactory.KIOSK_ID).getUrl());
+                linkHandlerFactory.fromId(MediaLiveLinkHandlerFactory.KIOSK_ID).getUrl());
     }
 
     @Test
@@ -56,7 +56,7 @@ class YoutubeTrendingKioskInfoTest implements InitYoutubeTest {
 
     @Test
     void getId() {
-        assertEquals(YoutubeLiveLinkHandlerFactory.KIOSK_ID, kioskInfo.getId());
+        assertEquals(MediaLiveLinkHandlerFactory.KIOSK_ID, kioskInfo.getId());
     }
 
     @Test

@@ -1,8 +1,8 @@
-/*
+﻿/*
  * Created by Christian Schabesberger on 18.11.16.
  *
  * Copyright (C) 2016 Christian Schabesberger <chris.schabesberger@mailbox.org>
- * YoutubeSuggestionExtractorTest.java is part of NewPipe Extractor.
+ * MediaSuggestionExtractorTest.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * along with NewPipe Extractor.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.musiclib.core.extractor.services.youtube;
+package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
@@ -29,22 +29,22 @@ import com.musiclib.core.downloader.DownloaderFactory;
 import com.musiclib.core.extractor.NewPipe;
 import com.musiclib.core.extractor.exceptions.ExtractionException;
 import com.musiclib.core.extractor.localization.Localization;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeSuggestionExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaSuggestionExtractor;
 import com.musiclib.core.extractor.suggestion.SuggestionExtractor;
 
 import java.io.IOException;
 
 /**
- * Test for {@link YoutubeSuggestionExtractor}
+ * Test for {@link MediaSuggestionExtractor}
  */
-class YoutubeSuggestionExtractorTest {
+class MediaSuggestionExtractorTest {
 
     private static SuggestionExtractor suggestionExtractor;
 
     @BeforeAll
     public static void setUp() throws Exception {
-        YoutubeTestsUtils.ensureStateless();
-        NewPipe.init(DownloaderFactory.getDownloader(YoutubeSuggestionExtractorTest.class), new Localization("de", "DE"));
+        MediaTestsUtils.ensureStateless();
+        NewPipe.init(DownloaderFactory.getDownloader(MediaSuggestionExtractorTest.class), new Localization("de", "DE"));
         suggestionExtractor = YouTube.getSuggestionExtractor();
     }
 

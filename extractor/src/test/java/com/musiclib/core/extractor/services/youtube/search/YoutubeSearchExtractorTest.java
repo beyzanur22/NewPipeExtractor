@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube.search;
+﻿package com.musiclib.core.extractor.services.media.search;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -7,9 +7,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertEmptyErrors;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 import static com.musiclib.core.extractor.services.DefaultTests.assertNoDuplicatedItems;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.CHANNELS;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.PLAYLISTS;
-import static com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory.VIDEOS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.CHANNELS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.PLAYLISTS;
+import static com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory.VIDEOS;
 import static java.util.Collections.singletonList;
 
 import org.junit.jupiter.api.Disabled;
@@ -23,8 +23,8 @@ import com.musiclib.core.extractor.channel.ChannelInfoItem;
 import com.musiclib.core.extractor.exceptions.ExtractionException;
 import com.musiclib.core.extractor.search.SearchExtractor;
 import com.musiclib.core.extractor.services.DefaultSearchExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
-import com.musiclib.core.extractor.services.youtube.YoutubeTestsUtils;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.MediaTestsUtils;
 import com.musiclib.core.extractor.stream.Description;
 import com.musiclib.core.extractor.stream.StreamInfoItem;
 import com.musiclib.core.extractor.utils.Utils;
@@ -37,7 +37,7 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-public class YoutubeSearchExtractorTest {
+public class MediaSearchExtractorTest {
 
     public static class All extends DefaultSearchExtractorTest implements InitYoutubeTest {
         private static final String QUERY = "test";
@@ -200,7 +200,7 @@ public class YoutubeSearchExtractorTest {
     static class PagingTest {
         @Test
         void duplicatedItemsCheck() throws Exception {
-            YoutubeTestsUtils.ensureStateless();
+            MediaTestsUtils.ensureStateless();
             InitNewPipeTest.initNewPipe(this.getClass(), "paging");
 
             final SearchExtractor extractor = YouTube.getSearchExtractor("cirque du soleil", singletonList(VIDEOS), "");
@@ -302,7 +302,7 @@ public class YoutubeSearchExtractorTest {
                     .filter(StreamInfoItem.class::isInstance)
                     .map(StreamInfoItem.class::cast)
                     .forEach(streamInfoItem ->
-                            YoutubeTestsUtils.testImages(streamInfoItem.getUploaderAvatars()));
+                            MediaTestsUtils.testImages(streamInfoItem.getUploaderAvatars()));
         }
     }
 

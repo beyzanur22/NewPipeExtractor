@@ -1,10 +1,10 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 /*
  * Created by Christian Schabesberger on 12.08.17.
  *
  * Copyright (C) 2017 Christian Schabesberger <chris.schabesberger@mailbox.org>
- * YoutubeTrendingLinkHandlerFactoryTest.java is part of NewPipe Extractor.
+ * MediaTrendingLinkHandlerFactoryTest.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,12 +32,12 @@ import org.junit.jupiter.params.provider.ValueSource;
 import com.musiclib.core.extractor.InitNewPipeTest;
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.linkhandler.LinkHandlerFactory;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeTrendingLinkHandlerFactory;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaTrendingLinkHandlerFactory;
 
 /**
- * Test for {@link YoutubeTrendingLinkHandlerFactory}
+ * Test for {@link MediaTrendingLinkHandlerFactory}
  */
-public class YoutubeTrendingLinkHandlerFactoryTest {
+public class MediaTrendingLinkHandlerFactoryTest {
     private static LinkHandlerFactory linkHandlerFactory;
 
     @BeforeAll

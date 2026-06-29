@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,25 +11,25 @@ import static com.musiclib.core.extractor.ExtractorAsserts.assertGreaterOrEqual;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertIsValidUrl;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertNotBlank;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.ADAPTATION_SET;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.AUDIO_CHANNEL_CONFIGURATION;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.BASE_URL;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.INITIALIZATION;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.MPD;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.PERIOD;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.REPRESENTATION;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.ROLE;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.SEGMENT_BASE;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.SEGMENT_TEMPLATE;
-import static com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeDashManifestCreatorsUtils.SEGMENT_TIMELINE;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.ADAPTATION_SET;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.AUDIO_CHANNEL_CONFIGURATION;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.BASE_URL;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.INITIALIZATION;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.MPD;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.PERIOD;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.REPRESENTATION;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.ROLE;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.SEGMENT_BASE;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.SEGMENT_TEMPLATE;
+import static com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaDashManifestCreatorsUtils.SEGMENT_TIMELINE;
 import static com.musiclib.core.extractor.utils.Utils.isBlank;
 
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
-import com.musiclib.core.extractor.services.youtube.dashmanifestcreators.CreationException;
-import com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeOtfDashManifestCreator;
-import com.musiclib.core.extractor.services.youtube.dashmanifestcreators.YoutubeProgressiveDashManifestCreator;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeStreamExtractor;
+import com.musiclib.core.extractor.services.media.dashmanifestcreators.CreationException;
+import com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaOtfDashManifestCreator;
+import com.musiclib.core.extractor.services.media.dashmanifestcreators.MediaProgressiveDashManifestCreator;
+import com.musiclib.core.extractor.services.media.extractors.MediaStreamExtractor;
 import com.musiclib.core.extractor.stream.DeliveryMethod;
 import com.musiclib.core.extractor.stream.Stream;
 import org.w3c.dom.Document;
@@ -77,7 +77,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * So the real downloader will be used everytime on this test class.
  * </p>
  */
-class YoutubeDashManifestCreatorsTest extends DefaultSimpleExtractorTest<YoutubeStreamExtractor>
+class MediaDashManifestCreatorsTest extends DefaultSimpleExtractorTest<MediaStreamExtractor>
     implements InitYoutubeTest {
     // Setting a higher number may let Google video servers return 403s
     private static final int MAX_STREAMS_TO_TEST_PER_METHOD = 3;
@@ -85,12 +85,12 @@ class YoutubeDashManifestCreatorsTest extends DefaultSimpleExtractorTest<Youtube
     private long videoLength;
 
     @Override
-    protected YoutubeStreamExtractor createExtractor() throws Exception {
-        return (YoutubeStreamExtractor) YouTube.getStreamExtractor(URL);
+    protected MediaStreamExtractor createExtractor() throws Exception {
+        return (MediaStreamExtractor) YouTube.getStreamExtractor(URL);
     }
 
     @Override
-    protected void fetchExtractor(final YoutubeStreamExtractor extractor) throws Exception {
+    protected void fetchExtractor(final MediaStreamExtractor extractor) throws Exception {
         super.fetchExtractor(extractor);
         videoLength = extractor.getLength();
     }
@@ -119,7 +119,7 @@ class YoutubeDashManifestCreatorsTest extends DefaultSimpleExtractorTest<Youtube
 
         for (final Stream stream : assertFilterStreams(streams, DeliveryMethod.DASH)) {
             //noinspection ConstantConditions
-            final String manifest = YoutubeOtfDashManifestCreator.fromOtfStreamingUrl(
+            final String manifest = MediaOtfDashManifestCreator.fromOtfStreamingUrl(
                     stream.getContent(), stream.getItagItem(), videoLength);
             assertNotBlank(manifest);
 
@@ -139,7 +139,7 @@ class YoutubeDashManifestCreatorsTest extends DefaultSimpleExtractorTest<Youtube
         for (final Stream stream : assertFilterStreams(streams, DeliveryMethod.PROGRESSIVE_HTTP)) {
             //noinspection ConstantConditions
             final String manifest =
-                    YoutubeProgressiveDashManifestCreator.fromProgressiveStreamingUrl(
+                    MediaProgressiveDashManifestCreator.fromProgressiveStreamingUrl(
                             stream.getContent(), stream.getItagItem(), videoLength);
             assertNotBlank(manifest);
 

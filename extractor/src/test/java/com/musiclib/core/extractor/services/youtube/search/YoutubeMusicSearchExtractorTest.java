@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube.search;
+﻿package com.musiclib.core.extractor.services.media.search;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 import static java.util.Collections.singletonList;
@@ -8,8 +8,8 @@ import com.musiclib.core.extractor.InfoItem;
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.search.SearchExtractor;
 import com.musiclib.core.extractor.services.DefaultSearchExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeSearchQueryHandlerFactory;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaSearchQueryHandlerFactory;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 import javax.annotation.Nullable;
 
 // Doesn't work with mocks. Makes request with different `dataToSend` I think
-public class YoutubeMusicSearchExtractorTest {
+public class MediaMusicSearchExtractorTest {
     private static final String BASE_SEARCH_URL = "music.youtube.com/search?q=";
 
     public static class MusicSongs extends DefaultSearchExtractorTest implements InitYoutubeTest {
@@ -25,7 +25,7 @@ public class YoutubeMusicSearchExtractorTest {
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_SONGS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_SONGS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }
@@ -43,7 +43,7 @@ public class YoutubeMusicSearchExtractorTest {
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_VIDEOS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_VIDEOS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }
@@ -63,7 +63,7 @@ public class YoutubeMusicSearchExtractorTest {
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_ALBUMS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_ALBUMS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }
@@ -81,7 +81,7 @@ public class YoutubeMusicSearchExtractorTest {
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_PLAYLISTS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_PLAYLISTS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }
@@ -99,7 +99,7 @@ public class YoutubeMusicSearchExtractorTest {
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_ARTISTS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_ARTISTS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }
@@ -113,13 +113,13 @@ public class YoutubeMusicSearchExtractorTest {
     }
 
     @Disabled("2025-07 - backend no longer seems to return any suggestion. "
-        + "See YoutubeMusicSearchExtractor#getSearchSuggestion")
+        + "See MediaMusicSearchExtractor#getSearchSuggestion")
     public static class Suggestion extends DefaultSearchExtractorTest implements InitYoutubeTest {
         private static final String QUERY = "megaman x3";
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_SONGS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_SONGS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }
@@ -138,7 +138,7 @@ public class YoutubeMusicSearchExtractorTest {
 
         @Override
         protected SearchExtractor createExtractor() throws Exception {
-            return YouTube.getSearchExtractor(QUERY, singletonList(YoutubeSearchQueryHandlerFactory.MUSIC_SONGS), "");
+            return YouTube.getSearchExtractor(QUERY, singletonList(MediaSearchQueryHandlerFactory.MUSIC_SONGS), "");
         }
 
         @Override public StreamingService expectedService() { return YouTube; }

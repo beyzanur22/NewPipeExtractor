@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -25,15 +25,15 @@ import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.linkhandler.ReadyChannelTabListLinkHandler;
 import com.musiclib.core.extractor.services.BaseChannelExtractorTest;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeChannelExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeChannelTabPlaylistExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaChannelExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaChannelTabPlaylistExtractor;
 
 import java.util.List;
 
 /**
  * Test for {@link ChannelExtractor}
  */
-public class YoutubeChannelExtractorTest {
+public class MediaChannelExtractorTest {
 
     /**
      * See <a href="https://youtube.fandom.com/wiki/Termination#Ban_Messages">here</a>
@@ -127,12 +127,12 @@ public class YoutubeChannelExtractorTest {
         }
     }
 
-    abstract static class Base extends DefaultSimpleExtractorTest<YoutubeChannelExtractor>
+    abstract static class Base extends DefaultSimpleExtractorTest<MediaChannelExtractor>
         implements BaseChannelExtractorTest, InitYoutubeTest {
 
         @Override
-        protected YoutubeChannelExtractor createExtractor() throws Exception {
-            return (YoutubeChannelExtractor) YouTube.getChannelExtractor(extractorUrl());
+        protected MediaChannelExtractor createExtractor() throws Exception {
+            return (MediaChannelExtractor) YouTube.getChannelExtractor(extractorUrl());
         }
 
         protected abstract String extractorUrl();
@@ -184,13 +184,13 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
         @Test
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Override
@@ -274,13 +274,13 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
         @Test
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Override
@@ -367,13 +367,13 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
         @Test
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Override
@@ -412,19 +412,19 @@ public class YoutubeChannelExtractorTest {
         }
     }
 
-    public static class KurzgesagtAdditional extends DefaultSimpleExtractorTest<YoutubeChannelExtractor>
+    public static class KurzgesagtAdditional extends DefaultSimpleExtractorTest<MediaChannelExtractor>
         implements InitYoutubeTest {
 
         private ChannelTabExtractor tabExtractor;
 
         @Override
-        protected YoutubeChannelExtractor createExtractor() throws Exception {
-            return (YoutubeChannelExtractor) YouTube.getChannelExtractor(
+        protected MediaChannelExtractor createExtractor() throws Exception {
+            return (MediaChannelExtractor) YouTube.getChannelExtractor(
                 "https://www.youtube.com/channel/UCsXVk37bltHxD1rDPwtNM8Q");
         }
 
         @Override
-        protected void fetchExtractor(final YoutubeChannelExtractor extractor) throws Exception {
+        protected void fetchExtractor(final MediaChannelExtractor extractor) throws Exception {
             super.fetchExtractor(extractor);
 
             tabExtractor = YouTube.getChannelTabExtractor(extractor.getTabs().get(0));
@@ -491,13 +491,13 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
         @Test
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Override
@@ -581,13 +581,13 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
         @Test
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Override
@@ -670,7 +670,7 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
@@ -738,7 +738,7 @@ public class YoutubeChannelExtractorTest {
         @Test
         @Override
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Test
@@ -811,14 +811,14 @@ public class YoutubeChannelExtractorTest {
                     ChannelTabs.VIDEOS, ChannelTabs.SHORTS, ChannelTabs.LIVESTREAMS);
 
             // Check if all tabs are not classic tabs, so that link handlers are of the appropriate
-            // type and build YoutubeChannelTabPlaylistExtractor instances
+            // type and build MediaChannelTabPlaylistExtractor instances
             assertTrue(extractor().getTabs()
                     .stream()
                     .allMatch(linkHandler ->
                             linkHandler.getClass() == ReadyChannelTabListLinkHandler.class
                     && ((ReadyChannelTabListLinkHandler) linkHandler)
                                 .getChannelTabExtractor(extractor().getService())
-                                    .getClass() == YoutubeChannelTabPlaylistExtractor.class));
+                                    .getClass() == MediaChannelTabPlaylistExtractor.class));
         }
 
         @Test
@@ -847,13 +847,13 @@ public class YoutubeChannelExtractorTest {
         @Test
         @Override
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Test
         @Override
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Test
@@ -971,13 +971,13 @@ public class YoutubeChannelExtractorTest {
         @Override
         @Test
         public void testAvatars() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getAvatars());
+            MediaTestsUtils.testImages(extractor().getAvatars());
         }
 
         @Override
         @Test
         public void testBanners() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getBanners());
+            MediaTestsUtils.testImages(extractor().getBanners());
         }
 
         @Override

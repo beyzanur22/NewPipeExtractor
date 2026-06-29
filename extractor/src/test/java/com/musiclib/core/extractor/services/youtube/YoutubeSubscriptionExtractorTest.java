@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.InitNewPipeTest;
 import com.musiclib.core.extractor.ServiceList;
 import com.musiclib.core.extractor.linkhandler.LinkHandlerFactory;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeSubscriptionExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaSubscriptionExtractor;
 import com.musiclib.core.extractor.subscription.SubscriptionExtractor;
 import com.musiclib.core.extractor.subscription.SubscriptionItem;
 
@@ -23,24 +23,24 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Test for {@link YoutubeSubscriptionExtractor}
+ * Test for {@link MediaSubscriptionExtractor}
  */
-class YoutubeSubscriptionExtractorTest {
+class MediaSubscriptionExtractorTest {
 
-    private static YoutubeSubscriptionExtractor subscriptionExtractor;
+    private static MediaSubscriptionExtractor subscriptionExtractor;
     private static LinkHandlerFactory urlHandler;
 
     @BeforeAll
     public static void setupClass() {
         InitNewPipeTest.initEmpty();
-        subscriptionExtractor = new YoutubeSubscriptionExtractor(ServiceList.YouTube);
+        subscriptionExtractor = new MediaSubscriptionExtractor(ServiceList.YouTube);
         urlHandler = ServiceList.YouTube.getChannelLHFactory();
     }
 
     @Test
     void testFromInputStream() throws Exception {
         final List<SubscriptionItem> subscriptionItems = subscriptionExtractor.fromInputStream(
-                new FileInputStream(resolveTestResource("youtube_takeout_import_test.json")));
+                new FileInputStream(resolveTestResource("Media_takeout_import_test.json")));
         assertEquals(7, subscriptionItems.size());
 
         for (final SubscriptionItem item : subscriptionItems) {
@@ -128,8 +128,8 @@ class YoutubeSubscriptionExtractorTest {
     @Test
     void fromZipInputStream() throws Exception {
         final List<String> zipPaths = Arrays.asList(
-                "youtube_takeout_import_test_1.zip",
-                "youtube_takeout_import_test_2.zip"
+                "Media_takeout_import_test_1.zip",
+                "Media_takeout_import_test_2.zip"
         );
 
         for (final String path : zipPaths)
@@ -144,8 +144,8 @@ class YoutubeSubscriptionExtractorTest {
     @Test
     void fromCsvInputStream() throws Exception {
         final List<String> csvPaths = Arrays.asList(
-                "youtube_takeout_import_test_1.csv",
-                "youtube_takeout_import_test_2.csv"
+                "Media_takeout_import_test_1.csv",
+                "Media_takeout_import_test_2.csv"
         );
 
         for (final String path : csvPaths)

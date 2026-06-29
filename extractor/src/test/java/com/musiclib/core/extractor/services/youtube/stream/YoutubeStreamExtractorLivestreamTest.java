@@ -1,11 +1,11 @@
-package com.musiclib.core.extractor.services.youtube.stream;
+﻿package com.musiclib.core.extractor.services.media.stream;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
 import com.musiclib.core.extractor.stream.StreamExtractor;
 import com.musiclib.core.extractor.stream.StreamType;
 
@@ -14,11 +14,11 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-public class YoutubeStreamExtractorLivestreamTest extends DefaultStreamExtractorTest
+public class MediaStreamExtractorLivestreamTest extends DefaultStreamExtractorTest
     implements InitYoutubeTest {
     private static final String ID = "jfKfPfyJRdk";
     private static final int TIMESTAMP = 1737;
-    private static final String URL = YoutubeStreamExtractorDefaultTest.BASE_URL + ID + "&t=" + TIMESTAMP;
+    private static final String URL = MediaStreamExtractorDefaultTest.BASE_URL + ID + "&t=" + TIMESTAMP;
 
     @Override
     protected StreamExtractor createExtractor() throws Exception {
@@ -34,7 +34,7 @@ public class YoutubeStreamExtractorLivestreamTest extends DefaultStreamExtractor
     @Override public StreamingService expectedService() { return YouTube; }
     @Override public String expectedName() { return "lofi hip hop radio \uD83D\uDCDA beats to relax/study to"; }
     @Override public String expectedId() { return ID; }
-    @Override public String expectedUrlContains() { return YoutubeStreamExtractorDefaultTest.BASE_URL + ID; }
+    @Override public String expectedUrlContains() { return MediaStreamExtractorDefaultTest.BASE_URL + ID; }
     @Override public String expectedOriginalUrlContains() { return URL; }
 
     @Override public StreamType expectedStreamType() { return StreamType.LIVE_STREAM; }

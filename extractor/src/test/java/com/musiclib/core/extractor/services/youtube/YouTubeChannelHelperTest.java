@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -9,7 +9,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import com.musiclib.core.extractor.exceptions.ExtractionException;
 
-class YouTubeChannelHelperTest implements InitYoutubeTest {
+class MediaChannelHelperTest implements InitYoutubeTest {
 
     @ParameterizedTest
     @ValueSource(strings = {
@@ -20,7 +20,7 @@ class YouTubeChannelHelperTest implements InitYoutubeTest {
     })
     void resolveSuccessfulTheDailyShow(final String idOrPath) {
         final String id = assertDoesNotThrow(
-            () -> YoutubeChannelHelper.resolveChannelId(idOrPath));
+            () -> MediaChannelHelper.resolveChannelId(idOrPath));
         assertEquals("UCwWhs_6x42TyRM4Wstoq8HA", id);
     }
 
@@ -33,13 +33,13 @@ class YouTubeChannelHelperTest implements InitYoutubeTest {
     })
     void resolveSuccessfulGronkh(final String idOrPath) {
         final String id = assertDoesNotThrow(
-                () -> YoutubeChannelHelper.resolveChannelId(idOrPath));
+                () -> MediaChannelHelper.resolveChannelId(idOrPath));
         assertEquals("UCYJ61XIK64sp6ZFFS8sctxw", id);
     }
 
     @Test
     void resolveFailNonExistingTag() {
-        assertThrows(ExtractionException.class, () -> YoutubeChannelHelper.resolveChannelId(
+        assertThrows(ExtractionException.class, () -> MediaChannelHelper.resolveChannelId(
             "@nonExistingHandleThatWillNeverExist15464"));
     }
 }

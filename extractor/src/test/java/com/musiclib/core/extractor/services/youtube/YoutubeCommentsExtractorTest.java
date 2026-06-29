@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -19,21 +19,21 @@ import com.musiclib.core.extractor.exceptions.ExtractionException;
 import com.musiclib.core.extractor.localization.Localization;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
 import com.musiclib.core.extractor.services.DefaultTests;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeCommentsExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaCommentsExtractor;
 import com.musiclib.core.extractor.utils.Utils;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-public class YoutubeCommentsExtractorTest {
+public class MediaCommentsExtractorTest {
 
-    abstract static class Base extends DefaultSimpleExtractorTest<YoutubeCommentsExtractor>
+    abstract static class Base extends DefaultSimpleExtractorTest<MediaCommentsExtractor>
         implements InitYoutubeTest {
 
         @Override
-        protected YoutubeCommentsExtractor createExtractor() throws Exception {
-            return (YoutubeCommentsExtractor) YouTube.getCommentsExtractor(extractorUrl());
+        protected MediaCommentsExtractor createExtractor() throws Exception {
+            return (MediaCommentsExtractor) YouTube.getCommentsExtractor(extractorUrl());
         }
 
         protected abstract String extractorUrl();
@@ -56,7 +56,7 @@ public class YoutubeCommentsExtractorTest {
             assertTrue(getCommentsHelper(extractor()));
         }
 
-        private boolean getCommentsHelper(final YoutubeCommentsExtractor extractor) throws IOException, ExtractionException {
+        private boolean getCommentsHelper(final MediaCommentsExtractor extractor) throws IOException, ExtractionException {
             InfoItemsPage<CommentsInfoItem> comments = extractor.getInitialPage();
             boolean result = findInComments(comments, commentContent);
 
@@ -98,13 +98,13 @@ public class YoutubeCommentsExtractorTest {
             for (final CommentsInfoItem c : comments.getItems()) {
                 assertFalse(Utils.isBlank(c.getUploaderUrl()));
                 assertFalse(Utils.isBlank(c.getUploaderName()));
-                YoutubeTestsUtils.testImages(c.getUploaderAvatars());
+                MediaTestsUtils.testImages(c.getUploaderAvatars());
                 assertFalse(Utils.isBlank(c.getCommentId()));
                 assertFalse(Utils.isBlank(c.getCommentText().getContent()));
                 assertFalse(Utils.isBlank(c.getName()));
                 assertFalse(Utils.isBlank(c.getTextualUploadDate()));
                 assertNotNull(c.getUploadDate());
-                YoutubeTestsUtils.testImages(c.getThumbnails());
+                MediaTestsUtils.testImages(c.getThumbnails());
                 assertFalse(Utils.isBlank(c.getUrl()));
                 assertTrue(c.getLikeCount() >= 0);
             }
@@ -143,12 +143,12 @@ public class YoutubeCommentsExtractorTest {
             for (final CommentsInfoItem c : comments.getItems()) {
                 assertFalse(Utils.isBlank(c.getUploaderUrl()));
                 assertFalse(Utils.isBlank(c.getUploaderName()));
-                YoutubeTestsUtils.testImages(c.getUploaderAvatars());
+                MediaTestsUtils.testImages(c.getUploaderAvatars());
                 assertFalse(Utils.isBlank(c.getCommentId()));
                 assertFalse(Utils.isBlank(c.getName()));
                 assertFalse(Utils.isBlank(c.getTextualUploadDate()));
                 assertNotNull(c.getUploadDate());
-                YoutubeTestsUtils.testImages(c.getThumbnails());
+                MediaTestsUtils.testImages(c.getThumbnails());
                 assertFalse(Utils.isBlank(c.getUrl()));
                 assertTrue(c.getLikeCount() >= 0);
                 if (c.getCommentId().equals("Ugga_h1-EXdHB3gCoAEC")) { // comment without text
@@ -180,12 +180,12 @@ public class YoutubeCommentsExtractorTest {
             for (final CommentsInfoItem c : comments.getItems()) {
                 assertFalse(Utils.isBlank(c.getUploaderUrl()));
                 assertFalse(Utils.isBlank(c.getUploaderName()));
-                YoutubeTestsUtils.testImages(c.getUploaderAvatars());
+                MediaTestsUtils.testImages(c.getUploaderAvatars());
                 assertFalse(Utils.isBlank(c.getCommentId()));
                 assertFalse(Utils.isBlank(c.getName()));
                 assertFalse(Utils.isBlank(c.getTextualUploadDate()));
                 assertNotNull(c.getUploadDate());
-                YoutubeTestsUtils.testImages(c.getThumbnails());
+                MediaTestsUtils.testImages(c.getThumbnails());
                 assertFalse(Utils.isBlank(c.getUrl()));
                 assertTrue(c.getLikeCount() >= 0);
                 assertFalse(Utils.isBlank(c.getCommentText().getContent()));
@@ -215,12 +215,12 @@ public class YoutubeCommentsExtractorTest {
             for (final CommentsInfoItem c : comments.getItems()) {
                 assertFalse(Utils.isBlank(c.getUploaderUrl()));
                 assertFalse(Utils.isBlank(c.getUploaderName()));
-                YoutubeTestsUtils.testImages(c.getUploaderAvatars());
+                MediaTestsUtils.testImages(c.getUploaderAvatars());
                 assertFalse(Utils.isBlank(c.getCommentId()));
                 assertFalse(Utils.isBlank(c.getName()));
                 assertFalse(Utils.isBlank(c.getTextualUploadDate()));
                 assertNotNull(c.getUploadDate());
-                YoutubeTestsUtils.testImages(c.getThumbnails());
+                MediaTestsUtils.testImages(c.getThumbnails());
                 assertFalse(Utils.isBlank(c.getUrl()));
                 assertTrue(c.getLikeCount() >= 0);
                 assertFalse(Utils.isBlank(c.getCommentText().getContent()));
@@ -269,7 +269,7 @@ public class YoutubeCommentsExtractorTest {
         }
 
         @Override
-        protected void fetchExtractor(final YoutubeCommentsExtractor extractor) throws Exception {
+        protected void fetchExtractor(final MediaCommentsExtractor extractor) throws Exception {
             // Force non english local here
             extractor.forceLocalization(Localization.fromLocale(Locale.GERMANY));
             super.fetchExtractor(extractor);
@@ -349,12 +349,12 @@ public class YoutubeCommentsExtractorTest {
             for (final CommentsInfoItem c : comments.getItems()) {
                 assertFalse(Utils.isBlank(c.getUploaderUrl()));
                 assertFalse(Utils.isBlank(c.getUploaderName()));
-                YoutubeTestsUtils.testImages(c.getUploaderAvatars());
+                MediaTestsUtils.testImages(c.getUploaderAvatars());
                 assertFalse(Utils.isBlank(c.getCommentId()));
                 assertFalse(Utils.isBlank(c.getName()));
                 assertFalse(Utils.isBlank(c.getTextualUploadDate()));
                 assertNotNull(c.getUploadDate());
-                YoutubeTestsUtils.testImages(c.getThumbnails());
+                MediaTestsUtils.testImages(c.getThumbnails());
                 assertFalse(Utils.isBlank(c.getUrl()));
                 assertTrue(c.getLikeCount() >= 0);
                 assertFalse(Utils.isBlank(c.getCommentText().getContent()));
@@ -387,12 +387,12 @@ public class YoutubeCommentsExtractorTest {
             for (final CommentsInfoItem c : comments.getItems()) {
                 assertFalse(Utils.isBlank(c.getUploaderUrl()));
                 assertFalse(Utils.isBlank(c.getUploaderName()));
-                YoutubeTestsUtils.testImages(c.getUploaderAvatars());
+                MediaTestsUtils.testImages(c.getUploaderAvatars());
                 assertFalse(Utils.isBlank(c.getCommentId()));
                 assertFalse(Utils.isBlank(c.getName()));
                 assertFalse(Utils.isBlank(c.getTextualUploadDate()));
                 assertNotNull(c.getUploadDate());
-                YoutubeTestsUtils.testImages(c.getThumbnails());
+                MediaTestsUtils.testImages(c.getThumbnails());
                 assertFalse(Utils.isBlank(c.getUrl()));
                 assertTrue(c.getLikeCount() >= 0);
                 assertFalse(Utils.isBlank(c.getCommentText().getContent()));

@@ -1,12 +1,12 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import com.grack.nanojson.JsonParser;
 import com.grack.nanojson.JsonParserException;
 import org.junit.jupiter.api.Test;
 import com.musiclib.core.extractor.localization.Localization;
 import com.musiclib.core.extractor.localization.TimeAgoPatternsManager;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeStreamInfoItemExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeStreamInfoItemLockupExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaStreamInfoItemExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaStreamInfoItemLockupExtractor;
 import com.musiclib.core.extractor.stream.StreamType;
 
 import java.io.FileInputStream;
@@ -24,13 +24,13 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.downloader.DownloaderFactory.getMockPath;
 
-class YoutubeStreamInfoItemTest {
+class MediaStreamInfoItemTest {
     @Test
     void videoRendererPremiere() throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "videoRendererPremiere") + ".json"));
+                MediaStreamInfoItemTest.class, "videoRendererPremiere") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemExtractor(json, timeAgoParser);
+        final var extractor = new MediaStreamInfoItemExtractor(json, timeAgoParser);
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
@@ -61,9 +61,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelPremiere()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelPremiere") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelPremiere") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser);
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser);
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
@@ -90,9 +90,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelVideo()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelVideo") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelVideo") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser);
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser);
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
@@ -107,9 +107,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelLiveStream()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelLiveStream") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelLiveStream") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser);
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser);
         assertAll(
         () -> assertEquals(StreamType.LIVE_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
@@ -127,9 +127,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelNoDuration()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelNoDuration") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelNoDuration") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser);
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser);
         assertAll(
         () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
         () -> assertFalse(extractor.isAd()),
@@ -146,9 +146,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelOneRowNormal()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelOneRowNormal") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelOneRowNormal") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser) {
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser) {
             // Channel tabs use 1-row format at index 0
             @Override
             protected int getInfoMetadataRowIndex() {
@@ -173,9 +173,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelOneRowReversed()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelOneRowReversed") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelOneRowReversed") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser) {
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser) {
             // Channel tabs use 1-row format at index 0
             @Override
             protected int getInfoMetadataRowIndex() {
@@ -200,9 +200,9 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelOneRowViewsOnly()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelOneRowViewsOnly") + ".json"));
+                MediaStreamInfoItemTest.class, "lockupViewModelOneRowViewsOnly") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser) {
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser) {
             // Channel tabs use 1-row format at index 0
             @Override
             protected int getInfoMetadataRowIndex() {
@@ -228,11 +228,11 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelChannelTabSectionHeader()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelChannelTabSectionHeader")
+                MediaStreamInfoItemTest.class, "lockupViewModelChannelTabSectionHeader")
                 + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(
                 Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser) {
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser) {
             // Channel tabs use 1-row format at index 0
             @Override
             protected int getInfoMetadataRowIndex() {
@@ -258,11 +258,11 @@ class YoutubeStreamInfoItemTest {
     void lockupViewModelChannelTabLiveNoViewers()
             throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "lockupViewModelChannelTabLiveNoViewers")
+                MediaStreamInfoItemTest.class, "lockupViewModelChannelTabLiveNoViewers")
                 + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(
                 Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemLockupExtractor(json, timeAgoParser) {
+        final var extractor = new MediaStreamInfoItemLockupExtractor(json, timeAgoParser) {
             // Channel tabs use 1-row format at index 0
             @Override
             protected int getInfoMetadataRowIndex() {
@@ -282,9 +282,9 @@ class YoutubeStreamInfoItemTest {
     @Test
     void emptyTitle() throws FileNotFoundException, JsonParserException {
         final var json = JsonParser.object().from(new FileInputStream(getMockPath(
-                YoutubeStreamInfoItemTest.class, "emptyTitle") + ".json"));
+                MediaStreamInfoItemTest.class, "emptyTitle") + ".json"));
         final var timeAgoParser = TimeAgoPatternsManager.getTimeAgoParserFor(Localization.DEFAULT);
-        final var extractor = new YoutubeStreamInfoItemExtractor(json, timeAgoParser);
+        final var extractor = new MediaStreamInfoItemExtractor(json, timeAgoParser);
         assertAll(
                 () -> assertEquals(StreamType.VIDEO_STREAM, extractor.getStreamType()),
                 () -> assertFalse(extractor.isAd()),

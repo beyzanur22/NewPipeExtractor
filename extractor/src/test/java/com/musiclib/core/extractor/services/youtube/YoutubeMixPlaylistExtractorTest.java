@@ -1,13 +1,13 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
-import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.DISABLE_PRETTY_PRINT_PARAMETER;
-import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.YOUTUBEI_V1_URL;
-import static com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper.prepareDesktopJsonBuilder;
+import static com.musiclib.core.extractor.services.media.MediaParsingHelper.DISABLE_PRETTY_PRINT_PARAMETER;
+import static com.musiclib.core.extractor.services.media.MediaParsingHelper.MediaI_V1_URL;
+import static com.musiclib.core.extractor.services.media.MediaParsingHelper.prepareDesktopJsonBuilder;
 
 import com.grack.nanojson.JsonWriter;
 
@@ -22,7 +22,7 @@ import com.musiclib.core.extractor.exceptions.ExtractionException;
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.playlist.PlaylistInfo;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeMixPlaylistExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaMixPlaylistExtractor;
 import com.musiclib.core.extractor.stream.StreamInfoItem;
 
 import java.nio.charset.StandardCharsets;
@@ -31,23 +31,23 @@ import java.util.Map;
 import java.util.Set;
 
 @SuppressWarnings({"MismatchedQueryAndUpdateOfCollection", "NewClassNamingConvention"})
-public class YoutubeMixPlaylistExtractorTest {
+public class MediaMixPlaylistExtractorTest {
 
-    private static final Map<String, String> dummyCookie = Map.of(YoutubeMixPlaylistExtractor.COOKIE_NAME, "whatever");
+    private static final Map<String, String> dummyCookie = Map.of(MediaMixPlaylistExtractor.COOKIE_NAME, "whatever");
 
-    static abstract class Base extends DefaultSimpleExtractorTest<YoutubeMixPlaylistExtractor>
+    static abstract class Base extends DefaultSimpleExtractorTest<MediaMixPlaylistExtractor>
         implements InitYoutubeTest {
 
         @BeforeAll
         @Override
         public void setUp() throws Exception {
             InitYoutubeTest.super.setUp();
-            YoutubeParsingHelper.setConsentAccepted(true);
+            MediaParsingHelper.setConsentAccepted(true);
         }
 
         @Override
-        protected YoutubeMixPlaylistExtractor createExtractor() throws Exception {
-            return (YoutubeMixPlaylistExtractor) YouTube.getPlaylistExtractor(extractorUrl());
+        protected MediaMixPlaylistExtractor createExtractor() throws Exception {
+            return (MediaMixPlaylistExtractor) YouTube.getPlaylistExtractor(extractorUrl());
         }
 
         protected abstract String extractorUrl();
@@ -76,7 +76,7 @@ public class YoutubeMixPlaylistExtractorTest {
 
         @Test
         void getThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
             extractor().getThumbnails().forEach(thumbnail ->
                     ExtractorAsserts.assertContains(VIDEO_ID, thumbnail.getUrl()));
         }
@@ -99,7 +99,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor().getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    MediaI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -159,7 +159,7 @@ public class YoutubeMixPlaylistExtractorTest {
 
         @Test
         void getThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
             extractor().getThumbnails().forEach(thumbnail ->
                     ExtractorAsserts.assertContains(VIDEO_ID, thumbnail.getUrl()));
         }
@@ -183,7 +183,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor().getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    MediaI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -243,7 +243,7 @@ public class YoutubeMixPlaylistExtractorTest {
 
         @Test
         void getThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
             extractor().getThumbnails().forEach(thumbnail ->
                     ExtractorAsserts.assertContains(VIDEO_ID, thumbnail.getUrl()));
         }
@@ -266,7 +266,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor().getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    MediaI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -328,7 +328,7 @@ public class YoutubeMixPlaylistExtractorTest {
         }
 
         @Override
-        protected void fetchExtractor(final YoutubeMixPlaylistExtractor extractor) throws Exception {
+        protected void fetchExtractor(final MediaMixPlaylistExtractor extractor) throws Exception {
             // Do nothing, done by test below
         }
 
@@ -360,7 +360,7 @@ public class YoutubeMixPlaylistExtractorTest {
 
         @Test
         void getThumbnails() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
             extractor().getThumbnails().forEach(thumbnail ->
                     ExtractorAsserts.assertContains(VIDEO_ID, thumbnail.getUrl()));
         }
@@ -383,7 +383,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor().getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    MediaI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());
@@ -444,7 +444,7 @@ public class YoutubeMixPlaylistExtractorTest {
 
         @Test
         void getThumbnailUrl() throws Exception {
-            YoutubeTestsUtils.testImages(extractor().getThumbnails());
+            MediaTestsUtils.testImages(extractor().getThumbnails());
             extractor().getThumbnails().forEach(thumbnail ->
                     ExtractorAsserts.assertContains(VIDEO_ID, thumbnail.getUrl()));
         }
@@ -467,7 +467,7 @@ public class YoutubeMixPlaylistExtractorTest {
                     .getBytes(StandardCharsets.UTF_8);
 
             final InfoItemsPage<StreamInfoItem> streams = extractor().getPage(new Page(
-                    YOUTUBEI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
+                    MediaI_V1_URL + "next?" + DISABLE_PRETTY_PRINT_PARAMETER,
                     null, null, dummyCookie, body));
             assertFalse(streams.getItems().isEmpty());
             assertTrue(streams.hasNextPage());

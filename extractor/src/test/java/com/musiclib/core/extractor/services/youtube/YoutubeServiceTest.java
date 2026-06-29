@@ -1,10 +1,10 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 /*
  * Created by Christian Schabesberger on 29.12.15.
  *
  * Copyright (C) 2015 Christian Schabesberger <chris.schabesberger@mailbox.org>
- * YoutubeSearchExtractorStreamTest.java is part of NewPipe Extractor.
+ * MediaSearchExtractorStreamTest.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -36,13 +36,13 @@ import com.musiclib.core.extractor.downloader.Request;
 import com.musiclib.core.extractor.downloader.Response;
 import com.musiclib.core.extractor.kiosk.KioskList;
 import com.musiclib.core.extractor.playlist.PlaylistExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeMixPlaylistExtractor;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubePlaylistExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaMixPlaylistExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaPlaylistExtractor;
 
 /**
- * Test for {@link YoutubeService}
+ * Test for {@link MediaService}
  */
-public class YoutubeServiceTest {
+public class MediaServiceTest {
     static StreamingService service;
     static KioskList kioskList;
 
@@ -77,7 +77,7 @@ public class YoutubeServiceTest {
     void getPlayListExtractorIsNormalPlaylist() throws Exception {
         final PlaylistExtractor extractor = service.getPlaylistExtractor(
             "https://www.youtube.com/watch?v=JhqtYOnNrTs&list=PL-EkZZikQIQVqk9rBWzEo5b-2GeozElS");
-        assertInstanceOf(YoutubePlaylistExtractor.class, extractor);
+        assertInstanceOf(MediaPlaylistExtractor.class, extractor);
     }
 
     @Test
@@ -85,16 +85,16 @@ public class YoutubeServiceTest {
         final String videoId = "_AzeUSL9lZc";
         PlaylistExtractor extractor = YouTube.getPlaylistExtractor(
             "https://www.youtube.com/watch?v=" + videoId + "&list=RD" + videoId);
-        assertInstanceOf(YoutubeMixPlaylistExtractor.class, extractor);
+        assertInstanceOf(MediaMixPlaylistExtractor.class, extractor);
 
         extractor = YouTube.getPlaylistExtractor(
             "https://www.youtube.com/watch?v=" + videoId + "&list=RDMM" + videoId);
-        assertInstanceOf(YoutubeMixPlaylistExtractor.class, extractor);
+        assertInstanceOf(MediaMixPlaylistExtractor.class, extractor);
 
         final String mixVideoId = "qHtzO49SDmk";
 
         extractor = YouTube.getPlaylistExtractor(
             "https://www.youtube.com/watch?v=" + mixVideoId + "&list=RD" + videoId);
-        assertInstanceOf(YoutubeMixPlaylistExtractor.class, extractor);
+        assertInstanceOf(MediaMixPlaylistExtractor.class, extractor);
     }
 }

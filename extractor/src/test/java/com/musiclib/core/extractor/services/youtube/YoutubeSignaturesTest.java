@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -9,7 +9,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import javax.annotation.Nonnull;
 
-class YoutubeSignaturesTest implements InitYoutubeTest {
+class MediaSignaturesTest implements InitYoutubeTest {
     @ValueSource(strings = {
             "QzUGs1qRTEI",
             ""
@@ -17,7 +17,7 @@ class YoutubeSignaturesTest implements InitYoutubeTest {
     @ParameterizedTest
     void testSignatureTimestampExtraction(@Nonnull final String videoId) throws Exception {
         final Integer signatureTimestamp =
-                YoutubeJavaScriptPlayerManager.getSignatureTimestamp(videoId);
+                MediaJavaScriptPlayerManager.getSignatureTimestamp(videoId);
         assertTrue(signatureTimestamp > 0, "signatureTimestamp is <= 0");
     }
 
@@ -37,6 +37,6 @@ class YoutubeSignaturesTest implements InitYoutubeTest {
         // As the signature deobfuscation changes frequently with player versions, we can only test
         // that we get a different string than the original one
         assertNotEquals(sampleString,
-                YoutubeJavaScriptPlayerManager.deobfuscateSignature(videoId, sampleString));
+                MediaJavaScriptPlayerManager.deobfuscateSignature(videoId, sampleString));
     }
 }

@@ -1,7 +1,7 @@
-package com.musiclib.core.extractor.stream;
+﻿package com.musiclib.core.extractor.stream;
 
 import com.musiclib.core.extractor.MediaFormat;
-import com.musiclib.core.extractor.services.youtube.ItagItem;
+import com.musiclib.core.extractor.services.media.ItagItem;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

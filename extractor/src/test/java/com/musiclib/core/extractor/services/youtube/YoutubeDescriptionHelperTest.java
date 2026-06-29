@@ -1,17 +1,17 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static com.musiclib.core.extractor.services.youtube.YoutubeDescriptionHelper.runsToHtml;
+import static com.musiclib.core.extractor.services.media.MediaDescriptionHelper.runsToHtml;
 
 import org.junit.jupiter.api.Test;
-import com.musiclib.core.extractor.services.youtube.YoutubeDescriptionHelper.Run;
+import com.musiclib.core.extractor.services.media.MediaDescriptionHelper.Run;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-class YoutubeDescriptionHelperTest {
+class MediaDescriptionHelperTest {
 
     private static void assertRunsToHtml(final String expectedHtml,
                                          final List<Run> openers,

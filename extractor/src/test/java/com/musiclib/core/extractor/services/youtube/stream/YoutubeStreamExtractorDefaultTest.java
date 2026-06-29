@@ -1,8 +1,8 @@
-/*
+﻿/*
  * Created by Christian Schabesberger on 30.12.15.
  *
  * Copyright (C) 2015 Christian Schabesberger <chris.schabesberger@mailbox.org>
- * YoutubeVideoExtractorDefault.java is part of NewPipe Extractor.
+ * MediaVideoExtractorDefault.java is part of NewPipe Extractor.
  *
  * NewPipe Extractor is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * along with NewPipe Extractor. If not, see <https://www.gnu.org/licenses/>.
  */
 
-package com.musiclib.core.extractor.services.youtube.stream;
+package com.musiclib.core.extractor.services.media.stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -37,12 +37,12 @@ import com.musiclib.core.extractor.exceptions.GeographicRestrictionException;
 import com.musiclib.core.extractor.exceptions.PaidContentException;
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.exceptions.PrivateContentException;
-import com.musiclib.core.extractor.exceptions.YoutubeMusicPremiumContentException;
+import com.musiclib.core.extractor.exceptions.MediaMusicPremiumContentException;
 import com.musiclib.core.extractor.services.DefaultSimpleExtractorTest;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
-import com.musiclib.core.extractor.services.youtube.YoutubeTestsUtils;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeStreamExtractor;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.MediaTestsUtils;
+import com.musiclib.core.extractor.services.media.extractors.MediaStreamExtractor;
 import com.musiclib.core.extractor.stream.AudioStream;
 import com.musiclib.core.extractor.stream.AudioTrackType;
 import com.musiclib.core.extractor.stream.Description;
@@ -60,15 +60,15 @@ import java.util.Objects;
 
 import javax.annotation.Nullable;
 
-public class YoutubeStreamExtractorDefaultTest {
+public class MediaStreamExtractorDefaultTest {
     static final String BASE_URL = "https://www.youtube.com/watch?v=";
-    public static final String YOUTUBE_LICENCE = "YouTube licence";
+    public static final String Media_LICENCE = "YouTube licence";
 
     public static class NotAvailable {
 
         void initNewPipe(final String useCase) {
             InitNewPipeTest.initNewPipe(this.getClass(), useCase);
-            YoutubeTestsUtils.ensureStateless();
+            MediaTestsUtils.ensureStateless();
         }
 
         @Test
@@ -117,12 +117,12 @@ public class YoutubeStreamExtractorDefaultTest {
         }
 
         @Test
-        void youtubeMusicPremiumContent() throws Exception {
+        void MediaMusicPremiumContent() throws Exception {
             initNewPipe("musicPremiumContent");
 
             final StreamExtractor extractor =
                     YouTube.getStreamExtractor(BASE_URL + "sMJ8bRN2dak");
-            assertThrows(YoutubeMusicPremiumContentException.class, extractor::fetchPage);
+            assertThrows(MediaMusicPremiumContentException.class, extractor::fetchPage);
         }
     }
 
@@ -161,7 +161,7 @@ public class YoutubeStreamExtractorDefaultTest {
         @Override public long expectedLikeCountAtLeast() { return 5212900; }
         @Override public long expectedDislikeCountAtLeast() { return -1; }
         @Override public int expectedStreamSegmentsCount() { return 0; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "Entertainment"; }
         // @formatter:on
     }
@@ -200,7 +200,7 @@ public class YoutubeStreamExtractorDefaultTest {
         @Override public long expectedLikeCountAtLeast() { return 340100; }
         @Override public long expectedDislikeCountAtLeast() { return -1; }
         @Override public boolean expectedUploaderVerified() { return true; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "Science & Technology"; }
         @Override public List<String> expectedTags() {
             return Arrays.asList("2018", "8 plus", "apple", "apple iphone", "apple iphone x", "best", "best android",
@@ -243,7 +243,7 @@ public class YoutubeStreamExtractorDefaultTest {
         @Nullable @Override public String expectedTextualUploadDate() { return "2023-01-13T13:53:57-08:00"; }
         @Override public long expectedLikeCountAtLeast() { return -1; }
         @Override public long expectedDislikeCountAtLeast() { return -1; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "Education"; }
         // @formatter:on
     }
@@ -281,7 +281,7 @@ public class YoutubeStreamExtractorDefaultTest {
         @Override public long expectedLikeCountAtLeast() { return 2300; }
         @Override public long expectedDislikeCountAtLeast() { return -1; }
         @Override public int expectedStreamSegmentsCount() { return 13; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "News & Politics"; }
         // @formatter:on
 
@@ -335,7 +335,7 @@ public class YoutubeStreamExtractorDefaultTest {
         @Override public long expectedLikeCountAtLeast() { return 48500; }
         @Override public long expectedDislikeCountAtLeast() { return -1; }
         @Override public int expectedStreamSegmentsCount() { return 7; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "Science & Technology"; }
         @Override public List<String> expectedTags() {
             return Arrays.asList("Diabetes", "Erkältung", "Gesundheit", "Immunabwehr", "Immunsystem", "Infektion",
@@ -406,7 +406,7 @@ public class YoutubeStreamExtractorDefaultTest {
             ));
         }
         @Override public boolean expectedUploaderVerified() { return true; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "News & Politics"; }
         @Override public List<String> expectedTags() {
             return Arrays.asList("arte", "arte 3 millions", "arte remerciement",
@@ -454,7 +454,7 @@ public class YoutubeStreamExtractorDefaultTest {
             ));
         }
         @Override public boolean expectedUploaderVerified() { return true; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public String expectedCategory() { return "Education"; }
         @Override public List<String> expectedTags() {
             return Arrays.asList("ANZCA", "Anaesthesia", "FANZCA", "LMA", "Vortex", "abcs of anaesthesia",
@@ -496,7 +496,7 @@ public class YoutubeStreamExtractorDefaultTest {
         @Override public String expectedUrlContains() { return BASE_URL + ID; }
         @Override public String expectedOriginalUrlContains() { return URL; }
         @Override public String expectedCategory() { return "Science & Technology"; }
-        @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+        @Override public String expectedLicence() { return Media_LICENCE; }
         @Override public List<String> expectedTags() {
             return Arrays.asList("Makani", "Moonshot", "Moonshot Factory", "Prototyping",
                     "california", "california wind", "clean", "clean energy", "climate change",
@@ -527,12 +527,12 @@ public class YoutubeStreamExtractorDefaultTest {
         }
     }
 
-    public static class UnlistedTest extends DefaultSimpleExtractorTest<YoutubeStreamExtractor>
+    public static class UnlistedTest extends DefaultSimpleExtractorTest<MediaStreamExtractor>
         implements InitYoutubeTest {
 
         @Override
-        protected YoutubeStreamExtractor createExtractor() throws Exception {
-            return (YoutubeStreamExtractor) YouTube
+        protected MediaStreamExtractor createExtractor() throws Exception {
+            return (MediaStreamExtractor) YouTube
                 .getStreamExtractor("https://www.youtube.com/watch?v=tjz2u2DiveM");
         }
 

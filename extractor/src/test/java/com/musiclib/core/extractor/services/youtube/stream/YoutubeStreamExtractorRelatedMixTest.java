@@ -1,11 +1,11 @@
-package com.musiclib.core.extractor.services.youtube.stream;
+﻿package com.musiclib.core.extractor.services.media.stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertContains;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertGreaterOrEqual;
 import static com.musiclib.core.extractor.ServiceList.YouTube;
-import static com.musiclib.core.extractor.services.youtube.stream.YoutubeStreamExtractorDefaultTest.YOUTUBE_LICENCE;
+import static com.musiclib.core.extractor.services.media.stream.MediaStreamExtractorDefaultTest.Media_LICENCE;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -14,9 +14,9 @@ import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.playlist.PlaylistInfo.PlaylistType;
 import com.musiclib.core.extractor.playlist.PlaylistInfoItem;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
-import com.musiclib.core.extractor.services.youtube.YoutubeParsingHelper;
-import com.musiclib.core.extractor.services.youtube.YoutubeTestsUtils;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.MediaParsingHelper;
+import com.musiclib.core.extractor.services.media.MediaTestsUtils;
 import com.musiclib.core.extractor.stream.StreamExtractor;
 import com.musiclib.core.extractor.stream.StreamType;
 
@@ -27,17 +27,17 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Nullable;
 
-public class YoutubeStreamExtractorRelatedMixTest extends DefaultStreamExtractorTest
+public class MediaStreamExtractorRelatedMixTest extends DefaultStreamExtractorTest
     implements InitYoutubeTest {
     private static final String ID = "K4DyBUG242c";
-    private static final String URL = YoutubeStreamExtractorDefaultTest.BASE_URL + ID;
+    private static final String URL = MediaStreamExtractorDefaultTest.BASE_URL + ID;
     private static final String TITLE = "Cartoon, Jéja - On & On (feat. Daniel Levi) | Electronic Pop | NCS - Copyright Free Music";
 
     @BeforeAll
     @Override
     public void setUp() throws Exception {
         InitYoutubeTest.super.setUp();
-        YoutubeParsingHelper.setConsentAccepted(true);
+        MediaParsingHelper.setConsentAccepted(true);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class YoutubeStreamExtractorRelatedMixTest extends DefaultStreamExtractor
     @Override public long expectedLikeCountAtLeast() { return 6_400_000; }
     @Override public long expectedDislikeCountAtLeast() { return -1; }
     @Override public int expectedStreamSegmentsCount() { return 0; }
-    @Override public String expectedLicence() { return YOUTUBE_LICENCE; }
+    @Override public String expectedLicence() { return Media_LICENCE; }
     @Override public String expectedCategory() { return "Music"; }
     @Override public List<String> expectedTags() {
         return Arrays.asList("Cartoon", "Cartoon - On & On", "Cartoon On & On (feat. Daniel Levi)",
@@ -104,6 +104,6 @@ public class YoutubeStreamExtractorRelatedMixTest extends DefaultStreamExtractor
         assertContains(URL, streamMix.getUrl());
         assertContains("list=RD" + ID, streamMix.getUrl());
         assertEquals("Mix – " + TITLE, streamMix.getName());
-        YoutubeTestsUtils.testImages(streamMix.getThumbnails());
+        MediaTestsUtils.testImages(streamMix.getThumbnails());
     }
 }

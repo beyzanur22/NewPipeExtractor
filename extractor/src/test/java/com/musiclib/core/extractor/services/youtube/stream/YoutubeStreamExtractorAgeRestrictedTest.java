@@ -1,11 +1,11 @@
-package com.musiclib.core.extractor.services.youtube.stream;
+﻿package com.musiclib.core.extractor.services.media.stream;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 
 import org.junit.jupiter.api.Disabled;
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
 import com.musiclib.core.extractor.stream.StreamExtractor;
 import com.musiclib.core.extractor.stream.StreamType;
 
@@ -15,11 +15,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 @Disabled("There is currently no way to extract age-restricted videos")
-public class YoutubeStreamExtractorAgeRestrictedTest extends DefaultStreamExtractorTest
+public class MediaStreamExtractorAgeRestrictedTest extends DefaultStreamExtractorTest
     implements InitYoutubeTest {
     private static final String ID = "rwcfPqbAx-0";
     private static final int TIMESTAMP = 196;
-    private static final String URL = YoutubeStreamExtractorDefaultTest.BASE_URL + ID + "&t=" + TIMESTAMP;
+    private static final String URL = MediaStreamExtractorDefaultTest.BASE_URL + ID + "&t=" + TIMESTAMP;
 
     @Override
     protected StreamExtractor createExtractor() throws Exception {
@@ -29,7 +29,7 @@ public class YoutubeStreamExtractorAgeRestrictedTest extends DefaultStreamExtrac
     @Override public StreamingService expectedService() { return YouTube; }
     @Override public String expectedName() { return "Russian   Daft Punk"; }
     @Override public String expectedId() { return ID; }
-    @Override public String expectedUrlContains() { return YoutubeStreamExtractorDefaultTest.BASE_URL + ID; }
+    @Override public String expectedUrlContains() { return MediaStreamExtractorDefaultTest.BASE_URL + ID; }
     @Override public String expectedOriginalUrlContains() { return URL; }
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }

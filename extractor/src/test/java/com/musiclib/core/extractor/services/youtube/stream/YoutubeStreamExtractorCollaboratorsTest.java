@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube.stream;
+﻿package com.musiclib.core.extractor.services.media.stream;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 import static com.musiclib.core.extractor.ExtractorAsserts.assertNotEmpty;
@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Disabled;
 import com.musiclib.core.extractor.Image;
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
 import com.musiclib.core.extractor.stream.StreamExtractor;
 import com.musiclib.core.extractor.stream.StreamType;
 
@@ -17,10 +17,10 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
-public class YoutubeStreamExtractorCollaboratorsTest extends DefaultStreamExtractorTest
+public class MediaStreamExtractorCollaboratorsTest extends DefaultStreamExtractorTest
     implements InitYoutubeTest {
     private static final String ID = "3sbYbckT1VY";
-    private static final String URL = YoutubeStreamExtractorDefaultTest.BASE_URL + ID;
+    private static final String URL = MediaStreamExtractorDefaultTest.BASE_URL + ID;
 
     @Override
     protected StreamExtractor createExtractor() throws Exception {
@@ -30,7 +30,7 @@ public class YoutubeStreamExtractorCollaboratorsTest extends DefaultStreamExtrac
     @Override public StreamingService expectedService() { return YouTube; }
     @Override public String expectedName() { return "Engineers vs Pumpkin Carving 2.0"; }
     @Override public String expectedId() { return ID; }
-    @Override public String expectedUrlContains() { return YoutubeStreamExtractorDefaultTest.BASE_URL + ID; }
+    @Override public String expectedUrlContains() { return MediaStreamExtractorDefaultTest.BASE_URL + ID; }
     @Override public String expectedOriginalUrlContains() { return URL; }
 
     @Override public StreamType expectedStreamType() { return StreamType.VIDEO_STREAM; }

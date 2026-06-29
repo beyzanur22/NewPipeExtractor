@@ -1,11 +1,11 @@
-package com.musiclib.core.extractor.comments;
+﻿package com.musiclib.core.extractor.comments;
 
 import com.musiclib.core.extractor.Image;
 import com.musiclib.core.extractor.InfoItemExtractor;
 import com.musiclib.core.extractor.Page;
 import com.musiclib.core.extractor.exceptions.ParsingException;
 import com.musiclib.core.extractor.localization.DateWrapper;
-import com.musiclib.core.extractor.services.youtube.extractors.YoutubeCommentsInfoItemExtractor;
+import com.musiclib.core.extractor.services.media.extractors.MediaCommentsInfoItemExtractor;
 import com.musiclib.core.extractor.stream.Description;
 import com.musiclib.core.extractor.stream.StreamExtractor;
 
@@ -22,7 +22,7 @@ public interface CommentsInfoItemExtractor extends InfoItemExtractor {
      * <br>
      * <p>
      * NOTE: Currently only implemented for YT {@link
-     * YoutubeCommentsInfoItemExtractor#getLikeCount()}
+     * MediaCommentsInfoItemExtractor#getLikeCount()}
      * with limitations (only approximate like count is returned)
      *
      * @return the comment's like count

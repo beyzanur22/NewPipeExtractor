@@ -1,11 +1,11 @@
-package com.musiclib.core.extractor.services.youtube.stream;
+﻿package com.musiclib.core.extractor.services.media.stream;
 
 import static com.musiclib.core.extractor.ServiceList.YouTube;
 
 import com.musiclib.core.extractor.StreamingService;
 import com.musiclib.core.extractor.services.DefaultStreamExtractorTest;
-import com.musiclib.core.extractor.services.youtube.InitYoutubeTest;
-import com.musiclib.core.extractor.services.youtube.linkHandler.YoutubeStreamLinkHandlerFactory;
+import com.musiclib.core.extractor.services.media.InitYoutubeTest;
+import com.musiclib.core.extractor.services.media.linkHandler.MediaStreamLinkHandlerFactory;
 import com.musiclib.core.extractor.stream.StreamExtractor;
 import com.musiclib.core.extractor.stream.StreamType;
 
@@ -15,13 +15,13 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Test for {@link YoutubeStreamLinkHandlerFactory}
+ * Test for {@link MediaStreamLinkHandlerFactory}
  */
 
-public class YoutubeStreamExtractorControversialTest extends DefaultStreamExtractorTest
+public class MediaStreamExtractorControversialTest extends DefaultStreamExtractorTest
     implements InitYoutubeTest {
     private static final String ID = "T4XJQO3qol8";
-    private static final String URL = YoutubeStreamExtractorDefaultTest.BASE_URL + ID;
+    private static final String URL = MediaStreamExtractorDefaultTest.BASE_URL + ID;
 
     @Override
     protected StreamExtractor createExtractor() throws Exception {

@@ -1,4 +1,4 @@
-package com.musiclib.core.extractor.services.youtube;
+﻿package com.musiclib.core.extractor.services.media;
 
 import org.junit.jupiter.api.BeforeAll;
 import com.musiclib.core.extractor.InitNewPipeTest;
@@ -8,6 +8,6 @@ public interface InitYoutubeTest extends InitNewPipeTest {
     @Override
     default void setUp() throws Exception {
         InitNewPipeTest.super.setUp();
-        YoutubeTestsUtils.ensureStateless();
+        MediaTestsUtils.ensureStateless();
     }
 }
